@@ -1,7 +1,14 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-type Variant = "primary" | "secondary" | "ghost" | "inverse";
+/**
+ * Button hierarchy mirrors the logo's own: deep navy carries the weight, the
+ * amber sun is the accent that only ever appears on the ask.
+ *
+ * `accent` is reserved for giving CTAs. It pairs amber with ink rather than
+ * white text — white on #f2a629 measures 2.1:1, ink measures 7.7:1.
+ */
+type Variant = "primary" | "accent" | "secondary" | "ghost" | "inverse";
 type Size = "sm" | "md" | "lg";
 
 const base =
@@ -11,13 +18,15 @@ const base =
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-sun-500 text-white shadow-[var(--shadow-glow)] hover:bg-sun-600 hover:-translate-y-0.5 hover:shadow-[0_0_0_1px_rgba(249,115,22,0.2),0_24px_50px_-14px_rgba(249,115,22,0.5)]",
+    "bg-navy-700 text-white shadow-[var(--shadow-deep)] hover:bg-navy-800 hover:-translate-y-0.5 hover:shadow-[0_0_0_1px_rgba(1,83,91,0.2),0_24px_50px_-14px_rgba(1,63,74,0.5)]",
+  accent:
+    "bg-sun-500 text-ink shadow-[var(--shadow-glow)] hover:bg-sun-400 hover:-translate-y-0.5 hover:shadow-[0_0_0_1px_rgba(242,166,41,0.28),0_24px_50px_-14px_rgba(207,127,16,0.55)]",
   secondary:
     "bg-white text-ink ring-1 ring-ink/10 shadow-[var(--shadow-soft)] hover:ring-ink/20 hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)]",
   ghost:
     "text-ink-soft hover:text-ink hover:bg-ink/[0.04]",
   inverse:
-    "bg-white text-leaf-800 hover:bg-cream hover:-translate-y-0.5 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.45)]",
+    "bg-white text-navy-800 hover:bg-cream hover:-translate-y-0.5 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.45)]",
 };
 
 const sizes: Record<Size, string> = {

@@ -66,7 +66,7 @@ export default function GetInvolvedPage() {
         eyebrow="Get involved"
         title="You already know something worth teaching."
         intro="Fresh Start is run by people from this community who give an afternoon a week. If you can do a thing, you can teach a young person to do it."
-        tone="leaf"
+        tone="green"
         breadcrumbs={[
           { name: "Home", href: "/" },
           { name: "Get Involved", href: "/get-involved" },
@@ -93,7 +93,7 @@ export default function GetInvolvedPage() {
           {roles.map((role) => (
             <RevealChild key={role.title}>
               <article className="group h-full rounded-[1.5rem] bg-white p-8 shadow-[var(--shadow-soft)] ring-1 ring-ink/[0.05] transition-all duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1 hover:shadow-[var(--shadow-lift)]">
-                <span className="inline-flex rounded-full bg-leaf-50 px-3 py-1 text-[0.72rem] font-bold uppercase tracking-[0.12em] text-leaf-700">
+                <span className="inline-flex rounded-full bg-green-50 px-3 py-1 text-[0.72rem] font-bold uppercase tracking-[0.12em] text-green-700">
                   {role.commitment}
                 </span>
                 <h3 className="mt-4 text-2xl text-ink">{role.title}</h3>
@@ -109,7 +109,7 @@ export default function GetInvolvedPage() {
           <Reveal className="lg:col-span-6">
             <SectionHeading
               eyebrow="Wish list"
-              tone="sky"
+              tone="teal"
               title="Supplies we can always use."
               intro="Gently used is fine. If you are clearing out a craft room, a garage or a studio, call before you donate it elsewhere."
             />
@@ -141,9 +141,9 @@ export default function GetInvolvedPage() {
               <PhotoPlaceholder
                 label="A volunteer instructor helping a student at the sewing table."
                 aspect="4/3"
-                tone="leaf"
+                tone="green"
               />
-              <div className="rounded-[1.5rem] bg-[linear-gradient(150deg,#0b9bec_0%,#0061a3_100%)] p-8 text-white">
+              <div className="rounded-[1.5rem] bg-[linear-gradient(150deg,#0f9c96_0%,#036075_100%)] p-8 text-white">
                 <h3 className="text-2xl text-white">Partner with us</h3>
                 <p className="mt-3 leading-relaxed text-white/85">
                   Schools, churches, libraries, employers and civic groups —

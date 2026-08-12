@@ -24,12 +24,12 @@ export function PageHero({
   intro?: string;
   breadcrumbs?: { name: string; href: string }[];
   children?: React.ReactNode;
-  tone?: "sun" | "leaf" | "sky";
+  tone?: "sun" | "green" | "teal";
 }) {
   const washes = {
     sun: "from-sun-100 via-cream-100 to-cream",
-    leaf: "from-leaf-100 via-cream-100 to-cream",
-    sky: "from-sky-brand-100 via-cream-100 to-cream",
+    green: "from-green-100 via-cream-100 to-cream",
+    teal: "from-teal-100 via-cream-100 to-cream",
   };
 
   return (

@@ -32,7 +32,7 @@ export type Program = {
     | "film"
     | "creative-sewing";
   /** Card accent, chosen from the brand palette. */
-  accent: "sun" | "leaf" | "sky";
+  accent: "sun" | "green" | "teal";
   featured?: boolean;
   /**
    * TODO(assets): swap in a real photograph of this workshop in progress.
@@ -93,7 +93,7 @@ export const programs: Program[] = [
     skills: ["Wax & wick science", "Fragrance blending", "Safe pouring", "Unit pricing"],
     cost: "Low or no cost",
     glyph: "candle",
-    accent: "leaf",
+    accent: "green",
   },
   {
     slug: "financing-and-budgeting",
@@ -110,7 +110,7 @@ export const programs: Program[] = [
     skills: ["Budgeting", "Saving goals", "Banking basics", "Needs vs. wants"],
     cost: "Low or no cost",
     glyph: "budget",
-    accent: "sky",
+    accent: "teal",
   },
   {
     slug: "cake-decorating",
@@ -144,7 +144,7 @@ export const programs: Program[] = [
     skills: ["Graphic layout", "Typography", "Heat press", "Small-batch production"],
     cost: "Low or no cost",
     glyph: "tshirt",
-    accent: "sky",
+    accent: "teal",
   },
   {
     slug: "musical-workshop",
@@ -161,7 +161,7 @@ export const programs: Program[] = [
     skills: ["Rhythm & ear training", "Ensemble playing", "Vocal basics", "Performance"],
     cost: "Low or no cost",
     glyph: "music",
-    accent: "leaf",
+    accent: "green",
   },
   {
     slug: "film-recording-and-directing",
@@ -178,7 +178,7 @@ export const programs: Program[] = [
     skills: ["Camera & framing", "Audio capture", "Lighting", "Directing & editing"],
     cost: "Low or no cost",
     glyph: "film",
-    accent: "sky",
+    accent: "teal",
   },
 ];
 

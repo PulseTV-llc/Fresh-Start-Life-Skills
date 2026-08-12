@@ -47,7 +47,7 @@ export default function EventsPage() {
         eyebrow="Sessions & registration"
         title="Find your child a seat."
         intro="Enrollment is rolling and class sizes stay small. Here is how registration works, and how to find out what is running next."
-        tone="sky"
+        tone="teal"
         breadcrumbs={[
           { name: "Home", href: "/" },
           { name: "Events", href: "/events" },
@@ -75,14 +75,14 @@ export default function EventsPage() {
           /* Designed empty state — see the note in src/lib/events.ts about why
              this page never invents dates. */
           <Reveal delay={0.1} className="mt-10">
-            <div className="relative overflow-hidden rounded-[2rem] bg-[linear-gradient(150deg,#eff9ff_0%,#fffcf5_100%)] p-9 ring-1 ring-sky-brand-200/70 sm:p-14">
+            <div className="relative overflow-hidden rounded-[2rem] bg-[linear-gradient(150deg,#edfaf8_0%,#fdfcf8_100%)] p-9 ring-1 ring-teal-200/70 sm:p-14">
               <div
                 aria-hidden="true"
                 className="pointer-events-none absolute -right-16 -top-16 size-64 rounded-full bg-[radial-gradient(circle,rgba(255,158,44,0.22)_0%,rgba(255,158,44,0)_68%)]"
               />
               <div className="relative max-w-2xl">
-                <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-sky-brand-800 shadow-[var(--shadow-soft)]">
-                  <span className="size-2 rounded-full bg-sky-brand-500" />
+                <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-teal-800 shadow-[var(--shadow-soft)]">
+                  <span className="size-2 rounded-full bg-teal-500" />
                   Dates being finalized
                 </span>
                 <h3 className="mt-6 text-3xl leading-snug text-ink sm:text-4xl">
@@ -152,7 +152,7 @@ export default function EventsPage() {
       <Section className="bg-white">
         <SectionHeading
           eyebrow="How it works"
-          tone="leaf"
+          tone="green"
           title="Three steps, no paperwork mountain."
           align="center"
         />

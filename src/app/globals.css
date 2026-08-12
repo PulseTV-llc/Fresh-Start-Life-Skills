@@ -2,54 +2,78 @@
 
 /* ============================================================================
    Fresh Start Life Skills — Design System
-   Brand motif: children running over green hills toward an orange rising sun
-   under a blue sky. Palette: sunrise orange, growth green, sky blue, warm white.
+   ----------------------------------------------------------------------------
+   Every hue below is sampled directly from the official logo: three figures
+   with raised arms (bright teal, deep navy, fresh green) encircling an amber
+   rising sun, with a path leading up to it.
+
+       teal   #0f9c96   the left figure
+       navy   #01535b   the centre figure and the enclosing hand/path
+       green  #6ca02f   the right figures
+       sun    #f2a629   the rising sun
+
+   Navy carries the weight (primary actions, dark sections, body ink), amber is
+   the accent that never appears in bulk — the same hierarchy the mark itself
+   uses. Ramps are built around the sampled value, which sits at -500.
    ========================================================================= */
 
 @theme {
-  /* --- Sunrise (primary / energy) ------------------------------------- */
-  --color-sun-50: #fff6ec;
-  --color-sun-100: #ffe9d2;
-  --color-sun-200: #ffd3a5;
-  --color-sun-300: #ffb870;
-  --color-sun-400: #ff9a3d;
-  --color-sun-500: #f97316;
-  --color-sun-600: #e25c08;
-  --color-sun-700: #b84708;
-  --color-sun-800: #93390d;
-  --color-sun-900: #78300e;
+  /* --- Sun (amber accent — the rising sun) ----------------------------- */
+  --color-sun-50: #fff8e9;
+  --color-sun-100: #ffefc9;
+  --color-sun-200: #ffdd92;
+  --color-sun-300: #fbc85a;
+  --color-sun-400: #f5b336;
+  --color-sun-500: #f2a629;
+  --color-sun-600: #cf7f10;
+  --color-sun-700: #a25a0a;
+  --color-sun-800: #85480f;
+  --color-sun-900: #6d3c11;
 
-  /* --- Leaf (growth / hills) ------------------------------------------ */
-  --color-leaf-50: #eefaf1;
-  --color-leaf-100: #d5f2dd;
-  --color-leaf-200: #ade4bc;
-  --color-leaf-300: #79cf93;
-  --color-leaf-400: #45b26b;
-  --color-leaf-500: #22964c;
-  --color-leaf-600: #16783c;
-  --color-leaf-700: #135f31;
-  --color-leaf-800: #124c2a;
-  --color-leaf-900: #103f25;
+  /* --- Teal (the bright figure — energy, highlights) ------------------- */
+  --color-teal-50: #edfaf8;
+  --color-teal-100: #d2f2ee;
+  --color-teal-200: #a6e5df;
+  --color-teal-300: #6ed2cb;
+  --color-teal-400: #2fb8b1;
+  --color-teal-500: #0f9c96;
+  --color-teal-600: #067e7c;
+  --color-teal-700: #076466;
+  --color-teal-800: #0a5054;
+  --color-teal-900: #0b4247;
 
-  /* --- Sky (calm / trust) --------------------------------------------- */
-  --color-sky-brand-50: #eff9ff;
-  --color-sky-brand-100: #dbf0ff;
-  --color-sky-brand-200: #b7e3ff;
-  --color-sky-brand-300: #7acfff;
-  --color-sky-brand-400: #34b6fb;
-  --color-sky-brand-500: #0b9bec;
-  --color-sky-brand-600: #007aca;
-  --color-sky-brand-700: #0061a3;
-  --color-sky-brand-800: #065286;
-  --color-sky-brand-900: #0b446f;
+  /* --- Navy (the deep sea blue — primary actions, dark ground) --------- */
+  --color-navy-50: #eef7f9;
+  --color-navy-100: #d3ebf0;
+  --color-navy-200: #a6d6e0;
+  --color-navy-300: #6bb9c9;
+  --color-navy-400: #2b93a9;
+  --color-navy-500: #06768c;
+  --color-navy-600: #036075;
+  --color-navy-700: #01535b;
+  --color-navy-800: #013f4a;
+  --color-navy-900: #012f38;
 
-  /* --- Neutrals: warm, never cold ------------------------------------- */
-  --color-cream: #fffcf5;
-  --color-cream-100: #fdf6e9;
-  --color-sand: #f4ece0;
-  --color-ink: #10201a;
-  --color-ink-soft: #2c4139;
-  --color-ink-muted: #5a6f66;
+  /* --- Green (growth) -------------------------------------------------- */
+  --color-green-50: #f4faea;
+  --color-green-100: #e6f4cf;
+  --color-green-200: #cfe9a5;
+  --color-green-300: #b1d972;
+  --color-green-400: #90c247;
+  --color-green-500: #6ca02f;
+  --color-green-600: #558226;
+  --color-green-700: #436421;
+  --color-green-800: #37501f;
+  --color-green-900: #2e441e;
+
+  /* --- Neutrals: warm white ground, deep-sea ink ----------------------- */
+  --color-cream: #fdfcf8;
+  --color-cream-100: #f8f4ea;
+  --color-mist: #eff6f6;
+  --color-sand: #efe8db;
+  --color-ink: #06282f;
+  --color-ink-soft: #23505a;
+  --color-ink-muted: #4d6f77;
 
   /* --- Typography ------------------------------------------------------ */
   --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
@@ -59,13 +83,15 @@
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  /* --- Shadows: warm-tinted, never neutral gray ------------------------ */
-  --shadow-soft: 0 1px 2px rgba(16, 32, 26, 0.04),
-    0 8px 24px -8px rgba(16, 32, 26, 0.1);
-  --shadow-lift: 0 2px 4px rgba(16, 32, 26, 0.05),
-    0 24px 48px -16px rgba(16, 32, 26, 0.18);
-  --shadow-glow: 0 0 0 1px rgba(249, 115, 22, 0.15),
-    0 18px 40px -12px rgba(249, 115, 22, 0.35);
+  /* --- Shadows: tinted with the brand navy, never neutral gray ---------- */
+  --shadow-soft: 0 1px 2px rgba(1, 47, 56, 0.05),
+    0 8px 24px -8px rgba(1, 47, 56, 0.1);
+  --shadow-lift: 0 2px 4px rgba(1, 47, 56, 0.06),
+    0 24px 48px -16px rgba(1, 47, 56, 0.18);
+  --shadow-deep: 0 0 0 1px rgba(1, 83, 91, 0.14),
+    0 18px 40px -12px rgba(1, 63, 74, 0.4);
+  --shadow-glow: 0 0 0 1px rgba(242, 166, 41, 0.22),
+    0 18px 40px -12px rgba(207, 127, 16, 0.42);
 }
 
 /* ============================================================================
@@ -124,16 +150,28 @@
    Utilities
    ========================================================================= */
 
+/* Amber-on-warm-white runs thin at body sizes, so the text gradient starts at
+   sun-700 and only brightens mid-word — readable, still unmistakably the sun. */
 @utility text-gradient-sunrise {
   background-image: linear-gradient(
     100deg,
-    var(--color-sun-600) 0%,
-    var(--color-sun-400) 45%,
-    var(--color-sun-500) 100%
+    var(--color-sun-700) 0%,
+    var(--color-sun-600) 45%,
+    var(--color-sun-700) 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+/* The logo's own sweep: teal into navy, used on dark panels and dividers. */
+@utility bg-gradient-brand {
+  background-image: linear-gradient(
+    150deg,
+    var(--color-teal-800) 0%,
+    var(--color-navy-800) 52%,
+    var(--color-navy-900) 100%
+  );
 }
 
 /* Fine-grained paper grain — keeps large flat fills from banding */

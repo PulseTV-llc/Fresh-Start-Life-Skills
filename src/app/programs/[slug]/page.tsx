@@ -36,8 +36,8 @@ export async function generateMetadata({ params }: PageProps<"/programs/[slug]">
 
 const accents = {
   sun: { chip: "bg-sun-100 text-sun-800", glyph: "bg-sun-100 text-sun-700", tone: "sun" as const },
-  leaf: { chip: "bg-leaf-100 text-leaf-800", glyph: "bg-leaf-100 text-leaf-700", tone: "leaf" as const },
-  sky: { chip: "bg-sky-brand-100 text-sky-brand-800", glyph: "bg-sky-brand-100 text-sky-brand-700", tone: "sky" as const },
+  green: { chip: "bg-green-100 text-green-800", glyph: "bg-green-100 text-green-700", tone: "green" as const },
+  teal: { chip: "bg-teal-100 text-teal-800", glyph: "bg-teal-100 text-teal-700", tone: "teal" as const },
 };
 
 export default async function ProgramPage({ params }: PageProps<"/programs/[slug]">) {
@@ -119,7 +119,7 @@ export default async function ProgramPage({ params }: PageProps<"/programs/[slug
                 >
                   <svg
                     viewBox="0 0 20 20"
-                    className="size-5 shrink-0 text-leaf-600"
+                    className="size-5 shrink-0 text-green-600"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2.1"
@@ -145,7 +145,7 @@ export default async function ProgramPage({ params }: PageProps<"/programs/[slug
           {/* --- Enrollment rail ---------------------------------------------- */}
           <Reveal delay={0.12} className="lg:col-span-5">
             <div className="lg:sticky lg:top-28">
-              <div className="rounded-[1.75rem] bg-[linear-gradient(155deg,#16783c_0%,#103f25_100%)] p-8 text-cream shadow-[var(--shadow-lift)]">
+              <div className="rounded-[1.75rem] bg-[linear-gradient(155deg,#0a5054_0%,#012f38_100%)] p-8 text-cream shadow-[var(--shadow-lift)]">
                 <h2 className="text-2xl text-white">Reserve a seat</h2>
                 <p className="mt-3 leading-relaxed text-cream/75">
                   Enrollment is rolling and class sizes are kept small. Call or

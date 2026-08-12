@@ -26,8 +26,8 @@ export const metadata = buildMetadata({
 
 const accents = {
   sun: "bg-sun-100 text-sun-700 group-hover:ring-sun-300",
-  leaf: "bg-leaf-100 text-leaf-700 group-hover:ring-leaf-300",
-  sky: "bg-sky-brand-100 text-sky-brand-700 group-hover:ring-sky-brand-300",
+  green: "bg-green-100 text-green-700 group-hover:ring-green-300",
+  teal: "bg-teal-100 text-teal-700 group-hover:ring-teal-300",
 };
 
 export default function ProgramsPage() {
@@ -78,7 +78,7 @@ export default function ProgramsPage() {
             >
               <SectionHeading
                 eyebrow={track.id === "free-class" ? "No cost" : "Weekday sessions"}
-                tone={track.id === "free-class" ? "leaf" : "sun"}
+                tone={track.id === "free-class" ? "green" : "sun"}
                 title={track.label}
                 intro={track.blurb}
               />
@@ -104,7 +104,7 @@ export default function ProgramsPage() {
 
                       <div className="mt-5 flex flex-wrap items-center gap-2">
                         {program.cost === "Free" ? (
-                          <span className="rounded-full bg-leaf-600 px-2.5 py-1 text-[0.68rem] font-bold uppercase tracking-[0.12em] text-white">
+                          <span className="rounded-full bg-green-600 px-2.5 py-1 text-[0.68rem] font-bold uppercase tracking-[0.12em] text-white">
                             Free
                           </span>
                         ) : null}
@@ -157,7 +157,7 @@ export default function ProgramsPage() {
         })}
 
       <Section className="bg-white">
-        <Reveal className="rounded-[2rem] bg-[linear-gradient(150deg,#16783c_0%,#103f25_100%)] p-9 text-cream sm:p-14">
+        <Reveal className="rounded-[2rem] bg-[linear-gradient(150deg,#0a5054_0%,#012f38_100%)] p-9 text-cream sm:p-14">
           <h2 className="max-w-2xl text-3xl text-white sm:text-4xl">
             Not sure which program fits your child?
           </h2>

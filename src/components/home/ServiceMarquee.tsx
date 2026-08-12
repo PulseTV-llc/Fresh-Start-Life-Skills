@@ -13,7 +13,7 @@ import { site } from "@/lib/site";
 
 const facts = [
   { value: "Ages 8–17", label: "Open to youth across the region" },
-  { value: "7 workshops", label: "Sewing to filmmaking, all hands-on" },
+  { value: "8 workshops", label: "Sewing to filmmaking, all hands-on" },
   { value: "Low or no cost", label: "Materials always provided" },
 ];
 

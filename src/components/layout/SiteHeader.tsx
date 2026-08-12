@@ -3,7 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import {
+  AnimatePresence,
+  motion,
+} from "motion/react";
+import { useBrandMotion } from "@/lib/useBrandMotion";
 import { Logo } from "@/components/brand/Logo";
 import { ButtonLink, ArrowIcon } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -16,7 +20,7 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = useBrandMotion();
 
   // Frost the bar the moment the page leaves the very top. The rAF pass catches
   // a page restored mid-scroll (refresh, back navigation) without a synchronous
@@ -91,7 +95,7 @@ export function SiteHeader() {
               className="rounded-lg transition-transform duration-300 hover:-translate-y-px"
               aria-label={`${site.name} — home`}
             >
-              <Logo />
+              <Logo priority />
             </Link>
 
             <nav aria-label="Primary" className="hidden lg:block">
@@ -133,6 +137,7 @@ export function SiteHeader() {
                 href={buildDonateUrl({ source: "header" })}
                 target={donateLinkTarget}
                 rel={donateLinkRel}
+                variant="accent"
                 size="sm"
                 className="hidden sm:inline-flex"
               >
@@ -181,7 +186,7 @@ export function SiteHeader() {
             exit={reduceMotion ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.25 }}
           >
-            <div className="absolute inset-0 bg-[linear-gradient(170deg,#fffcf5_0%,#fff2dd_58%,#ffe3bd_100%)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(170deg,#fdfcf8_0%,#eff6f6_54%,#d7eeec_100%)]" />
 
             <div className="relative flex h-full flex-col overflow-y-auto px-6 pb-10 pt-28">
               <nav aria-label="Mobile">
@@ -223,6 +228,7 @@ export function SiteHeader() {
                   href={buildDonateUrl({ source: "mobile-menu" })}
                   target={donateLinkTarget}
                   rel={donateLinkRel}
+                  variant="accent"
                   size="lg"
                 >
                   Donate

@@ -22,13 +22,13 @@ export function PhotoPlaceholder({
   /** What photograph belongs here. Shown on the frame. */
   label: string;
   className?: string;
-  tone?: "sun" | "leaf" | "sky";
+  tone?: "sun" | "green" | "teal";
   aspect?: string;
 }) {
   const tones = {
     sun: "from-sun-100 via-sun-50 to-cream text-sun-800/70 ring-sun-200/70",
-    leaf: "from-leaf-100 via-leaf-50 to-cream text-leaf-800/70 ring-leaf-200/70",
-    sky: "from-sky-brand-100 via-sky-brand-50 to-cream text-sky-brand-800/70 ring-sky-brand-200/70",
+    green: "from-green-100 via-green-50 to-cream text-green-800/70 ring-green-200/70",
+    teal: "from-teal-100 via-teal-50 to-cream text-teal-800/70 ring-teal-200/70",
   };
 
   return (

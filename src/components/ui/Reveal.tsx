@@ -1,6 +1,10 @@
 "use client";
 
-import { motion, useReducedMotion, type Variants } from "motion/react";
+import {
+  motion,
+  type Variants,
+} from "motion/react";
+import { useBrandMotion } from "@/lib/useBrandMotion";
 import { cn } from "@/lib/utils";
 
 /**
@@ -27,7 +31,7 @@ export function Reveal({
   once?: boolean;
   amount?: number;
 }) {
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = useBrandMotion();
   const MotionTag = motion[as];
 
   if (reduceMotion) {
@@ -66,7 +70,7 @@ export function RevealGroup({
   delay?: number;
   amount?: number;
 }) {
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = useBrandMotion();
 
   if (reduceMotion) return <div className={className}>{children}</div>;
 
@@ -106,7 +110,7 @@ export function RevealChild({
   className?: string;
   as?: "div" | "li" | "article" | "span";
 }) {
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = useBrandMotion();
   const MotionTag = motion[as];
 
   if (reduceMotion) {
@@ -142,7 +146,7 @@ export function RevealWords({
   highlight?: string[];
   highlightClassName?: string;
 }) {
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = useBrandMotion();
   const words = text.split(" ");
   const shouldHighlight = (word: string) =>
     highlight?.some(

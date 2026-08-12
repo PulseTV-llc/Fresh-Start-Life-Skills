@@ -139,7 +139,7 @@ export default function AboutPage() {
       <Section className="bg-white">
         <SectionHeading
           eyebrow="What we believe"
-          tone="leaf"
+          tone="green"
           title="Four commitments we do not bend on."
           align="center"
         />
@@ -173,7 +173,7 @@ export default function AboutPage() {
               >
                 <svg
                   viewBox="0 0 24 24"
-                  className="size-5 shrink-0 text-leaf-600"
+                  className="size-5 shrink-0 text-green-600"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="1.9"

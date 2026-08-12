@@ -10,15 +10,15 @@ export function Eyebrow({
 }: {
   children: React.ReactNode;
   className?: string;
-  tone?: "sun" | "leaf" | "sky" | "inverse";
+  tone?: "sun" | "green" | "teal" | "inverse";
 }) {
   return (
     <span
       className={cn(
         "inline-flex items-center gap-2 text-[0.72rem] font-bold uppercase tracking-[0.18em]",
         tone === "sun" && "text-sun-700",
-        tone === "leaf" && "text-leaf-700",
-        tone === "sky" && "text-sky-brand-700",
+        tone === "green" && "text-green-700",
+        tone === "teal" && "text-teal-700",
         tone === "inverse" && "text-sun-200",
         className,
       )}
@@ -28,8 +28,8 @@ export function Eyebrow({
         className={cn(
           "h-px w-6",
           tone === "sun" && "bg-sun-400",
-          tone === "leaf" && "bg-leaf-400",
-          tone === "sky" && "bg-sky-brand-400",
+          tone === "green" && "bg-green-400",
+          tone === "teal" && "bg-teal-400",
           tone === "inverse" && "bg-sun-300/70",
         )}
       />
@@ -52,7 +52,7 @@ export function SectionHeading({
   title: React.ReactNode;
   intro?: React.ReactNode;
   align?: "left" | "center";
-  tone?: "sun" | "leaf" | "sky" | "inverse";
+  tone?: "sun" | "green" | "teal" | "inverse";
   className?: string;
   inverse?: boolean;
   children?: React.ReactNode;

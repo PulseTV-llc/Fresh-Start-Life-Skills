@@ -17,7 +17,7 @@ export type Story = {
   attribution: string;
   role: string;
   /** Accent used for the quote mark and card wash. */
-  accent: "sun" | "leaf" | "sky";
+  accent: "sun" | "green" | "teal";
   placeholder?: boolean;
   /** TODO(assets): portrait photo, 400×400, with a signed release on file. */
   photo?: string;
@@ -37,7 +37,7 @@ export const stories: Story[] = [
       "I did not know how to save money before. Now I write down what I spend and I have a goal I am working toward.",
     attribution: "Student, age 14",
     role: "After-School Program",
-    accent: "sky",
+    accent: "teal",
     placeholder: true,
   },
   {
@@ -45,7 +45,7 @@ export const stories: Story[] = [
       "What Fresh Start does is give young people a place to be after three o'clock where somebody expects something good of them.",
     attribution: "Community partner",
     role: "Central Louisiana",
-    accent: "leaf",
+    accent: "green",
     placeholder: true,
   },
 ];

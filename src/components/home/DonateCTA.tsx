@@ -1,7 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import {
+  AnimatePresence,
+  motion,
+} from "motion/react";
+import { useBrandMotion } from "@/lib/useBrandMotion";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { ButtonLink, ArrowIcon } from "@/components/ui/Button";
@@ -30,7 +34,7 @@ export function DonateCTA() {
   const [tierIndex, setTierIndex] = useState(defaultTierIndex);
   const [custom, setCustom] = useState("");
   const [frequency, setFrequency] = useState<DonationFrequency>("once");
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = useBrandMotion();
 
   const customAmount = Number.parseInt(custom, 10);
   const amount =
@@ -43,20 +47,20 @@ export function DonateCTA() {
     <section
       id="donate"
       aria-labelledby="donate-heading"
-      className="relative isolate overflow-hidden bg-[linear-gradient(135deg,#7d2f05_0%,#9c3b07_38%,#b64509_70%,#c44f09_100%)] py-20 text-white sm:py-28"
+      className="relative isolate overflow-hidden bg-[linear-gradient(140deg,#0a5054_0%,#013f4a_46%,#012f38_100%)] py-20 text-white sm:py-28"
     >
-      {/* Rising-sun rays, very low contrast — texture, not decoration you notice */}
+      {/* Sun rays breaking over the navy — texture, not decoration you notice */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-[0.07]"
+        className="pointer-events-none absolute inset-0 opacity-[0.055]"
         style={{
           backgroundImage:
-            "repeating-conic-gradient(from 0deg at 78% 112%, #fff 0deg 2.4deg, transparent 2.4deg 9deg)",
+            "repeating-conic-gradient(from 0deg at 22% 112%, #f2a629 0deg 2.6deg, transparent 2.6deg 9deg)",
         }}
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -bottom-40 left-1/2 size-[52rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.3)_0%,rgba(255,255,255,0)_65%)]"
+        className="pointer-events-none absolute -bottom-52 left-[22%] size-[52rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(242,166,41,0.55)_0%,rgba(242,166,41,0.12)_42%,rgba(242,166,41,0)_68%)]"
       />
 
       <Container size="wide" className="relative">
@@ -193,11 +197,11 @@ export function DonateCTA() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={reduceMotion ? undefined : { opacity: 0, y: -8 }}
                     transition={{ duration: 0.3 }}
-                    className="flex items-start gap-3 rounded-2xl bg-leaf-50 px-4 py-3.5 text-[0.95rem] leading-relaxed text-leaf-800"
+                    className="flex items-start gap-3 rounded-2xl bg-green-50 px-4 py-3.5 text-[0.95rem] leading-relaxed text-green-800"
                   >
                     <svg
                       viewBox="0 0 24 24"
-                      className="mt-0.5 size-5 shrink-0 text-leaf-600"
+                      className="mt-0.5 size-5 shrink-0 text-green-600"
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="1.9"
@@ -232,6 +236,7 @@ export function DonateCTA() {
                 href={buildDonateUrl({ amount, frequency, source: "home-cta" })}
                 target={donateLinkTarget}
                 rel={donateLinkRel}
+                variant="accent"
                 size="lg"
                 className="mt-5 w-full"
               >

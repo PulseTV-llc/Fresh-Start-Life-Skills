@@ -123,7 +123,7 @@ export default async function DonatePage({ searchParams }: PageProps<"/donate">)
       <Section className="bg-white">
         <SectionHeading
           eyebrow="Questions"
-          tone="leaf"
+          tone="green"
           title="What donors ask us."
           align="center"
         />

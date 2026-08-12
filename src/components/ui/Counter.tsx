@@ -5,10 +5,10 @@ import {
   animate,
   useInView,
   useMotionValue,
-  useReducedMotion,
   useTransform,
   motion,
 } from "motion/react";
+import { useBrandMotion } from "@/lib/useBrandMotion";
 
 /**
  * Number that counts up the first time it scrolls into view.
@@ -32,12 +32,18 @@ export function Counter({
 }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.6 });
-  const reduceMotion = useReducedMotion();
-  const count = useMotionValue(reduceMotion ? to : 0);
+  const reduceMotion = useBrandMotion();
+  const count = useMotionValue(0);
   const rounded = useTransform(count, (value) => Math.round(value).toLocaleString());
 
   useEffect(() => {
-    if (!inView || reduceMotion) return;
+    // The motion preference only resolves after hydration, so jumping to the
+    // final value has to happen here rather than in the initial motion value.
+    if (reduceMotion) {
+      count.set(to);
+      return;
+    }
+    if (!inView) return;
     const controls = animate(count, to, { duration, ease: [0.16, 1, 0.3, 1] });
     return () => controls.stop();
   }, [inView, reduceMotion, count, to, duration]);

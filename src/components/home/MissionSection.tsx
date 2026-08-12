@@ -20,7 +20,7 @@ const pillars = [
   {
     word: "Explore",
     body: "Eight workshops under one roof, so a young person can try things until something catches fire.",
-    tone: "sky" as const,
+    tone: "teal" as const,
     glyph: (
       <>
         <circle cx="24" cy="24" r="17" />
@@ -31,7 +31,7 @@ const pillars = [
   {
     word: "Grow",
     body: "Confidence compounds. A finished project becomes a skill, a skill becomes a path, a path becomes a future.",
-    tone: "leaf" as const,
+    tone: "green" as const,
     glyph: (
       <>
         <path d="M24 42V20" />
@@ -45,8 +45,8 @@ const pillars = [
 
 const toneClasses = {
   sun: "bg-sun-50 text-sun-700 ring-sun-200/70",
-  sky: "bg-sky-brand-50 text-sky-brand-700 ring-sky-brand-200/70",
-  leaf: "bg-leaf-50 text-leaf-700 ring-leaf-200/70",
+  teal: "bg-teal-50 text-teal-700 ring-teal-200/70",
+  green: "bg-green-50 text-green-700 ring-green-200/70",
 };
 
 export function MissionSection() {
@@ -103,10 +103,10 @@ export function MissionSection() {
 
         {/* --- Founder pull-quote ------------------------------------------ */}
         <Reveal delay={0.15} className="lg:col-span-5">
-          <figure className="relative overflow-hidden rounded-[2rem] bg-[linear-gradient(155deg,#16783c_0%,#103f25_100%)] p-9 text-cream shadow-[var(--shadow-lift)] sm:p-11">
+          <figure className="relative overflow-hidden rounded-[2rem] bg-[linear-gradient(155deg,#0a5054_0%,#012f38_100%)] p-9 text-cream shadow-[var(--shadow-lift)] sm:p-11">
             <div
               aria-hidden="true"
-              className="absolute -right-16 -top-16 size-56 rounded-full bg-[radial-gradient(circle,rgba(255,154,61,0.4)_0%,rgba(255,154,61,0)_70%)]"
+              className="absolute -right-16 -top-16 size-56 rounded-full bg-[radial-gradient(circle,rgba(242,166,41,0.44)_0%,rgba(242,166,41,0)_70%)]"
             />
             <svg
               viewBox="0 0 48 48"

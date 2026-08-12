@@ -29,7 +29,7 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative mt-auto overflow-hidden bg-leaf-900 text-cream/75">
+    <footer className="relative mt-auto overflow-hidden bg-gradient-brand text-cream/75">
       {/* Hill silhouette carries the brand motif into the footer */}
       <svg
         viewBox="0 0 1440 120"
@@ -60,6 +60,7 @@ export function SiteFooter() {
                 href={buildDonateUrl({ source: "footer" })}
                 target={donateLinkTarget}
                 rel={donateLinkRel}
+                variant="accent"
                 size="lg"
               >
                 Donate
@@ -75,7 +76,7 @@ export function SiteFooter() {
           <div className="grid gap-12 py-14 sm:grid-cols-2 lg:grid-cols-12">
             <div className="lg:col-span-4">
               <Link href="/" className="inline-flex items-center gap-3">
-                <LogoMark className="size-12 text-cream" />
+                <LogoMark onDark className="size-14" />
                 <span className="flex flex-col leading-none">
                   <span className="font-display text-lg font-semibold text-white">
                     Fresh Start

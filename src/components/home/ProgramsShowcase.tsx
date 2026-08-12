@@ -7,8 +7,8 @@ import {
   motion,
   useMotionTemplate,
   useMotionValue,
-  useReducedMotion,
 } from "motion/react";
+import { useBrandMotion } from "@/lib/useBrandMotion";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { ArrowIcon, ButtonLink } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
@@ -22,24 +22,24 @@ const accents = {
     ring: "ring-sun-200/60 group-hover:ring-sun-300",
     glyph: "bg-sun-100 text-sun-700",
     chip: "bg-sun-50 text-sun-800",
-    spot: "rgba(249,115,22,0.14)",
-    badge: "bg-sun-500 text-white",
+    spot: "rgba(242,166,41,0.20)",
+    badge: "bg-sun-500 text-ink",
   },
-  leaf: {
-    wash: "from-leaf-50 to-white",
-    ring: "ring-leaf-200/60 group-hover:ring-leaf-300",
-    glyph: "bg-leaf-100 text-leaf-700",
-    chip: "bg-leaf-50 text-leaf-800",
-    spot: "rgba(34,150,76,0.14)",
-    badge: "bg-leaf-600 text-white",
+  green: {
+    wash: "from-green-50 to-white",
+    ring: "ring-green-200/60 group-hover:ring-green-300",
+    glyph: "bg-green-100 text-green-700",
+    chip: "bg-green-50 text-green-800",
+    spot: "rgba(108,160,47,0.18)",
+    badge: "bg-green-600 text-white",
   },
-  sky: {
-    wash: "from-sky-brand-50 to-white",
-    ring: "ring-sky-brand-200/60 group-hover:ring-sky-brand-300",
-    glyph: "bg-sky-brand-100 text-sky-brand-700",
-    chip: "bg-sky-brand-50 text-sky-brand-800",
-    spot: "rgba(11,155,236,0.14)",
-    badge: "bg-sky-brand-600 text-white",
+  teal: {
+    wash: "from-teal-50 to-white",
+    ring: "ring-teal-200/60 group-hover:ring-teal-300",
+    glyph: "bg-teal-100 text-teal-700",
+    chip: "bg-teal-50 text-teal-800",
+    spot: "rgba(15,156,150,0.18)",
+    badge: "bg-teal-600 text-white",
   },
 } as const;
 
@@ -51,7 +51,7 @@ const accents = {
  */
 function ProgramCard({ program, featured }: { program: Program; featured?: boolean }) {
   const accent = accents[program.accent];
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = useBrandMotion();
   const mouseX = useMotionValue(-200);
   const mouseY = useMotionValue(-200);
   const spotlight = useMotionTemplate`radial-gradient(340px circle at ${mouseX}px ${mouseY}px, ${accent.spot}, transparent 72%)`;
@@ -173,7 +173,7 @@ export function ProgramsShowcase() {
     <Section
       id="programs"
       size="wide"
-      className="bg-[linear-gradient(180deg,#ffffff_0%,#fffcf5_100%)]"
+      className="bg-[linear-gradient(180deg,#ffffff_0%,#fdfcf8_100%)]"
     >
       <SectionHeading
         eyebrow="Learn, Explore & Grow"

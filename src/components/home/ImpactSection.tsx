@@ -65,7 +65,7 @@ export function ImpactSection() {
         {/* --- Numbers ------------------------------------------------------ */}
         <div className="lg:col-span-5">
           <Reveal className="lg:sticky lg:top-28">
-            <Eyebrow tone="leaf">Why it matters</Eyebrow>
+            <Eyebrow tone="green">Why it matters</Eyebrow>
             <h2 className="mt-5 text-4xl leading-[1.1] text-ink sm:text-5xl">
               Small program. <br />
               Outsized consequence.
@@ -113,7 +113,7 @@ export function ImpactSection() {
               <PhotoPlaceholder
                 label="Wide shot of an after-school workshop in progress — students at the sewing machines, instructor leaning in to help."
                 aspect="16/10"
-                tone="leaf"
+                tone="green"
               />
             </RevealChild>
 
@@ -150,7 +150,7 @@ export function ImpactSection() {
               <PhotoPlaceholder
                 label="Finished student projects lined up — candles, decorated cakes, printed shirts."
                 aspect="1/1"
-                tone="sky"
+                tone="teal"
               />
             </RevealChild>
           </RevealGroup>

@@ -112,11 +112,11 @@ export default function ContactPage() {
               ))}
             </ul>
 
-            <div className="mt-6 rounded-[1.5rem] bg-leaf-50 p-6 ring-1 ring-leaf-200/70">
-              <h2 className="font-display text-lg font-semibold text-leaf-900">
+            <div className="mt-6 rounded-[1.5rem] bg-green-50 p-6 ring-1 ring-green-200/70">
+              <h2 className="font-display text-lg font-semibold text-green-900">
                 Communities we serve
               </h2>
-              <p className="mt-2 text-sm leading-relaxed text-leaf-800/80">
+              <p className="mt-2 text-sm leading-relaxed text-green-800/80">
                 {site.serviceAreas.join(" · ")}
               </p>
             </div>

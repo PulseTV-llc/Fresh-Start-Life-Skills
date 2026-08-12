@@ -23,7 +23,7 @@ const pathways = [
     body: "If you can sew, bake, run a camera, balance a checkbook or simply show up consistently, you can teach here.",
     href: "/get-involved",
     cta: "Ways to help",
-    tone: "leaf" as const,
+    tone: "green" as const,
     glyph: (
       <>
         <path d="M24 41S8 31.5 8 20.5A9.5 9.5 0 0 1 24 14a9.5 9.5 0 0 1 16 6.5C40 31.5 24 41 24 41Z" strokeLinejoin="round" />
@@ -35,7 +35,7 @@ const pathways = [
     body: "Fabric, film gear, baking supplies, wax — or a gift that lets us buy exactly what the next workshop needs.",
     href: "/donate",
     cta: "Donate",
-    tone: "sky" as const,
+    tone: "teal" as const,
     glyph: (
       <>
         <path d="M6 20h36v20a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V20Z" />
@@ -53,15 +53,15 @@ const tones = {
     glyph: "bg-sun-100 text-sun-700",
     glow: "from-sun-200/60",
   },
-  leaf: {
-    card: "hover:border-leaf-300 hover:bg-leaf-50/60",
-    glyph: "bg-leaf-100 text-leaf-700",
-    glow: "from-leaf-200/60",
+  green: {
+    card: "hover:border-green-300 hover:bg-green-50/60",
+    glyph: "bg-green-100 text-green-700",
+    glow: "from-green-200/60",
   },
-  sky: {
-    card: "hover:border-sky-brand-300 hover:bg-sky-brand-50/60",
-    glyph: "bg-sky-brand-100 text-sky-brand-700",
-    glow: "from-sky-brand-200/60",
+  teal: {
+    card: "hover:border-teal-300 hover:bg-teal-50/60",
+    glyph: "bg-teal-100 text-teal-700",
+    glow: "from-teal-200/60",
   },
 };
 
@@ -71,7 +71,7 @@ export function PathwaysSection() {
       <SectionHeading
         align="center"
         eyebrow="Get involved"
-        tone="leaf"
+        tone="green"
         title="Three doors into this work."
         intro="Fresh Start is small on purpose and community-run by necessity. Pick the door that fits what you have to give."
       />

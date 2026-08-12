@@ -22,9 +22,9 @@ export function organizationSchema() {
     url: site.url,
     logo: {
       "@type": "ImageObject",
-      url: `${site.url}/logo.svg`,
-      width: 512,
-      height: 512,
+      url: `${site.url}/brand/logo-1024.png`,
+      width: 1024,
+      height: 1024,
     },
     image: `${site.url}/opengraph-image`,
     description: site.description,

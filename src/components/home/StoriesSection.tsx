@@ -1,7 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import {
+  AnimatePresence,
+  motion,
+} from "motion/react";
+import { useBrandMotion } from "@/lib/useBrandMotion";
 import { Section, Eyebrow } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { ButtonLink, ArrowIcon } from "@/components/ui/Button";
@@ -10,8 +14,8 @@ import { cn } from "@/lib/utils";
 
 const accents = {
   sun: "text-sun-400",
-  leaf: "text-leaf-400",
-  sky: "text-sky-brand-400",
+  green: "text-green-400",
+  teal: "text-teal-400",
 } as const;
 
 /**
@@ -24,7 +28,7 @@ const accents = {
 export function StoriesSection() {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(1);
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = useBrandMotion();
   const story = stories[index];
   const hasPlaceholders = stories.some((item) => item.placeholder);
 
@@ -36,12 +40,12 @@ export function StoriesSection() {
   return (
     <Section
       id="stories"
-      className="relative overflow-hidden bg-[linear-gradient(160deg,#0e3a22_0%,#103f25_45%,#12492b_100%)]"
+      className="relative overflow-hidden bg-[linear-gradient(160deg,#0a5054_0%,#013f4a_48%,#012f38_100%)]"
     >
       {/* Sunrise bloom behind the quote */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-32 top-1/4 size-[36rem] rounded-full bg-[radial-gradient(circle,rgba(249,115,22,0.28)_0%,rgba(249,115,22,0)_68%)]"
+        className="pointer-events-none absolute -right-32 top-1/4 size-[36rem] rounded-full bg-[radial-gradient(circle,rgba(242,166,41,0.32)_0%,rgba(242,166,41,0)_68%)]"
       />
 
       <div className="relative grid gap-12 lg:grid-cols-12 lg:items-center">

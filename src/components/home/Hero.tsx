@@ -1,6 +1,9 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import {
+  motion,
+} from "motion/react";
+import { useBrandMotion } from "@/lib/useBrandMotion";
 import { SunriseScene } from "@/components/brand/SunriseScene";
 import { Container } from "@/components/ui/Container";
 import { ButtonLink, ArrowIcon } from "@/components/ui/Button";
@@ -9,7 +12,7 @@ import { buildDonateUrl, donateLinkRel, donateLinkTarget } from "@/lib/donations
 import { site } from "@/lib/site";
 
 export function Hero() {
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = useBrandMotion();
 
   const fadeUp = (delay: number) =>
     reduceMotion
@@ -77,7 +80,7 @@ export function Hero() {
               href={buildDonateUrl({ source: "hero" })}
               target={donateLinkTarget}
               rel={donateLinkRel}
-              variant="secondary"
+              variant="accent"
               size="lg"
             >
               Donate

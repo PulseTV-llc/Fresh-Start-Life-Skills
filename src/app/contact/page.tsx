@@ -9,7 +9,7 @@ import { buildMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata = buildMetadata({
-  title: "Contact Fresh Start Life Skills",
+  title: "Contact",
   description: `Reach ${site.legalName} in Alexandria, Louisiana. Enroll a child, volunteer, donate or partner with us — answer a few quick questions and we will get back to you. Call (318) 704-2808.`,
   path: "/contact",
   keywords: [

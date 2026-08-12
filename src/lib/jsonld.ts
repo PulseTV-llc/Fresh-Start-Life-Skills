@@ -1,5 +1,6 @@
 import { allPrograms, capstoneProgram, type Program } from "./programs";
-import { capstone, buildModules } from "./capstone";
+import { capstone } from "./capstone";
+import { curricula, curriculumFor } from "./curriculum";
 import { site } from "./site";
 
 /**
@@ -107,17 +108,55 @@ export function websiteSchema() {
   };
 }
 
+/**
+ * Course `hasPart` → `Syllabus` is how a session-by-session breakdown is
+ * expressed in schema.org, and it is what lets the richer curriculum do
+ * something for search rather than just sit on the page. `syllabusSections` is
+ * emitted alongside it because that is the property Google's Course
+ * documentation names.
+ */
+function syllabusParts(slug: string, url: string) {
+  const curriculum = curriculumFor(slug);
+  if (!curriculum) return undefined;
+  return curriculum.sessions.map((session, index) => ({
+    "@type": "Syllabus",
+    "@id": `${url}#session-${index + 1}`,
+    name: session.title,
+    position: index + 1,
+    description: `${session.plain} ${session.objectives.join(". ")}.`,
+    teaches: session.objectives,
+    learningResourceType: "Session",
+  }));
+}
+
 export function programSchema(program: Program) {
+  const url = `${site.url}/programs/${program.slug}`;
+  const curriculum = curriculumFor(program.slug);
+  const parts = syllabusParts(program.slug, url);
   return {
     "@context": "https://schema.org",
     "@type": "Course",
     name: program.title,
-    description: program.description,
-    url: `${site.url}/programs/${program.slug}`,
+    description: curriculum
+      ? `${program.description} ${curriculum.overview}`
+      : program.description,
+    url,
     provider: { "@id": ORG_ID },
     isAccessibleForFree: program.cost.toLowerCase() === "free",
     typicalAgeRange: program.ages.replace("Ages ", ""),
-    teaches: program.skills,
+    teaches: curriculum
+      ? [
+          ...program.skills,
+          ...curriculum.sessions.flatMap((session) => session.objectives),
+        ]
+      : program.skills,
+    ...(parts
+      ? {
+          syllabusSections: parts,
+          hasPart: parts,
+          numberOfLessons: parts.length,
+        }
+      : {}),
     educationalLevel: "Beginner",
     inLanguage: "en-US",
     offers: {
@@ -154,9 +193,10 @@ export function programSchema(program: Program) {
  */
 export function capstoneSchema() {
   const url = `${site.url}/programs/${capstone.slug}`;
-  const teaches = buildModules.flatMap((module) => [
-    module.title,
-    ...module.outputs,
+  const syllabus = curricula[capstone.slug];
+  const teaches = syllabus.sessions.flatMap((session) => [
+    session.title,
+    ...session.objectives,
   ]);
 
   return [
@@ -179,6 +219,9 @@ export function capstoneSchema() {
       educationalLevel: "Beginner",
       inLanguage: "en-US",
       teaches,
+      syllabusSections: syllabusParts(capstone.slug, url),
+      hasPart: syllabusParts(capstone.slug, url),
+      numberOfLessons: syllabus.sessions.length,
       about: [
         "Artificial intelligence",
         "Web development",

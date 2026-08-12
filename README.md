@@ -89,6 +89,7 @@ src/
     ├── site.ts                 ⭐ Org facts: name, address, phone, service areas
     ├── programs.ts             ⭐ Program catalog (drives pages + sitemap + schema)
     ├── events.ts               Session dates (intentionally empty — see file)
+    ├── curriculum.ts           ⭐ Session-by-session syllabus per program
     ├── studio.ts               ⭐ ⚠️ Studio pieces (PLACEHOLDER students)
     ├── stories.ts              ⚠️ PLACEHOLDER testimonials
     ├── contactFlow.ts          ⭐ The contact questionnaire, as data
@@ -100,7 +101,11 @@ src/
     └── utils.ts                cn()
 ```
 
-The ⭐ files are where almost all real edits happen. Adding a program to
+The ⭐ files are where almost all real edits happen. `curriculum.ts` holds every
+program's session breakdown; one shared `CurriculumSection` renders all of them,
+including the capstone, so every program page reads as the same document. Ages
+and cost are deliberately NOT repeated there — they live on the program in
+`programs.ts`, so changing an age band is one edit. Adding a program to
 `lib/programs.ts` publishes a detail page, a homepage card, a footer link, a
 sitemap entry and `Course` structured data — no other file needs touching.
 

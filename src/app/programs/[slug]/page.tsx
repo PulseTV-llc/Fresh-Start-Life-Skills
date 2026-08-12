@@ -12,6 +12,8 @@ import { breadcrumbSchema, programSchema } from "@/lib/jsonld";
 import { buildMetadata } from "@/lib/seo";
 import { programs, programBySlug } from "@/lib/programs";
 import { capstone } from "@/lib/capstone";
+import { curriculumFor } from "@/lib/curriculum";
+import { CurriculumSection } from "@/components/programs/CurriculumSection";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -49,6 +51,7 @@ export default async function ProgramPage({ params }: PageProps<"/programs/[slug
   if (!program) notFound();
 
   const accent = accents[program.accent];
+  const curriculum = curriculumFor(program.slug);
   const related = programs.filter((item) => item.slug !== program.slug).slice(0, 3);
 
   return (
@@ -250,6 +253,10 @@ export default async function ProgramPage({ params }: PageProps<"/programs/[slug
           </Reveal>
         </div>
       </Section>
+
+      {curriculum ? (
+        <CurriculumSection program={program} curriculum={curriculum} />
+      ) : null}
     </>
   );
 }

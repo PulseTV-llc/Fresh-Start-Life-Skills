@@ -3,7 +3,8 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Eyebrow } from "@/components/ui/Section";
 import { ButtonLink, ArrowIcon } from "@/components/ui/Button";
 import { ConvergenceDiagram } from "@/components/capstone/ConvergenceDiagram";
-import { capstone, buildModules } from "@/lib/capstone";
+import { capstone } from "@/lib/capstone";
+import { curricula } from "@/lib/curriculum";
 
 /**
  * The capstone band.
@@ -79,12 +80,12 @@ export function CapstoneSection() {
             What they learn to build with AI
           </p>
           <ul className="mx-auto mt-5 flex max-w-4xl flex-wrap justify-center gap-2.5">
-            {buildModules.map((module) => (
+            {curricula[capstone.slug].sessions.map((session) => (
               <li
-                key={module.id}
+                key={session.title}
                 className="rounded-full bg-cream/[0.07] px-4 py-2 text-sm font-medium text-cream/90 ring-1 ring-cream/15"
               >
-                {module.title}
+                {session.title}
               </li>
             ))}
           </ul>

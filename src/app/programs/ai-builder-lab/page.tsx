@@ -4,18 +4,18 @@ import { Section, SectionHeading, Eyebrow } from "@/components/ui/Section";
 import { Reveal, RevealGroup, RevealChild } from "@/components/ui/Reveal";
 import { ButtonLink, ArrowIcon } from "@/components/ui/Button";
 import { ProgramGlyph } from "@/components/brand/ProgramGlyph";
-import { BuildStack } from "@/components/capstone/BuildStack";
+import { CurriculumSection } from "@/components/programs/CurriculumSection";
 import { LaunchPreview } from "@/components/capstone/LaunchPreview";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, faqSchema, capstoneSchema } from "@/lib/jsonld";
 import { buildMetadata } from "@/lib/seo";
 import {
   capstone,
-  buildModules,
   principles,
   capstoneFaqs,
   capstoneKeywords,
 } from "@/lib/capstone";
+import { curricula } from "@/lib/curriculum";
 import { capstoneProgram, programs } from "@/lib/programs";
 import { site, mailto } from "@/lib/site";
 
@@ -223,27 +223,11 @@ export default function AiBuilderLabPage() {
         </Container>
       </section>
 
-      {/* ================= The build ================= */}
-      <section className="relative isolate overflow-hidden bg-[linear-gradient(178deg,#012f38_0%,#01414d_60%,#0a5054_100%)] py-20 text-white sm:py-28">
-        <Container className="relative">
-          <Reveal className="max-w-3xl">
-            <Eyebrow tone="inverse" className="text-sun-300">
-              The eight weeks
-            </Eyebrow>
-            <h2 className="mt-5 text-4xl leading-[1.08] text-white sm:text-5xl">
-              What they build, in the order they build it.
-            </h2>
-            <p className="mt-5 text-lg leading-relaxed text-cream/80">
-              Each week adds one real capability. Nothing is a toy exercise —
-              every piece stays in the project the student ships at the end.
-            </p>
-          </Reveal>
-
-          <div className="mt-12">
-            <BuildStack />
-          </div>
-        </Container>
-      </section>
+      {/* ================= The curriculum ================= */}
+      <CurriculumSection
+        program={capstoneProgram}
+        curriculum={curricula[capstone.slug]}
+      />
 
       {/* ================= How AI is taught ================= */}
       <Section className="bg-white">
@@ -302,8 +286,8 @@ export default function AiBuilderLabPage() {
           intro="Not a certificate. A live thing on the internet with their name on it, that they can explain line by line."
         />
         <RevealGroup className="mx-auto mt-12 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4" stagger={0.07}>
-          {buildModules
-            .flatMap((module) => module.outputs.slice(0, 1))
+          {curricula[capstone.slug].sessions
+            .map((session) => session.make)
             .concat(["A URL that works on any phone"])
             .slice(0, 8)
             .map((output) => (

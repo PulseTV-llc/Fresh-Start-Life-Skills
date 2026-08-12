@@ -117,7 +117,7 @@ export default async function OpengraphImage() {
               color: "#f5b336",
             }}
           >
-            freshstartlifeskills.com
+            freshstartlifeskills.org
           </div>
         </div>
 

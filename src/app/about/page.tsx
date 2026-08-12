@@ -6,7 +6,7 @@ import { ButtonLink, ArrowIcon } from "@/components/ui/Button";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/jsonld";
 import { buildMetadata } from "@/lib/seo";
-import { site } from "@/lib/site";
+import { site, mailto } from "@/lib/site";
 
 export const metadata = buildMetadata({
   title: "About Fresh Start Life Skills",
@@ -122,6 +122,12 @@ export default function AboutPage() {
                     <span className="block text-sm text-ink-muted">
                       {site.founder.role}
                     </span>
+                    <a
+                      href={mailto(site.emails.leadership)}
+                      className="mt-1 block break-all text-sm font-medium text-ink underline decoration-sun-400 decoration-2 underline-offset-4"
+                    >
+                      {site.emails.leadership}
+                    </a>
                   </span>
                 </div>
                 <p className="mt-5 text-sm leading-relaxed text-ink-muted">

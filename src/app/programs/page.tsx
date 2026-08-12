@@ -9,7 +9,7 @@ import { breadcrumbSchema, programListSchema } from "@/lib/jsonld";
 import { buildMetadata } from "@/lib/seo";
 import { programs, tracks, capstoneProgram } from "@/lib/programs";
 import { capstone } from "@/lib/capstone";
-import { site } from "@/lib/site";
+import { site, mailto } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 export const metadata = buildMetadata({
@@ -230,6 +230,14 @@ export default function ProgramsPage() {
           <p className="mt-4 max-w-xl leading-relaxed text-cream/75">
             Call and tell us what they like. We have put enough kids through
             enough workshops to have a good guess about where they will thrive.
+            You can also email{" "}
+            <a
+              href={mailto(site.emails.support)}
+              className="font-semibold text-sun-300 underline-offset-4 hover:underline"
+            >
+              {site.emails.support}
+            </a>
+            .
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <ButtonLink href={site.contact.phoneHref} size="lg">

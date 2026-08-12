@@ -6,7 +6,7 @@ import { ContactQuestionnaire } from "@/components/contact/ContactQuestionnaire"
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/jsonld";
 import { buildMetadata } from "@/lib/seo";
-import { site } from "@/lib/site";
+import { site, mailto } from "@/lib/site";
 
 export const metadata = buildMetadata({
   title: "Contact",
@@ -33,7 +33,7 @@ const details = [
     label: "Email",
     value: site.contact.email,
     href: site.contact.emailHref,
-    hint: "Good for details, documents and partnerships.",
+    hint: "General enquiries. We read everything that lands here.",
     glyph: (
       <>
         <rect x="3" y="5.5" width="18" height="13" rx="2.5" />
@@ -53,6 +53,13 @@ const details = [
       </>
     ),
   },
+];
+
+/** Which inbox handles what. Board members are not a public channel. */
+const teams = [
+  { what: "Programs, enrollment and help", email: site.emails.support },
+  { what: "Donations, receipts and sponsorship", email: site.emails.billing },
+  { what: "Press and official enquiries", email: site.emails.leadership },
 ];
 
 export default function ContactPage() {
@@ -158,7 +165,31 @@ export default function ContactPage() {
             ))}
           </ul>
 
-          <div className="mt-6 rounded-[1.5rem] bg-teal-50 p-6 ring-1 ring-teal-200/70">
+          {/* Routing enquiries to the right inbox is the difference between a
+              message being answered and a message sitting in a shared account. */}
+          <div className="mt-4 rounded-[1.5rem] bg-white p-6 shadow-[var(--shadow-soft)] ring-1 ring-ink/[0.05]">
+            <h3 className="font-display text-lg font-semibold text-ink">
+              Or write to the right team directly
+            </h3>
+            <ul className="mt-4 flex flex-col divide-y divide-ink/[0.07]">
+              {teams.map((team) => (
+                <li
+                  key={team.email}
+                  className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 py-3"
+                >
+                  <span className="text-sm text-ink-muted">{team.what}</span>
+                  <a
+                    href={mailto(team.email)}
+                    className="font-medium text-ink underline decoration-sun-400 decoration-2 underline-offset-4"
+                  >
+                    {team.email}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="mt-4 rounded-[1.5rem] bg-teal-50 p-6 ring-1 ring-teal-200/70">
             <h3 className="font-display text-lg font-semibold text-teal-900">
               Communities we serve
             </h3>

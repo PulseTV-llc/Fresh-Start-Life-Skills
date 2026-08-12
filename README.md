@@ -166,6 +166,25 @@ shadows are tokens too — no ad-hoc `cubic-bezier` or gray drop shadows.
 - Name/address/phone comes from one source (`lib/site.ts`) so local citations
   stay byte-identical
 
+**Indexing is deliberately OFF.** Two conditions must both hold: the deployed
+host matches `site.url`, *and* `NEXT_PUBLIC_ALLOW_INDEX=true`. The second is a
+manual switch so that fixing the domain can never open the site to crawlers as
+a side effect — the placeholder students and testimonials are still live, and
+their warning banners render only in development. Turn it on after real content
+replaces both.
+
+**Email routing** — `lib/site.ts` holds the mailboxes; use the one that matches
+the context:
+
+| Inbox | Used for |
+| --- | --- |
+| `info@` | the public default — footer, header, contact page, schema, form recipient |
+| `support@` | programs, enrollment, registration, "still have a question" |
+| `billing@` | gifts, receipts, sponsorship — anything with money attached |
+| `dorothy@` | the president: press, official and leadership correspondence |
+
+Board-member addresses are deliberately not published anywhere.
+
 **Before launch:** claim Google Search Console and add the token in
 `app/layout.tsx`; create/verify the Google Business Profile and replace the
 approximate `latitude`/`longitude` in `lib/site.ts` with the exact pin.
@@ -266,5 +285,5 @@ by craft, with a lightbox that carries each student's own words.
 
 Not deployed yet — deliberately. When ready, Vercel is the path of least
 resistance (`vercel --prod`); the site is static enough for Netlify or
-Cloudflare Pages too. Point `freshstartlifeskills.com` at the host and set
+Cloudflare Pages too. Point `www.freshstartlifeskills.org` at the host and set
 `site.url` in `lib/site.ts` to the final origin.

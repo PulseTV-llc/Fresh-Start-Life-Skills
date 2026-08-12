@@ -39,6 +39,7 @@ export function organizationSchema() {
       "@type": "Person",
       name: site.founder.name,
       jobTitle: site.founder.role,
+      email: site.emails.leadership,
     },
     address: {
       "@type": "PostalAddress",
@@ -66,14 +67,30 @@ export function organizationSchema() {
       "film and media production for youth",
     ],
     sameAs: Object.values(site.socials).filter(Boolean),
-    contactPoint: {
-      "@type": "ContactPoint",
-      contactType: "Program enrollment",
-      telephone: site.contact.phone,
-      email: site.contact.email,
-      areaServed: "US-LA",
-      availableLanguage: ["English"],
-    },
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        telephone: site.contact.phone,
+        email: site.emails.support,
+        areaServed: "US-LA",
+        availableLanguage: ["English"],
+      },
+      {
+        "@type": "ContactPoint",
+        contactType: "donations",
+        email: site.emails.billing,
+        areaServed: "US-LA",
+        availableLanguage: ["English"],
+      },
+      {
+        "@type": "ContactPoint",
+        contactType: "public engagement",
+        email: site.emails.general,
+        areaServed: "US-LA",
+        availableLanguage: ["English"],
+      },
+    ],
   };
 }
 

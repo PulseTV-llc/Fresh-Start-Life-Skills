@@ -28,7 +28,7 @@ export function getStripe(): Stripe {
       apiVersion: "2026-07-29.dahlia",
       appInfo: {
         name: "Fresh Start Life Skills",
-        url: "https://freshstartlifeskills.com",
+        url: "https://www.freshstartlifeskills.org",
       },
       typescript: true,
     });

@@ -7,7 +7,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, faqSchema } from "@/lib/jsonld";
 import { buildMetadata } from "@/lib/seo";
 import { isFrequency, stripeConfigured, validateAmount } from "@/lib/donations";
-import { site } from "@/lib/site";
+import { site, mailto } from "@/lib/site";
 
 export const metadata = buildMetadata({
   title: "Donate",
@@ -19,7 +19,7 @@ export const metadata = buildMetadata({
 const otherWays = [
   {
     title: "Mail a check",
-    body: `Make it payable to ${site.legalName} and mail to ${site.address.full}. We will send a written acknowledgment for your records.`,
+    body: `Make it payable to ${site.legalName} and mail to ${site.address.full}. We will send a written acknowledgment for your records — email ${site.emails.billing} if you need it sooner.`,
   },
   {
     title: "Give materials",
@@ -39,7 +39,7 @@ const faqs = [
   {
     question: "Is my donation to Fresh Start Life Skills tax-deductible?",
     answer:
-      "Yes. Fresh Start Life Skills Inc. is a 501(c)(3) tax-exempt nonprofit organization, and gifts are tax-deductible to the extent allowed by law.",
+      `Yes. Fresh Start Life Skills Inc. is a 501(c)(3) tax-exempt nonprofit organization, and gifts are tax-deductible to the extent allowed by law. For a receipt or any question about a gift, email ${site.emails.billing}.`,
   },
   {
     question: "Where does my donation go?",
@@ -150,6 +150,16 @@ export default async function DonatePage({ searchParams }: PageProps<"/donate">)
               </div>
             ))}
           </dl>
+          <p className="mt-8 text-center text-ink-muted">
+            Questions about a gift, a receipt or sponsorship?{" "}
+            <a
+              href={mailto(site.emails.billing)}
+              className="font-semibold text-ink underline decoration-sun-400 decoration-2 underline-offset-4"
+            >
+              {site.emails.billing}
+            </a>
+          </p>
+
           <div className="mt-8 flex flex-wrap gap-3">
             <ButtonLink href="/contact">
               Ask us anything

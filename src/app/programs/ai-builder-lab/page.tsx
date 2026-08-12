@@ -17,7 +17,7 @@ import {
   capstoneKeywords,
 } from "@/lib/capstone";
 import { capstoneProgram, programs } from "@/lib/programs";
-import { site } from "@/lib/site";
+import { site, mailto } from "@/lib/site";
 
 export const metadata = buildMetadata({
   title: "AI Builder Lab — Kids Learn to Build & Launch Real Apps with AI",
@@ -255,11 +255,21 @@ export default function AiBuilderLabPage() {
               title="Using AI properly is the actual curriculum."
               intro="Anyone can type a prompt. The skill worth having is judgment — knowing what to ask for, checking what comes back, and staying responsible for what you ship."
             />
-            <div className="mt-8">
-              <ButtonLink href="/contact" variant="secondary">
+            <div className="mt-8 flex flex-col gap-4">
+              <ButtonLink href="/contact" variant="secondary" className="w-fit">
                 Questions from parents welcome
                 <ArrowIcon />
               </ButtonLink>
+              <p className="text-sm text-ink-muted">
+                Or email{" "}
+                <a
+                  href={mailto(site.emails.support)}
+                  className="font-semibold text-ink underline decoration-sun-400 decoration-2 underline-offset-4"
+                >
+                  {site.emails.support}
+                </a>{" "}
+                and we will answer it properly.
+              </p>
             </div>
           </Reveal>
 

@@ -9,7 +9,7 @@ import { breadcrumbSchema } from "@/lib/jsonld";
 import { buildMetadata } from "@/lib/seo";
 import { upcomingSessions, scheduleShape } from "@/lib/events";
 import { programs, programBySlug } from "@/lib/programs";
-import { site } from "@/lib/site";
+import { site, mailto } from "@/lib/site";
 
 export const metadata = buildMetadata({
   title: "Sessions & Registration",
@@ -102,6 +102,16 @@ export default function EventsPage() {
                     Browse programs
                   </ButtonLink>
                 </div>
+                <p className="mt-5 text-sm text-ink-muted">
+                  Prefer email? Registration questions go to{" "}
+                  <a
+                    href={mailto(site.emails.support)}
+                    className="font-semibold text-ink underline decoration-sun-400 decoration-2 underline-offset-4"
+                  >
+                    {site.emails.support}
+                  </a>
+                  .
+                </p>
               </div>
             </div>
           </Reveal>

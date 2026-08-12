@@ -24,7 +24,9 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 const FROM = process.env.CONTACT_FROM_EMAIL ?? "Fresh Start Website <onboarding@resend.dev>";
-const TO = process.env.CONTACT_TO_EMAIL ?? site.contact.email;
+// General enquiries inbox — the questionnaire covers every intent, so a
+// single monitored address beats guessing a department from the answers.
+const TO = process.env.CONTACT_TO_EMAIL ?? site.emails.general;
 
 /** Order the fields appear in the email — mirrors the questionnaire. */
 const FIELD_ORDER = [

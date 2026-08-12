@@ -16,19 +16,47 @@ export const site = {
   mission:
     "Fresh Start Life Skills Inc. is a non-profit organization dedicated to empowering individuals of all ages.",
 
-  // TODO(Darius): point at the live domain once DNS is cut over.
-  url: "https://freshstartlifeskills.com",
+  /**
+   * Canonical origin. The apex 308-redirects to www on Vercel, so www is the
+   * primary and every canonical URL, OG tag and sitemap entry must match it —
+   * pointing them at the apex would send crawlers through a redirect on every
+   * single URL.
+   */
+  url: "https://www.freshstartlifeskills.org",
 
   founder: {
     name: "Dorothy Jackson",
     role: "Founder & Executive Director",
   },
 
+  /**
+   * Departmental mailboxes.
+   *
+   * Routing enquiries to the right inbox is the difference between a message
+   * being answered and a message sitting in a shared account. `general` is the
+   * public default and appears in the footer, the header and the schema.
+   *
+   * There is deliberately no board-member address here: board members are not a
+   * public contact channel, and publishing one invites mail the org then has to
+   * forward internally anyway.
+   */
+  emails: {
+    /** Everything with no better home. The default public address. */
+    general: "info@freshstartlifeskills.org",
+    /** Programs, enrollment, "I have a question" help. */
+    support: "support@freshstartlifeskills.org",
+    /** Gifts, receipts, sponsorship, anything with money attached. */
+    billing: "billing@freshstartlifeskills.org",
+    /** The president. Press, official and leadership correspondence. */
+    leadership: "dorothy@freshstartlifeskills.org",
+  },
+
   contact: {
     phone: "(318) 704-2808",
     phoneHref: "tel:+13187042808",
-    email: "freshstartlifeskills@gmail.com",
-    emailHref: "mailto:freshstartlifeskills@gmail.com",
+    /** The public default — kept in sync with `emails.general`. */
+    email: "info@freshstartlifeskills.org",
+    emailHref: "mailto:info@freshstartlifeskills.org",
   },
 
   address: {
@@ -108,3 +136,6 @@ export const primaryNav: NavItem[] = [
   },
   { href: "/contact", label: "Contact", description: "Reach the Fresh Start team" },
 ];
+
+/** `mailto:` for any of the departmental mailboxes. */
+export const mailto = (address: string) => `mailto:${address}`;

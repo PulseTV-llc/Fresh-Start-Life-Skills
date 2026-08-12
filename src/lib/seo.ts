@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { site } from "./site";
+import { indexingAllowed } from "./deployment";
 
 /**
  * Per-page metadata builder.
@@ -33,7 +34,7 @@ export function buildMetadata({
     description,
     keywords,
     alternates: { canonical: url },
-    robots: noIndex
+    robots: noIndex || !indexingAllowed
       ? { index: false, follow: false }
       : {
           index: true,

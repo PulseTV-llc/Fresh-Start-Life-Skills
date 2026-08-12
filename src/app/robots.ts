@@ -1,7 +1,13 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
+import { indexingAllowed } from "@/lib/deployment";
 
 export default function robots(): MetadataRoute.Robots {
+  // Preview hosts (*.vercel.app) are closed off entirely — see lib/deployment.ts.
+  if (!indexingAllowed) {
+    return { rules: [{ userAgent: "*", disallow: "/" }] };
+  }
+
   return {
     rules: [
       {

@@ -41,10 +41,20 @@ export type Program = {
    */
   capstone?: boolean;
   /**
-   * TODO(assets): swap in a real photograph of this workshop in progress.
-   * Target 1600×1200, students' faces only with signed media releases on file.
+   * A real photograph of the workshop, in `public/programs/`. Programs without
+   * one fall back to a branded placeholder that names the shot still needed.
+   *
+   * Only ever a real photo of a real session — never a stock image, and never
+   * captioned with an invented student. A signed media release must be on file
+   * for anyone identifiable.
    */
   photo?: string;
+  /** Required whenever `photo` is set. Describes the scene, names nobody. */
+  photoAlt?: string;
+  /** Shown under the photo. Deliberately generic — no names, no stories. */
+  photoCaption?: string;
+  /** Natural aspect of `photo`, so the feature slot never crops it. */
+  photoAspect?: string;
 };
 
 export const programs: Program[] = [
@@ -185,6 +195,11 @@ export const programs: Program[] = [
     cost: "Low or no cost",
     glyph: "film",
     accent: "teal",
+    photo: "/programs/film-directing.jpg",
+    photoAlt:
+      "A student behind a professional cinema camera wearing headphones, lit by a softbox, with an instructor watching the shot alongside him.",
+    photoCaption: "In the studio — Film & Directing",
+    photoAspect: "1320 / 1084",
   },
 ];
 

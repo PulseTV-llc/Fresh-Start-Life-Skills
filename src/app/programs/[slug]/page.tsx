@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section } from "@/components/ui/Section";
@@ -135,12 +136,37 @@ export default async function ProgramPage({ params }: PageProps<"/programs/[slug
             </ul>
 
             <div className="mt-12">
-              {/* TODO(assets): photograph of this specific workshop in progress. */}
-              <PhotoPlaceholder
-                label={`${program.title} in session — students at work, instructor coaching.`}
-                aspect="16/10"
-                tone={accent.tone}
-              />
+              {program.photo ? (
+                /* Rendered at the photograph's own aspect ratio so nothing is
+                   cropped — this is the program's feature image. */
+                <figure>
+                  <div
+                    className="relative w-full overflow-hidden rounded-[1.5rem] bg-cream-100 ring-1 ring-ink/[0.06]"
+                    style={{ aspectRatio: program.photoAspect ?? "4 / 3" }}
+                  >
+                    <Image
+                      src={program.photo}
+                      alt={program.photoAlt ?? `${program.title} in session.`}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 58vw"
+                      className="object-cover"
+                      priority
+                    />
+                  </div>
+                  {program.photoCaption ? (
+                    <figcaption className="mt-3 text-sm text-ink-muted">
+                      {program.photoCaption}
+                    </figcaption>
+                  ) : null}
+                </figure>
+              ) : (
+                /* TODO(assets): photograph of this specific workshop in progress. */
+                <PhotoPlaceholder
+                  label={`${program.title} in session — students at work, instructor coaching.`}
+                  aspect="16/10"
+                  tone={accent.tone}
+                />
+              )}
             </div>
           </Reveal>
 

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   AnimatePresence,
   motion,
@@ -90,6 +91,22 @@ function ProgramCard({ program, featured }: { program: Program; featured?: boole
           featured && "sm:flex-row sm:items-center sm:gap-10 sm:p-10",
         )}
       >
+        {/* A real photograph, where one exists, banners the card. Programs
+            without one keep the glyph treatment, so the grid fills in
+            progressively as Dorothy sends photos rather than all at once. */}
+        {program.photo && !featured ? (
+          <div className="relative -mx-7 -mt-7 mb-0 aspect-16/10 overflow-hidden">
+            <Image
+              src={program.photo}
+              alt=""
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="object-cover transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-105"
+            />
+            <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white/85 to-transparent" />
+          </div>
+        ) : null}
+
         {/* Cursor spotlight */}
         <motion.span
           aria-hidden="true"
@@ -97,12 +114,21 @@ function ProgramCard({ program, featured }: { program: Program; featured?: boole
           style={{ background: spotlight }}
         />
 
-        <div className={cn("relative", featured && "sm:shrink-0")}>
+        {/* With a photo above it the glyph sits on the image edge, like a
+            badge — floating loose underneath reads as a layout accident. */}
+        <div
+          className={cn(
+            "relative",
+            featured && "sm:shrink-0",
+            program.photo && !featured && "z-10 -mt-9",
+          )}
+        >
           <div
             className={cn(
               "flex size-16 items-center justify-center rounded-2xl transition-transform duration-500 ease-[var(--ease-spring)] group-hover:-rotate-6 group-hover:scale-110",
               accent.glyph,
               featured && "sm:size-24",
+              program.photo && !featured && "shadow-[var(--shadow-soft)] ring-4 ring-white",
             )}
           >
             <ProgramGlyph

@@ -244,7 +244,7 @@ significant ones:
 | ⚠️ Replace placeholder testimonials with real, consented quotes | `lib/stories.ts` |
 | ⚠️ Replace placeholder Studio pieces — those students are not real | `lib/studio.ts` |
 | Stripe keys (test first, then live) | `.env.example` |
-| Real photography (every `PhotoPlaceholder` states the shot needed) | throughout |
+| Real photography — Film & Directing is done; every remaining `PhotoPlaceholder` states the shot still needed | throughout |
 | Original logo artwork, if it exists | `components/brand/Logo.tsx` |
 | EIN from the IRS determination letter | `lib/site.ts` |
 | Real social media handles | `lib/site.ts` |

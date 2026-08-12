@@ -1,9 +1,10 @@
+import Image from "next/image";
 import { Section, SectionHeading, Eyebrow } from "@/components/ui/Section";
 import { Reveal, RevealGroup, RevealChild } from "@/components/ui/Reveal";
 import { Counter } from "@/components/ui/Counter";
 import { PhotoPlaceholder } from "@/components/ui/PhotoPlaceholder";
 import { ButtonLink, ArrowIcon } from "@/components/ui/Button";
-import { programs } from "@/lib/programs";
+import { programs, programBySlug } from "@/lib/programs";
 import { site } from "@/lib/site";
 
 /**
@@ -58,6 +59,8 @@ const reasons = [
   },
 ];
 
+const filmProgram = programBySlug("film-recording-and-directing");
+
 export function ImpactSection() {
   return (
     <Section id="impact" className="bg-cream">
@@ -109,12 +112,23 @@ export function ImpactSection() {
         <div className="lg:col-span-7">
           <RevealGroup className="flex flex-col gap-8" stagger={0.12}>
             <RevealChild>
-              {/* TODO(assets): hero photograph — a full workshop in progress. */}
-              <PhotoPlaceholder
-                label="Wide shot of an after-school workshop in progress — students at the sewing machines, instructor leaning in to help."
-                aspect="16/10"
-                tone="green"
-              />
+              {/* A real session, so this slot no longer needs a placeholder.
+                  Caption stays generic: the people in it are real, and no
+                  invented name or story gets attached to them. */}
+              <figure>
+                <div className="relative aspect-16/10 w-full overflow-hidden rounded-[1.5rem] bg-cream-100 ring-1 ring-ink/[0.06]">
+                  <Image
+                    src={filmProgram?.photo ?? ""}
+                    alt={filmProgram?.photoAlt ?? ""}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 58vw"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="mt-3 text-sm text-ink-muted">
+                  In the studio — Film &amp; Directing, one of eight workshops.
+                </figcaption>
+              </figure>
             </RevealChild>
 
             {reasons.map((reason, index) => (

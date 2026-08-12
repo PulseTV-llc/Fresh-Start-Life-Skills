@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { RevealGroup, RevealChild, Reveal } from "@/components/ui/Reveal";
@@ -157,12 +158,26 @@ export default function ProgramsPage() {
                   <RevealChild key={program.slug}>
                     <Link
                       href={`/programs/${program.slug}`}
-                      className="group flex h-full flex-col rounded-[1.75rem] bg-cream p-7 ring-1 ring-ink/[0.06] transition-all duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1.5 hover:bg-white hover:shadow-[var(--shadow-lift)]"
+                      className="group flex h-full flex-col overflow-hidden rounded-[1.75rem] bg-cream p-7 ring-1 ring-ink/[0.06] transition-all duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1.5 hover:bg-white hover:shadow-[var(--shadow-lift)]"
                     >
+                      {program.photo ? (
+                        <div className="relative -mx-7 -mt-7 aspect-16/10 overflow-hidden">
+                          <Image
+                            src={program.photo}
+                            alt=""
+                            fill
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            className="object-cover transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-105"
+                          />
+                        </div>
+                      ) : null}
+
                       <span
                         className={cn(
                           "flex size-14 items-center justify-center rounded-2xl transition-transform duration-500 ease-[var(--ease-spring)] group-hover:-rotate-6 group-hover:scale-110",
                           accents[program.accent],
+                          program.photo &&
+                            "relative z-10 -mt-8 shadow-[var(--shadow-soft)] ring-4 ring-cream group-hover:ring-white",
                         )}
                       >
                         <ProgramGlyph glyph={program.glyph} className="size-8" />

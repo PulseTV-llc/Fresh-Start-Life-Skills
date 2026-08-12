@@ -81,7 +81,7 @@ src/
 │   ├── home/                   Hero, ServiceMarquee, Mission, ProgramsShowcase,
 │   │                           StudioTeaser, Impact, Stories, Pathways, DonateCTA
 │   ├── layout/                 SiteHeader, SiteFooter, PageHero
-│   ├── contact/ContactForm.tsx
+│   ├── contact/                ContactQuestionnaire, QuestionFields
 │   ├── seo/JsonLd.tsx
 │   └── ui/                     Button, Container, Section, Reveal, Counter,
 │                               PhotoPlaceholder
@@ -91,6 +91,7 @@ src/
     ├── events.ts               Session dates (intentionally empty — see file)
     ├── studio.ts               ⭐ ⚠️ Studio pieces (PLACEHOLDER students)
     ├── stories.ts              ⚠️ PLACEHOLDER testimonials
+    ├── contactFlow.ts          ⭐ The contact questionnaire, as data
     ├── donations.ts            ⭐ Tiers + validation, shared client/server
     ├── stripe.ts               server-only Stripe client
     ├── useBrandMotion.ts       Hydration-safe reduced-motion hook
@@ -231,7 +232,7 @@ significant ones:
 | Dorothy's bio, board and instructors | `app/about/page.tsx` |
 | Confirmed session days/times, then real dates | `lib/events.ts` |
 | Verify the donation impact amounts against real material costs | `lib/donations.ts` |
-| Contact form endpoint (currently composes a mailto:) | `components/contact/ContactForm.tsx` |
+| Resend API key so the contact questionnaire actually emails | `.env.example` |
 | Legal review of the privacy policy | `app/privacy/page.tsx` |
 
 Dev-only banners render on the homepage and in the Studio while placeholder

@@ -1,0 +1,245 @@
+@import "tailwindcss";
+
+/* ============================================================================
+   Fresh Start Life Skills — Design System
+   Brand motif: children running over green hills toward an orange rising sun
+   under a blue sky. Palette: sunrise orange, growth green, sky blue, warm white.
+   ========================================================================= */
+
+@theme {
+  /* --- Sunrise (primary / energy) ------------------------------------- */
+  --color-sun-50: #fff6ec;
+  --color-sun-100: #ffe9d2;
+  --color-sun-200: #ffd3a5;
+  --color-sun-300: #ffb870;
+  --color-sun-400: #ff9a3d;
+  --color-sun-500: #f97316;
+  --color-sun-600: #e25c08;
+  --color-sun-700: #b84708;
+  --color-sun-800: #93390d;
+  --color-sun-900: #78300e;
+
+  /* --- Leaf (growth / hills) ------------------------------------------ */
+  --color-leaf-50: #eefaf1;
+  --color-leaf-100: #d5f2dd;
+  --color-leaf-200: #ade4bc;
+  --color-leaf-300: #79cf93;
+  --color-leaf-400: #45b26b;
+  --color-leaf-500: #22964c;
+  --color-leaf-600: #16783c;
+  --color-leaf-700: #135f31;
+  --color-leaf-800: #124c2a;
+  --color-leaf-900: #103f25;
+
+  /* --- Sky (calm / trust) --------------------------------------------- */
+  --color-sky-brand-50: #eff9ff;
+  --color-sky-brand-100: #dbf0ff;
+  --color-sky-brand-200: #b7e3ff;
+  --color-sky-brand-300: #7acfff;
+  --color-sky-brand-400: #34b6fb;
+  --color-sky-brand-500: #0b9bec;
+  --color-sky-brand-600: #007aca;
+  --color-sky-brand-700: #0061a3;
+  --color-sky-brand-800: #065286;
+  --color-sky-brand-900: #0b446f;
+
+  /* --- Neutrals: warm, never cold ------------------------------------- */
+  --color-cream: #fffcf5;
+  --color-cream-100: #fdf6e9;
+  --color-sand: #f4ece0;
+  --color-ink: #10201a;
+  --color-ink-soft: #2c4139;
+  --color-ink-muted: #5a6f66;
+
+  /* --- Typography ------------------------------------------------------ */
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+
+  /* --- Motion ---------------------------------------------------------- */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* --- Shadows: warm-tinted, never neutral gray ------------------------ */
+  --shadow-soft: 0 1px 2px rgba(16, 32, 26, 0.04),
+    0 8px 24px -8px rgba(16, 32, 26, 0.1);
+  --shadow-lift: 0 2px 4px rgba(16, 32, 26, 0.05),
+    0 24px 48px -16px rgba(16, 32, 26, 0.18);
+  --shadow-glow: 0 0 0 1px rgba(249, 115, 22, 0.15),
+    0 18px 40px -12px rgba(249, 115, 22, 0.35);
+}
+
+/* ============================================================================
+   Base
+   ========================================================================= */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.022em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Visible, on-brand focus for every interactive element. WCAG 2.4.7 */
+  :where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+    outline: 2px solid var(--color-sun-600);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background-color: var(--color-sun-200);
+    color: var(--color-sun-900);
+  }
+
+  /* Native form controls inherit the brand */
+  input,
+  textarea,
+  select {
+    font-family: inherit;
+  }
+}
+
+/* ============================================================================
+   Utilities
+   ========================================================================= */
+
+@utility text-gradient-sunrise {
+  background-image: linear-gradient(
+    100deg,
+    var(--color-sun-600) 0%,
+    var(--color-sun-400) 45%,
+    var(--color-sun-500) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Fine-grained paper grain — keeps large flat fills from banding */
+@utility grain {
+  position: relative;
+}
+@utility grain-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+/* ============================================================================
+   Keyframe animations (CSS-driven; Motion handles scroll/gesture work)
+   ========================================================================= */
+
+@keyframes fsl-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fsl-sun-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes fsl-drift {
+  from {
+    transform: translateX(-6%);
+  }
+  to {
+    transform: translateX(6%);
+  }
+}
+
+@keyframes fsl-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes fsl-shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes fsl-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-float {
+  animation: fsl-float 7s var(--ease-out-expo) infinite;
+}
+/* Small amplitude on purpose: the running children must stay planted on the
+   hill. Anything larger than a few pixels reads as floating, not striding. */
+.animate-bob {
+  animation: fsl-bob 5s ease-in-out infinite;
+}
+.animate-sun-pulse {
+  animation: fsl-sun-pulse 7s ease-in-out infinite;
+}
+.animate-drift {
+  animation: fsl-drift 34s ease-in-out infinite alternate;
+}
+.animate-marquee {
+  animation: fsl-marquee 42s linear infinite;
+}
+
+/* ============================================================================
+   Reduced motion — honor the user's OS setting everywhere. WCAG 2.3.3
+   ========================================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

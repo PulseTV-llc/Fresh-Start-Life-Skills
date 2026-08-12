@@ -87,6 +87,11 @@ export const primaryNav: NavItem[] = [
     description: "Hands-on workshops for ages 8–17",
   },
   {
+    href: "/studio",
+    label: "Studio",
+    description: "Gallery of what our students make",
+  },
+  {
     href: "/events",
     label: "Events",
     description: "Upcoming sessions and registration",

@@ -237,7 +237,7 @@ export function ProgramsShowcase() {
         layout
         className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
       >
-        <AnimatePresence mode="popLayout">
+        <AnimatePresence>
           {visible.map((program) => (
             <ProgramCard
               key={program.slug}

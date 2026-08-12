@@ -6,7 +6,7 @@ import { ButtonLink, ArrowIcon } from "@/components/ui/Button";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, faqSchema } from "@/lib/jsonld";
 import { buildMetadata } from "@/lib/seo";
-import { donationsConfigured } from "@/lib/donations";
+import { isFrequency, stripeConfigured, validateAmount } from "@/lib/donations";
 import { site } from "@/lib/site";
 
 export const metadata = buildMetadata({
@@ -55,8 +55,11 @@ const faqs = [
 
 export default async function DonatePage({ searchParams }: PageProps<"/donate">) {
   const params = await searchParams;
-  const amount = typeof params.amount === "string" ? params.amount : null;
-  const frequency = typeof params.frequency === "string" ? params.frequency : null;
+  // A selection made in the homepage band is carried across so the visitor does
+  // not have to choose an amount twice.
+  const amount = validateAmount(params.amount) ?? undefined;
+  const frequency = isFrequency(params.frequency) ? params.frequency : "once";
+  const canceled = params.status === "canceled";
 
   return (
     <>
@@ -79,28 +82,37 @@ export default async function DonatePage({ searchParams }: PageProps<"/donate">)
           { name: "Donate", href: "/donate" },
         ]}
       >
-        {/* Carries the visitor's choice across from the homepage CTA so the
-            selection is never lost while online giving is being set up. */}
-        {amount && !donationsConfigured ? (
+        {canceled ? (
           <p className="rounded-2xl bg-white px-5 py-4 text-ink shadow-[var(--shadow-soft)]">
-            You selected a{" "}
-            <strong className="font-semibold">
-              ${amount}
-              {frequency === "monthly" ? " monthly" : ""}
-            </strong>{" "}
-            gift. Online giving is not live yet — call{" "}
+            No charge was made — your checkout was cancelled. Pick an amount
+            below whenever you are ready, or call{" "}
+            <a
+              href={site.contact.phoneHref}
+              className="font-semibold underline decoration-sun-400 decoration-2 underline-offset-2"
+            >
+              {site.contact.phone}
+            </a>
+            .
+          </p>
+        ) : !stripeConfigured ? (
+          <p className="rounded-2xl bg-white px-5 py-4 text-ink shadow-[var(--shadow-soft)]">
+            Online giving is being connected right now. To give today, call{" "}
             <a
               href={site.contact.phoneHref}
               className="font-semibold underline decoration-sun-400 decoration-2 underline-offset-2"
             >
               {site.contact.phone}
             </a>{" "}
-            and we will take it from there.
+            or mail a check to {site.address.full}.
           </p>
         ) : null}
       </PageHero>
 
-      <DonateCTA />
+      <DonateCTA
+        initialAmount={amount}
+        initialFrequency={frequency}
+        source="donate-page"
+      />
 
       <Section>
         <SectionHeading

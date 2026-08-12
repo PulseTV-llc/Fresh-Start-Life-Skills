@@ -3,6 +3,7 @@ import { ServiceMarquee } from "@/components/home/ServiceMarquee";
 import { MissionSection } from "@/components/home/MissionSection";
 import { ProgramsShowcase } from "@/components/home/ProgramsShowcase";
 import { ImpactSection } from "@/components/home/ImpactSection";
+import { StudioTeaser } from "@/components/home/StudioTeaser";
 import { StoriesSection } from "@/components/home/StoriesSection";
 import { PathwaysSection } from "@/components/home/PathwaysSection";
 import { DonateCTA } from "@/components/home/DonateCTA";
@@ -54,6 +55,7 @@ export default function HomePage() {
       <ServiceMarquee />
       <MissionSection />
       <ProgramsShowcase />
+      <StudioTeaser />
       <ImpactSection />
       <StoriesSection />
       <PathwaysSection />

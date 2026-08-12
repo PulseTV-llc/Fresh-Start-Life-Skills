@@ -76,6 +76,8 @@ export function SiteHeader() {
       </a>
 
       <header
+        // Read by the `body:has([data-hero="dark"])` rules in globals.css.
+        data-at-top={scrolled ? "false" : "true"}
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-[var(--ease-out-expo)]",
           scrolled
@@ -106,7 +108,7 @@ export function SiteHeader() {
                       href={item.href}
                       aria-current={isActive(item.href) ? "page" : undefined}
                       className={cn(
-                        "relative rounded-full px-4 py-2.5 text-[0.94rem] font-medium transition-colors duration-300",
+                        "fsl-nav-link relative rounded-full px-4 py-2.5 text-[0.94rem] font-medium transition-colors duration-300",
                         isActive(item.href)
                           ? "text-ink"
                           : "text-ink-soft hover:text-ink",
@@ -129,7 +131,7 @@ export function SiteHeader() {
             <div className="flex items-center gap-3">
               <a
                 href={site.contact.phoneHref}
-                className="hidden rounded-full px-3 py-2 text-sm font-medium text-ink-soft transition-colors hover:text-ink xl:inline-flex"
+                className="fsl-nav-link hidden rounded-full px-3 py-2 text-sm font-medium text-ink-soft transition-colors hover:text-ink xl:inline-flex"
               >
                 {site.contact.phone}
               </a>
@@ -151,7 +153,7 @@ export function SiteHeader() {
                 onClick={() => setMenuOpen((open) => !open)}
                 aria-expanded={menuOpen}
                 aria-controls="mobile-menu"
-                className="relative z-50 flex size-11 items-center justify-center rounded-full bg-white/70 ring-1 ring-ink/10 backdrop-blur transition hover:bg-white lg:hidden"
+                className="fsl-menu-toggle relative z-50 flex size-11 items-center justify-center rounded-full bg-white/70 ring-1 ring-ink/10 backdrop-blur transition hover:bg-white lg:hidden"
               >
                 <span className="sr-only">
                   {menuOpen ? "Close menu" : "Open menu"}
@@ -159,13 +161,13 @@ export function SiteHeader() {
                 <span aria-hidden="true" className="relative block h-3.5 w-5">
                   <span
                     className={cn(
-                      "absolute inset-x-0 top-0 h-0.5 rounded-full bg-ink transition-all duration-300 ease-[var(--ease-out-expo)]",
+                      "fsl-menu-bar absolute inset-x-0 top-0 h-0.5 rounded-full bg-ink transition-all duration-300 ease-[var(--ease-out-expo)]",
                       menuOpen && "top-1.5 rotate-45",
                     )}
                   />
                   <span
                     className={cn(
-                      "absolute inset-x-0 bottom-0 h-0.5 rounded-full bg-ink transition-all duration-300 ease-[var(--ease-out-expo)]",
+                      "fsl-menu-bar absolute inset-x-0 bottom-0 h-0.5 rounded-full bg-ink transition-all duration-300 ease-[var(--ease-out-expo)]",
                       menuOpen && "bottom-1.5 -rotate-45",
                     )}
                   />

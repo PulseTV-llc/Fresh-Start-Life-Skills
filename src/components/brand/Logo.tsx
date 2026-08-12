@@ -40,8 +40,8 @@ export function LogoMark({
       role="img"
       aria-label={`${site.legalName} logo`}
       className={cn(
-        "relative block size-11 shrink-0",
-        onDark && "rounded-full bg-cream shadow-[0_6px_18px_-6px_rgba(0,0,0,0.55)]",
+        "fsl-logo-coin relative block size-11 shrink-0 rounded-full",
+        onDark && "bg-cream shadow-[0_6px_18px_-6px_rgba(0,0,0,0.55)]",
         className,
       )}
     >
@@ -67,7 +67,7 @@ export function Logo({
       <span className="flex flex-col leading-none">
         <span
           className={cn(
-            "font-display text-[1.06rem] font-semibold tracking-tight",
+            "fsl-logo-word font-display text-[1.06rem] font-semibold tracking-tight",
             onDark ? "text-white" : "text-ink",
           )}
         >
@@ -76,7 +76,7 @@ export function Logo({
         {showTagline ? (
           <span
             className={cn(
-              "mt-1 text-[0.62rem] font-bold uppercase tracking-[0.2em]",
+              "fsl-logo-sub mt-1 text-[0.62rem] font-bold uppercase tracking-[0.2em]",
               onDark ? "text-sun-300" : "text-teal-700",
             )}
           >

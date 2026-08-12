@@ -3,7 +3,7 @@ import { LogoMark } from "@/components/brand/Logo";
 import { Container } from "@/components/ui/Container";
 import { ButtonLink, ArrowIcon } from "@/components/ui/Button";
 import { primaryNav, site } from "@/lib/site";
-import { programs } from "@/lib/programs";
+import { allPrograms } from "@/lib/programs";
 import { buildDonateUrl, donateLinkRel, donateLinkTarget } from "@/lib/donations";
 
 const socialLabels: Record<string, string> = {
@@ -164,7 +164,7 @@ export function SiteFooter() {
                 Programs
               </h3>
               <ul className="mt-5 flex flex-col gap-3">
-                {programs.map((program) => (
+                {allPrograms.map((program) => (
                   <li key={program.slug}>
                     <Link
                       href={`/programs/${program.slug}`}

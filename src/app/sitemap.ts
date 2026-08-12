@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { programs } from "@/lib/programs";
+import { allPrograms } from "@/lib/programs";
 import { site } from "@/lib/site";
 
 /**
@@ -32,7 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: route.changeFrequency,
       priority: route.priority,
     })),
-    ...programs.map((program) => ({
+    ...allPrograms.map((program) => ({
       url: new URL(`/programs/${program.slug}`, site.url).toString(),
       lastModified,
       changeFrequency: "monthly" as const,

@@ -14,6 +14,7 @@ import { ArrowIcon, ButtonLink } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { ProgramGlyph } from "@/components/brand/ProgramGlyph";
 import { programs, tracks, type Program, type ProgramTrack } from "@/lib/programs";
+import { capstone } from "@/lib/capstone";
 import { cn } from "@/lib/utils";
 
 const accents = {
@@ -40,6 +41,14 @@ const accents = {
     chip: "bg-teal-50 text-teal-800",
     spot: "rgba(15,156,150,0.18)",
     badge: "bg-teal-600 text-white",
+  },
+  navy: {
+    wash: "from-navy-50 to-white",
+    ring: "ring-navy-200/60 group-hover:ring-navy-300",
+    glyph: "bg-navy-100 text-navy-700",
+    chip: "bg-navy-50 text-navy-800",
+    spot: "rgba(6,118,140,0.18)",
+    badge: "bg-navy-700 text-white",
   },
 } as const;
 
@@ -248,7 +257,32 @@ export function ProgramsShowcase() {
         </AnimatePresence>
       </motion.div>
 
-      <Reveal delay={0.1} className="mt-12 flex flex-wrap items-center gap-4">
+      {/* Every craft above is a feeder for the capstone — say so here rather
+          than leaving the connection for the visitor to infer. */}
+      <Reveal delay={0.08} className="mt-8">
+        <Link
+          href={`/programs/${capstone.slug}`}
+          className="group flex flex-col gap-4 rounded-[1.5rem] bg-[linear-gradient(120deg,#012f38_0%,#0a5054_100%)] p-6 text-cream transition-transform duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1 sm:flex-row sm:items-center sm:gap-6 sm:p-7"
+        >
+          <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-sun-400 text-ink transition-transform duration-500 ease-[var(--ease-spring)] group-hover:scale-110">
+            <ProgramGlyph glyph="ai-builder" className="size-7" />
+          </span>
+          <span className="flex-1">
+            <span className="block text-[0.66rem] font-bold uppercase tracking-[0.16em] text-sun-300">
+              And then they all lead here
+            </span>
+            <span className="mt-1.5 block font-display text-xl font-semibold text-white sm:text-2xl">
+              {capstone.name} — turn what you made into a business.
+            </span>
+          </span>
+          <span className="inline-flex shrink-0 items-center gap-1.5 font-semibold text-sun-300">
+            The capstone
+            <ArrowIcon className="size-4" />
+          </span>
+        </Link>
+      </Reveal>
+
+      <Reveal delay={0.1} className="mt-8 flex flex-wrap items-center gap-4">
         <ButtonLink href="/programs" variant="secondary" size="lg">
           See all programs and schedules
           <ArrowIcon />

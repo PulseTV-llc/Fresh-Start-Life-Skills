@@ -7,7 +7,8 @@ import { ArrowIcon, ButtonLink } from "@/components/ui/Button";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, programListSchema } from "@/lib/jsonld";
 import { buildMetadata } from "@/lib/seo";
-import { programs, tracks } from "@/lib/programs";
+import { programs, tracks, capstoneProgram } from "@/lib/programs";
+import { capstone } from "@/lib/capstone";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -28,6 +29,7 @@ const accents = {
   sun: "bg-sun-100 text-sun-700 group-hover:ring-sun-300",
   green: "bg-green-100 text-green-700 group-hover:ring-green-300",
   teal: "bg-teal-100 text-teal-700 group-hover:ring-teal-300",
+  navy: "bg-navy-100 text-navy-700 group-hover:ring-navy-300",
 };
 
 export default function ProgramsPage() {
@@ -62,6 +64,70 @@ export default function ProgramsPage() {
           </ButtonLink>
         </div>
       </PageHero>
+
+      {/* --- The capstone, lifted out of the ordinary grid ---------------- */}
+      <Section size="wide" className="pb-0 pt-14 sm:pt-16">
+        <Reveal>
+          <Link
+            href={`/programs/${capstone.slug}`}
+            className="group relative block overflow-hidden rounded-[2rem] bg-[linear-gradient(150deg,#012f38_0%,#01414d_45%,#0a5054_100%)] p-8 text-cream shadow-[var(--shadow-lift)] transition-transform duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1 sm:p-12"
+          >
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-0 -bottom-40 h-[32rem] bg-[radial-gradient(55%_50%_at_50%_100%,rgba(242,166,41,0.32)_0%,rgba(242,166,41,0)_66%)]"
+            />
+            <div className="relative grid gap-8 lg:grid-cols-12 lg:items-center">
+              <div className="lg:col-span-8">
+                <span className="inline-flex items-center gap-2 rounded-full bg-sun-400 px-3.5 py-1.5 text-[0.66rem] font-bold uppercase tracking-[0.16em] text-ink">
+                  {capstone.motto} · The capstone
+                </span>
+                <h2 className="mt-5 text-3xl leading-[1.1] text-white sm:text-[2.6rem]">
+                  {capstone.name}
+                </h2>
+                <p className="mt-4 max-w-2xl text-lg leading-relaxed text-cream/80">
+                  {capstoneProgram.tagline} Students use AI to build a website,
+                  iPhone and Android apps, sign-in, a database, payments — and
+                  deploy the whole thing live.
+                </p>
+                <ul className="mt-6 flex flex-wrap gap-2">
+                  {capstoneProgram.skills.map((skill) => (
+                    <li
+                      key={skill}
+                      className="rounded-full bg-cream/10 px-3 py-1.5 text-sm text-cream/85"
+                    >
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
+                <span className="mt-7 inline-flex items-center gap-2 font-semibold text-sun-300">
+                  Explore the capstone
+                  <ArrowIcon className="size-4" />
+                </span>
+              </div>
+
+              <div className="lg:col-span-4">
+                <span className="flex size-20 items-center justify-center rounded-3xl bg-sun-400 text-ink transition-transform duration-500 ease-[var(--ease-spring)] group-hover:scale-110 lg:ml-auto lg:size-24">
+                  <ProgramGlyph glyph="ai-builder" className="size-11 lg:size-14" />
+                </span>
+                <dl className="mt-6 flex gap-8 lg:justify-end">
+                  <div>
+                    <dt className="text-xs text-cream/55">Ages</dt>
+                    <dd className="mt-1 font-display text-lg font-semibold text-white">
+                      {capstone.ages.replace("Ages ", "")}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="text-xs text-cream/55">Length</dt>
+                    <dd className="mt-1 font-display text-lg font-semibold text-white">
+                      8 weeks
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </Link>
+        </Reveal>
+      </Section>
 
       {tracks
         .filter((track) => track.id !== "all")

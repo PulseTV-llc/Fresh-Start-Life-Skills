@@ -103,6 +103,22 @@ const glyphs: Record<Program["glyph"], React.ReactNode> = {
       <path {...stroke} d="M6 16 33 11" />
     </>
   ),
+  // Nodes resolving into a rising launch arrow — build, then launch.
+  "ai-builder": (
+    <>
+      <path {...stroke} d="M24 41V22" />
+      <path {...stroke} d="m16.5 29.5 7.5-7.5 7.5 7.5" />
+      <circle {...stroke} cx="10" cy="14" r="3.4" />
+      <circle {...stroke} cx="24" cy="8" r="3.4" />
+      <circle {...stroke} cx="38" cy="14" r="3.4" />
+      <circle {...stroke} cx="12" cy="30" r="3.2" />
+      <circle {...stroke} cx="36" cy="30" r="3.2" />
+      <path {...stroke} d="M12.8 16.6 20.9 9.9" opacity="0.75" />
+      <path {...stroke} d="M35.2 16.6 27.1 9.9" opacity="0.75" />
+      <path {...stroke} d="M10.4 17.4 11.6 26.8" opacity="0.55" />
+      <path {...stroke} d="M37.6 17.4 36.4 26.8" opacity="0.55" />
+    </>
+  ),
   "creative-sewing": (
     <>
       <path {...stroke} d="M34 12 15 31" />

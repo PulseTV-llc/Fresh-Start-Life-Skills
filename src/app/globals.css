@@ -281,3 +281,45 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* ============================================================================
+   Header over a dark hero
+   ----------------------------------------------------------------------------
+   The header is `fixed` in the root layout, so it sits outside the page's DOM
+   subtree and cannot be told about the page through props or context. A page
+   whose hero is dark flags it with `data-hero="dark"`, and `:has()` lets the
+   header react — no state to sync, nothing to hydrate, and it only applies
+   while the bar is still transparent (`data-at-top="true"`); past 12px of
+   scroll it frosts to cream and the default dark ink is correct again.
+   ========================================================================= */
+
+body:has([data-hero="dark"]) header[data-at-top="true"] {
+  .fsl-nav-link {
+    color: color-mix(in srgb, var(--color-cream) 78%, transparent);
+  }
+  .fsl-nav-link:hover,
+  .fsl-nav-link[aria-current="page"] {
+    color: #fff;
+  }
+  .fsl-logo-word {
+    color: #fff;
+  }
+  .fsl-logo-sub {
+    color: var(--color-sun-300);
+  }
+  /* The mark's deepest figure is nearly our navy — it needs the coin here too */
+  .fsl-logo-coin {
+    background-color: var(--color-cream);
+    box-shadow: 0 6px 18px -6px rgba(0, 0, 0, 0.55);
+  }
+  .fsl-logo-coin img {
+    padding: 12%;
+  }
+  .fsl-menu-toggle {
+    background-color: color-mix(in srgb, var(--color-cream) 16%, transparent);
+    --tw-ring-color: color-mix(in srgb, var(--color-cream) 28%, transparent);
+  }
+  .fsl-menu-bar {
+    background-color: var(--color-cream);
+  }
+}

@@ -6,7 +6,7 @@
  * from this one array. Adding a program here publishes it everywhere.
  */
 
-export type ProgramTrack = "after-school" | "free-class";
+export type ProgramTrack = "after-school" | "free-class" | "capstone";
 
 export type Program = {
   slug: string;
@@ -30,10 +30,16 @@ export type Program = {
     | "tshirt"
     | "music"
     | "film"
-    | "creative-sewing";
+    | "creative-sewing"
+    | "ai-builder";
   /** Card accent, chosen from the brand palette. */
-  accent: "sun" | "green" | "teal";
+  accent: "sun" | "green" | "teal" | "navy";
   featured?: boolean;
+  /**
+   * The capstone renders its own bespoke page and its own elevated treatment in
+   * every listing, so it is deliberately excluded from the ordinary grids.
+   */
+  capstone?: boolean;
   /**
    * TODO(assets): swap in a real photograph of this workshop in progress.
    * Target 1600×1200, students' faces only with signed media releases on file.
@@ -181,6 +187,47 @@ export const programs: Program[] = [
     accent: "teal",
   },
 ];
+
+/**
+ * The capstone. Lives in this array so it appears in the sitemap, the footer and
+ * the Course structured data alongside everything else, but `capstone: true`
+ * lifts it out of the ordinary card grids.
+ */
+export const capstoneProgram: Program = {
+  slug: "ai-builder-lab",
+  title: "AI Builder Lab",
+  tagline: "Turn what you made into a business that runs on the internet.",
+  description:
+    "The capstone that ties every other program together. Students use AI to build and launch the real business around something they made by hand — a website, iPhone and Android apps, sign-in, a database, payments, and a live deployment.",
+  body: [
+    "Every other Fresh Start program ends with something a student made: a candle, a shirt, a cake, a short film. The AI Builder Lab is where that object becomes a business that anyone in the world can find and buy from.",
+    "Students learn to direct AI properly — to describe what they want, read what it produced, spot what is wrong and ask for the fix. Along the way they pick up the basics of HTML, CSS and JavaScript, because a builder who cannot read their own code cannot debug it or tell when the AI is wrong.",
+    "By the end they have shipped: a live website, an app running on both iPhone and Android, customer sign-in, a database and file storage, a working checkout, and a URL they can send to anybody.",
+  ],
+  track: "capstone",
+  ages: "Ages 12–17",
+  skills: [
+    "Building with AI",
+    "HTML, CSS & JavaScript",
+    "Authentication",
+    "Databases & storage",
+    "Payments",
+    "iOS & Android apps",
+    "Deploying on Vercel",
+  ],
+  cost: "Low or no cost",
+  glyph: "ai-builder",
+  accent: "navy",
+  capstone: true,
+};
+
+/**
+ * Everything, including the capstone — for the sitemap, the footer and the
+ * ItemList schema. `programs` above stays the craft catalogue, which is what
+ * the card grids and the [slug] route should enumerate: the capstone has its
+ * own bespoke page at /programs/ai-builder-lab.
+ */
+export const allPrograms: Program[] = [...programs, capstoneProgram];
 
 export const programBySlug = (slug: string) =>
   programs.find((program) => program.slug === slug);

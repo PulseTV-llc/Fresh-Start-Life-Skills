@@ -1,4 +1,5 @@
-import { programs, type Program } from "./programs";
+import { allPrograms, capstoneProgram, type Program } from "./programs";
+import { capstone, buildModules } from "./capstone";
 import { site } from "./site";
 
 /**
@@ -127,12 +128,100 @@ export function programSchema(program: Program) {
   };
 }
 
+/**
+ * The capstone gets richer markup than the craft programs: `Course` is what
+ * Google renders course results from, and `EducationalOccupationalProgram`
+ * carries the vocational framing (what it prepares a student to do) that a
+ * single Course node has nowhere to put. Emitted as two nodes rather than one
+ * multi-typed node, which search engines parse more reliably.
+ */
+export function capstoneSchema() {
+  const url = `${site.url}/programs/${capstone.slug}`;
+  const teaches = buildModules.flatMap((module) => [
+    module.title,
+    ...module.outputs,
+  ]);
+
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "@id": `${url}#course`,
+      name: `${capstone.name} — build and launch with AI`,
+      description: capstone.summary,
+      url,
+      provider: { "@id": ORG_ID },
+      isAccessibleForFree: false,
+      offers: {
+        "@type": "Offer",
+        category: "Low cost",
+        priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
+      },
+      typicalAgeRange: capstone.ages.replace("Ages ", ""),
+      educationalLevel: "Beginner",
+      inLanguage: "en-US",
+      teaches,
+      about: [
+        "Artificial intelligence",
+        "Web development",
+        "Mobile app development",
+        "Entrepreneurship",
+      ],
+      coursePrerequisites:
+        "Completion of one Fresh Start craft program, so the student has work of their own to build around.",
+      timeRequired: "P8W",
+      hasCourseInstance: {
+        "@type": "CourseInstance",
+        courseMode: "onsite",
+        courseWorkload: "P8W",
+        location: {
+          "@type": "Place",
+          name: site.legalName,
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: site.address.street,
+            addressLocality: site.address.city,
+            addressRegion: site.address.region,
+            postalCode: site.address.postalCode,
+          },
+        },
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOccupationalProgram",
+      "@id": `${url}#program`,
+      name: capstone.name,
+      description: capstone.summary,
+      url,
+      provider: { "@id": ORG_ID },
+      programType: "Capstone",
+      educationalProgramMode: "full-time",
+      timeToComplete: "P8W",
+      typicalAgeRange: capstone.ages.replace("Ages ", ""),
+      occupationalCategory: [
+        "Web Developer",
+        "Mobile Application Developer",
+        "Small Business Owner",
+      ],
+      teaches: capstoneProgram.skills,
+      applicationDeadline: undefined,
+      offers: {
+        "@type": "Offer",
+        category: "Low cost",
+        priceCurrency: "USD",
+      },
+    },
+  ];
+}
+
 export function programListSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: `${site.name} programs`,
-    itemListElement: programs.map((program, index) => ({
+    itemListElement: allPrograms.map((program, index) => ({
       "@type": "ListItem",
       position: index + 1,
       url: `${site.url}/programs/${program.slug}`,

@@ -10,6 +10,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, programSchema } from "@/lib/jsonld";
 import { buildMetadata } from "@/lib/seo";
 import { programs, programBySlug } from "@/lib/programs";
+import { capstone } from "@/lib/capstone";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -38,6 +39,7 @@ const accents = {
   sun: { chip: "bg-sun-100 text-sun-800", glyph: "bg-sun-100 text-sun-700", tone: "sun" as const },
   green: { chip: "bg-green-100 text-green-800", glyph: "bg-green-100 text-green-700", tone: "green" as const },
   teal: { chip: "bg-teal-100 text-teal-800", glyph: "bg-teal-100 text-teal-700", tone: "teal" as const },
+  navy: { chip: "bg-navy-100 text-navy-800", glyph: "bg-navy-100 text-navy-700", tone: "teal" as const },
 };
 
 export default async function ProgramPage({ params }: PageProps<"/programs/[slug]">) {
@@ -173,6 +175,27 @@ export default async function ProgramPage({ params }: PageProps<"/programs/[slug
                   </ButtonLink>
                 </div>
               </div>
+
+              {/* Every craft program points at the capstone it feeds. */}
+              <Link
+                href={`/programs/${capstone.slug}`}
+                className="group mt-6 block overflow-hidden rounded-[1.75rem] bg-[linear-gradient(140deg,#012f38_0%,#0a5054_100%)] p-7 text-cream transition-transform duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1"
+              >
+                <span className="text-[0.66rem] font-bold uppercase tracking-[0.16em] text-sun-300">
+                  Where this leads
+                </span>
+                <span className="mt-3 block font-display text-xl font-semibold text-white">
+                  {capstone.name}
+                </span>
+                <span className="mt-2 block text-sm leading-relaxed text-cream/75">
+                  The capstone: use AI to build the website, the app and the
+                  checkout around what you made here — and deploy it live.
+                </span>
+                <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-sun-300">
+                  See the capstone
+                  <ArrowIcon className="size-3.5" />
+                </span>
+              </Link>
 
               <div className="mt-6 rounded-[1.75rem] bg-white p-7 ring-1 ring-ink/[0.06]">
                 <h2 className="text-lg text-ink">Other programs</h2>

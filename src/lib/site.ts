@@ -87,6 +87,11 @@ export const primaryNav: NavItem[] = [
     description: "Hands-on workshops for ages 8–17",
   },
   {
+    href: "/programs/ai-builder-lab",
+    label: "AI Lab",
+    description: "The capstone — build & launch with AI",
+  },
+  {
     href: "/studio",
     label: "Studio",
     description: "Gallery of what our students make",

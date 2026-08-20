@@ -2,7 +2,6 @@ import Image from "next/image";
 import { Section, SectionHeading, Eyebrow } from "@/components/ui/Section";
 import { Reveal, RevealGroup, RevealChild } from "@/components/ui/Reveal";
 import { Counter } from "@/components/ui/Counter";
-import { PhotoPlaceholder } from "@/components/ui/PhotoPlaceholder";
 import { ButtonLink, ArrowIcon } from "@/components/ui/Button";
 import { programs, programBySlug } from "@/lib/programs";
 import { site } from "@/lib/site";
@@ -155,17 +154,24 @@ export function ImpactSection() {
             ))}
 
             <RevealChild className="grid gap-5 sm:grid-cols-2">
-              {/* TODO(assets): two detail shots — hands at work, finished projects. */}
-              <PhotoPlaceholder
-                label="Close-up of a student's hands guiding fabric through a sewing machine."
-                aspect="1/1"
-                tone="sun"
-              />
-              <PhotoPlaceholder
-                label="Finished student projects lined up — candles, decorated cakes, printed shirts."
-                aspect="1/1"
-                tone="teal"
-              />
+              <div className="relative aspect-square overflow-hidden rounded-[1.5rem] ring-1 ring-ink/[0.06]">
+                <Image
+                  src="/events/sewing-pressing-fabric.jpg"
+                  alt="An instructor showing a student how to press a seam flat before stitching."
+                  fill
+                  sizes="(max-width: 640px) 100vw, 25vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative aspect-square overflow-hidden rounded-[1.5rem] ring-1 ring-ink/[0.06]">
+                <Image
+                  src="/events/sewing-finished-purple-skirt.jpg"
+                  alt="A student holding up a finished floral skirt she sewed herself."
+                  fill
+                  sizes="(max-width: 640px) 100vw, 25vw"
+                  className="object-cover object-top"
+                />
+              </div>
             </RevealChild>
           </RevealGroup>
         </div>

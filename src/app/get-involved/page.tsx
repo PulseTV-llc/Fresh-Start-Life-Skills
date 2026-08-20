@@ -1,8 +1,8 @@
+import Image from "next/image";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Reveal, RevealGroup, RevealChild } from "@/components/ui/Reveal";
 import { ButtonLink, ArrowIcon } from "@/components/ui/Button";
-import { PhotoPlaceholder } from "@/components/ui/PhotoPlaceholder";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/jsonld";
 import { buildMetadata } from "@/lib/seo";
@@ -137,12 +137,15 @@ export default function GetInvolvedPage() {
 
           <Reveal delay={0.12} className="lg:col-span-6">
             <div className="flex flex-col gap-5">
-              {/* TODO(assets): photo of volunteers working with students. */}
-              <PhotoPlaceholder
-                label="A volunteer instructor helping a student at the sewing table."
-                aspect="4/3"
-                tone="green"
-              />
+              <div className="relative aspect-4/5 w-full overflow-hidden rounded-[1.5rem] ring-1 ring-ink/[0.06]">
+                <Image
+                  src="/events/sewing-fitting-garment.jpg"
+                  alt="An instructor helping a student pin and fit a garment at the sewing table."
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 45vw"
+                  className="object-cover object-top"
+                />
+              </div>
               <div className="rounded-[1.5rem] bg-[linear-gradient(150deg,#0f9c96_0%,#036075_100%)] p-8 text-white">
                 <h3 className="text-2xl text-white">Partner with us</h3>
                 <p className="mt-3 leading-relaxed text-white/85">

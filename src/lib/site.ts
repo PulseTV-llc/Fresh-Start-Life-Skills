@@ -91,6 +91,21 @@ export const site = {
      * move together if the photograph is ever re-shot.
      */
     photo: "/team/dorothy-jackson.jpg",
+    /**
+     * Her biography, one string per paragraph, rendered in full on /about.
+     *
+     * Deliberately not reused in the small places: the leadership card and the
+     * home-page pull-quote stay short, because six paragraphs in a 56px avatar
+     * card is not a biography, it is a wall. Those surfaces link here instead.
+     */
+    bio: [
+      "Dorothy Jackson is a dedicated community leader, mentor, teacher, and entrepreneur who has spent more than 30 years serving and empowering young people. Her passion is helping children, teenagers, and young adults discover who they are, recognize their God-given gifts, and develop the confidence and skills needed to become successful in life.",
+      "Through Fresh Start Life Skills, Dorothy provides hands-on training in sewing, cake decorating, computer skills, entrepreneurship, and other practical life skills. She believes that when young people are given knowledge, encouragement, and opportunities, they can overcome obstacles and create a positive future for themselves.",
+      "Dorothy's commitment to teaching has taken her to various states, where she has shared her talents and trained children, teens, and young adults. Her love for youth and her desire to see them succeed continue to drive her mission.",
+      "As a proud mother of two successful sons who own their own companies, Dorothy has witnessed firsthand the importance of teaching young people responsibility, determination, creativity, and entrepreneurship.",
+      "Her vision through Fresh Start Life Skills is to make a lasting difference in the lives of young people by helping them become self-aware, build confidence, develop valuable skills, discover their purpose, and prepare for success.",
+      "Dorothy Jackson believes every young person has potential—and sometimes all they need is someone to believe in them, teach them, and give them a fresh start.",
+    ],
   },
 
   /** Board of Directors. Defined above — see the notes on adding a member. */

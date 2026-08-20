@@ -81,6 +81,10 @@ export const programs: Program[] = [
     skills: ["Hand sewing", "Measuring", "Pattern basics", "Finishing a project"],
     cost: "Free",
     glyph: "creative-sewing",
+    photo: "/events/sewing-cutting-floral-fabric.jpg",
+    photoAlt: "A student cutting a floral fabric panel with fabric shears.",
+    photoCaption: "Cutting out a first project.",
+    photoAspect: "1200 / 1600",
     accent: "sun",
     featured: true,
   },
@@ -100,6 +104,11 @@ export const programs: Program[] = [
     skills: ["Machine operation", "Seams & hems", "Pattern reading", "Garment repair"],
     cost: "Low or no cost",
     glyph: "sewing",
+    photo: "/events/sewing-instructor-machine.jpg",
+    photoAlt:
+      "An instructor sitting alongside a student guiding fabric through a sewing machine.",
+    photoCaption: "One-to-one coaching at the machine.",
+    photoAspect: "1200 / 1600",
     accent: "sun",
   },
   {
@@ -152,6 +161,11 @@ export const programs: Program[] = [
     skills: ["Icing & crumb coats", "Piping techniques", "Color mixing", "Food safety"],
     cost: "Low or no cost",
     glyph: "cake",
+    photo: "/events/cake-club-students-group-aprons.jpg",
+    photoAlt:
+      "Students in aprons and chef hats standing behind the trays of cupcakes they decorated.",
+    photoCaption: "Cake Club — the end of a decorating session.",
+    photoAspect: "1600 / 1200",
     accent: "sun",
   },
   {

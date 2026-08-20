@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Reveal, RevealGroup, RevealChild } from "@/components/ui/Reveal";
@@ -10,6 +11,8 @@ import { buildMetadata } from "@/lib/seo";
 import { upcomingSessions, scheduleShape } from "@/lib/events";
 import { programs, programBySlug, programAges } from "@/lib/programs";
 import { site, mailto } from "@/lib/site";
+import { eventPhotos } from "@/lib/eventPhotos";
+import { cn } from "@/lib/utils";
 
 export const metadata = buildMetadata({
   title: "Sessions & Registration",
@@ -236,6 +239,45 @@ export default function EventsPage() {
             </ul>
           </Reveal>
         </div>
+      </Section>
+
+      {/* --- Photographs from real sessions ------------------------------
+          Last on the page on purpose: somebody arrives here to find a seat,
+          so the schedule and the how-it-works steps come first. The gallery
+          is what convinces them once they have read the practical part. */}
+      <Section className="bg-white">
+        <SectionHeading
+          eyebrow="From recent sessions"
+          tone="green"
+          title="What a session actually looks like."
+          intro="Real photographs from the workshop floor — our own students, our own instructors, our own rooms."
+        />
+        <RevealGroup
+          className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+          stagger={0.05}
+        >
+          {eventPhotos.map((photo) => (
+            <RevealChild
+              key={photo.src}
+              className={photo.wide ? "sm:col-span-2" : undefined}
+            >
+              <figure
+                className={cn(
+                  "relative w-full overflow-hidden rounded-[1.5rem] bg-cream ring-1 ring-ink/[0.06]",
+                  photo.wide ? "aspect-3/2" : "aspect-3/4",
+                )}
+              >
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  sizes={photo.wide ? "(max-width: 640px) 100vw, 66vw" : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"}
+                  className="object-cover transition-transform duration-700 ease-[var(--ease-out-expo)] hover:scale-105"
+                />
+              </figure>
+            </RevealChild>
+          ))}
+        </RevealGroup>
       </Section>
     </>
   );

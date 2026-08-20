@@ -141,16 +141,49 @@ export default function AboutPage() {
                     </a>
                   </span>
                 </div>
-                <p className="mt-5 text-sm leading-relaxed text-ink-muted">
-                  {/* TODO(Dorothy): add a short bio, plus instructors as the
-                      organization grows. Board seats live in `site.board`. */}
-                  A short biography goes here — background, why Fresh Start was
-                  founded, and what she is building next.
-                </p>
+                {/* Stays a contact card. The full biography lives in its own
+                    section below — see `founder.bio` in src/lib/site.ts.
+                    TODO(Dorothy): add instructors here as the organization
+                    grows. Board seats live in `site.board`. */}
+                <a
+                  href="#founder"
+                  className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-ink underline decoration-sun-400 decoration-2 underline-offset-4"
+                >
+                  Read her full story
+                  <ArrowIcon className="size-3.5" />
+                </a>
               </div>
             </div>
           </Reveal>
         </div>
+      </Section>
+
+      {/* --- Founder biography ---------------------------------------------
+          Its own section at a narrow measure: six paragraphs in the 5-column
+          rail beside the story would have been a 30-character column. The
+          portrait sits directly above this, so the reader has her face before
+          they have her history. */}
+      <Section id="founder" size="narrow" className="bg-white">
+        <SectionHeading
+          eyebrow="Our founder"
+          tone="teal"
+          title={`Meet ${site.founder.name}.`}
+        />
+        <Reveal delay={0.08}>
+          <div className="mt-10 flex flex-col gap-6 text-lg leading-relaxed text-ink-soft">
+            {site.founder.bio.slice(0, -1).map((paragraph) => (
+              <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+            ))}
+          </div>
+        </Reveal>
+
+        {/* The closing line carries the whole argument, so it gets the weight
+            of a pull-quote rather than being the sixth grey paragraph. */}
+        <Reveal delay={0.12}>
+          <p className="mt-10 border-l-4 border-sun-400 pl-6 font-display text-xl leading-snug text-ink sm:text-2xl">
+            {site.founder.bio[site.founder.bio.length - 1]}
+          </p>
+        </Reveal>
       </Section>
 
       <Section>

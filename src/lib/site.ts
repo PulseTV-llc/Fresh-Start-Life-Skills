@@ -6,6 +6,63 @@
  * and any future directory listings — which is what local SEO actually rewards.
  */
 
+/**
+ * One member of the Board of Directors.
+ *
+ * `bio` and `photo` are both optional so a member can be listed the moment
+ * their name and seat are confirmed, without waiting on a headshot or a
+ * written biography. The card renders correctly with either one missing.
+ */
+export type BoardMember = {
+  name: string;
+  role: string;
+  /** One or two sentences. Omit until there is something real to say. */
+  bio?: string;
+  /** Path under `public/`, e.g. `/team/jane-smith.jpg`. */
+  photo?: string;
+};
+
+/**
+ * Board of Directors — the single source of truth for the /about roster.
+ *
+ * ⚠️ EVERY ENTRY BELOW IS A PLACEHOLDER, not a real person. Replace them
+ * before this page goes in front of donors, grant reviewers or the state.
+ *
+ * To fill in a real member:
+ *   1. Replace `name` and `role`, and write a one- or two-sentence `bio`
+ *      (or drop the `bio` line entirely until you have one).
+ *   2. Optional headshot — put the file in `public/team/`, matching the
+ *      treatment used for `dorothy-jackson.jpg` (square JPEG, ~1000px,
+ *      quality 75), then set `photo: "/team/their-name.jpg"`.
+ *   3. Leave `photo` off and the card falls back to a sun-100 initials
+ *      avatar, so a member with no photograph still looks deliberate.
+ *
+ * Adding or removing a seat is just adding or removing an entry — the grid
+ * on /about reflows on its own.
+ */
+const board: BoardMember[] = [
+  {
+    name: "Board Member — Name TBD",
+    role: "Board Chair",
+    bio: "Placeholder entry. Replace with a short note on this member's background and what they bring to the board.",
+  },
+  {
+    name: "Board Member — Name TBD",
+    role: "Vice Chair",
+    bio: "Placeholder entry. Replace with a short note on this member's background and what they bring to the board.",
+  },
+  {
+    name: "Board Member — Name TBD",
+    role: "Treasurer",
+    bio: "Placeholder entry. Replace with a short note on this member's background and what they bring to the board.",
+  },
+  {
+    name: "Board Member — Name TBD",
+    role: "Secretary",
+    bio: "Placeholder entry. Replace with a short note on this member's background and what they bring to the board.",
+  },
+];
+
 export const site = {
   name: "Fresh Start Life Skills",
   legalName: "Fresh Start Life Skills Inc.",
@@ -34,6 +91,9 @@ export const site = {
      */
     photo: "/team/dorothy-jackson.jpg",
   },
+
+  /** Board of Directors. Defined above — see the notes on adding a member. */
+  board,
 
   /**
    * Departmental mailboxes.

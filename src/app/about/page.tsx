@@ -20,6 +20,19 @@ export const metadata = buildMetadata({
   ],
 });
 
+/**
+ * "Jane Smith" -> "JS". Skips punctuation-only tokens so a placeholder like
+ * "Board Member — Name TBD" still yields clean initials rather than an em dash.
+ */
+function initialsOf(name: string) {
+  return name
+    .split(/\s+/)
+    .filter((word) => /^[A-Za-z]/.test(word))
+    .slice(0, 2)
+    .map((word) => word.charAt(0).toUpperCase())
+    .join("");
+}
+
 const values = [
   {
     title: "Hands before theory",
@@ -141,8 +154,8 @@ export default function AboutPage() {
                   </span>
                 </div>
                 <p className="mt-5 text-sm leading-relaxed text-ink-muted">
-                  {/* TODO(Dorothy): add a short bio, plus board members and
-                      instructors as the organization grows. */}
+                  {/* TODO(Dorothy): add a short bio, plus instructors as the
+                      organization grows. Board seats live in `site.board`. */}
                   A short biography goes here — background, why Fresh Start was
                   founded, and what she is building next.
                 </p>
@@ -150,6 +163,56 @@ export default function AboutPage() {
             </div>
           </Reveal>
         </div>
+      </Section>
+
+      <Section>
+        {/* TODO(Dorothy): the roster below is placeholder data — see the notes
+            on `board` in src/lib/site.ts. Revisit this intro too once the real
+            members are in. */}
+        <SectionHeading
+          eyebrow="Governance"
+          tone="teal"
+          title="Board of Directors."
+          intro="The board sets strategy, holds the budget and keeps Fresh Start accountable to the families it serves."
+        />
+        <RevealGroup
+          className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
+          stagger={0.09}
+        >
+          {site.board.map((member, index) => (
+            <RevealChild key={`${member.role}-${index}`}>
+              <article className="h-full rounded-[1.5rem] bg-white p-7 shadow-[var(--shadow-soft)] ring-1 ring-ink/[0.05]">
+                {member.photo ? (
+                  <Image
+                    src={member.photo}
+                    alt=""
+                    width={56}
+                    height={56}
+                    className="size-14 shrink-0 rounded-full object-cover object-top ring-1 ring-ink/[0.06]"
+                  />
+                ) : (
+                  <span
+                    aria-hidden="true"
+                    className="flex size-14 shrink-0 items-center justify-center rounded-full bg-sun-100 font-display text-xl font-semibold text-sun-700"
+                  >
+                    {initialsOf(member.name)}
+                  </span>
+                )}
+                <h3 className="mt-5 text-lg font-semibold leading-snug text-ink">
+                  {member.name}
+                </h3>
+                <p className="mt-1 text-sm font-medium text-teal-700">
+                  {member.role}
+                </p>
+                {member.bio ? (
+                  <p className="mt-3 text-sm leading-relaxed text-ink-muted">
+                    {member.bio}
+                  </p>
+                ) : null}
+              </article>
+            </RevealChild>
+          ))}
+        </RevealGroup>
       </Section>
 
       <Section className="bg-white">

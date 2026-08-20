@@ -142,13 +142,14 @@ export default function StudioPage() {
         </div>
       </Section>
 
-      {/* Loud, dev-only guard so invented students never quietly ship. */}
+      {/* Loud, dev-only guard so placeholder work never quietly ships. */}
       {hasPlaceholders && process.env.NODE_ENV !== "production" ? (
         <Section className="py-8">
           <p className="rounded-xl bg-sun-100 px-5 py-4 text-sm font-semibold leading-relaxed text-sun-900 ring-1 ring-sun-300">
-            Dev note: every piece in <code>src/lib/studio.ts</code> is a
-            placeholder — these students are not real. Replace with photographed
-            work and consented, first-name-only stories before launch.
+            Dev note: every piece in <code>src/lib/studio.ts</code> is still a
+            placeholder — the imagery is not photographs of real student work.
+            Names, ages and quotes have been removed; replace the images with
+            photographed work before treating this gallery as real.
             <br />
             <span className="font-normal">
               Shot list: {photoBrief.setup} {photoBrief.specs} {photoBrief.rules}

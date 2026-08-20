@@ -32,9 +32,6 @@ export type StudioCategory =
 export type StudioPiece = {
   id: string;
   title: string;
-  /** First name only. Never a surname. */
-  student: string;
-  age: number;
   category: StudioCategory;
   /** Short line shown on the card before the lightbox opens. */
   medium: string;
@@ -113,8 +110,6 @@ export const studioPieces: StudioPiece[] = [
   {
     id: "quilted-tote",
     title: "The Everything Tote",
-    student: "Aaliyah",
-    age: 11,
     category: "sewing",
     medium: "Cotton canvas, machine-pieced",
     ratio: "portrait",
@@ -124,8 +119,6 @@ export const studioPieces: StudioPiece[] = [
   {
     id: "first-pillow",
     title: "First Pillow",
-    student: "Marcus",
-    age: 9,
     category: "sewing",
     medium: "Hand-stitched cotton",
     ratio: "square",
@@ -135,8 +128,6 @@ export const studioPieces: StudioPiece[] = [
   {
     id: "patchwork-jacket",
     title: "Patchwork Jacket",
-    student: "Kiara",
-    age: 15,
     category: "sewing",
     medium: "Reclaimed denim, appliqué",
     ratio: "landscape",
@@ -149,8 +140,6 @@ export const studioPieces: StudioPiece[] = [
   {
     id: "citrus-candles",
     title: "Sunrise Citrus, Set of Three",
-    student: "Devon",
-    age: 13,
     category: "candle-making",
     medium: "Soy wax, cotton wick, orange & cedar",
     ratio: "landscape",
@@ -162,8 +151,6 @@ export const studioPieces: StudioPiece[] = [
   {
     id: "layered-pour",
     title: "Layered Pour",
-    student: "Simone",
-    age: 12,
     category: "candle-making",
     medium: "Soy wax, three-stage pour",
     ratio: "portrait",
@@ -175,8 +162,6 @@ export const studioPieces: StudioPiece[] = [
   {
     id: "birthday-tier",
     title: "Two-Tier Birthday",
-    student: "Jaylen",
-    age: 14,
     category: "cake-decorating",
     medium: "Buttercream, hand-piped",
     ratio: "portrait",
@@ -189,8 +174,6 @@ export const studioPieces: StudioPiece[] = [
   {
     id: "rosette-practice",
     title: "Rosette Practice Board",
-    student: "Trinity",
-    age: 10,
     category: "cake-decorating",
     medium: "Buttercream on board",
     ratio: "portrait",
@@ -203,8 +186,6 @@ export const studioPieces: StudioPiece[] = [
   {
     id: "bloom-tee",
     title: "Bloom",
-    student: "Amara",
-    age: 12,
     category: "t-shirt-design",
     medium: "Heat transfer vinyl on cotton",
     ratio: "square",
@@ -216,8 +197,6 @@ export const studioPieces: StudioPiece[] = [
   {
     id: "alexandria-tee",
     title: "Alexandria, Louisiana",
-    student: "Isaiah",
-    age: 16,
     category: "t-shirt-design",
     medium: "Two-color press, small run",
     ratio: "landscape",
@@ -229,8 +208,6 @@ export const studioPieces: StudioPiece[] = [
   {
     id: "after-three",
     title: "After Three O'Clock",
-    student: "Naomi",
-    age: 15,
     category: "film",
     medium: "Short film, 4 min — director & editor",
     ratio: "landscape",
@@ -242,8 +219,6 @@ export const studioPieces: StudioPiece[] = [
   {
     id: "the-shop",
     title: "The Shop",
-    student: "Terrell",
-    age: 17,
     category: "film",
     medium: "Documentary short — camera & lighting",
     ratio: "portrait",
@@ -253,8 +228,6 @@ export const studioPieces: StudioPiece[] = [
   {
     id: "hands-up-song",
     title: "Hands Up (Ensemble Piece)",
-    student: "Zaria",
-    age: 13,
     category: "music",
     medium: "Group performance — lead vocal",
     ratio: "square",
@@ -264,8 +237,6 @@ export const studioPieces: StudioPiece[] = [
   {
     id: "porch-rhythm",
     title: "Porch Rhythm",
-    student: "Elijah",
-    age: 11,
     category: "music",
     medium: "Percussion, original arrangement",
     ratio: "landscape",
@@ -275,8 +246,6 @@ export const studioPieces: StudioPiece[] = [
   {
     id: "quilt-square",
     title: "Nine-Patch Square",
-    student: "Camille",
-    age: 10,
     category: "sewing",
     medium: "Cotton, machine-pieced",
     ratio: "square",
@@ -287,8 +256,6 @@ export const studioPieces: StudioPiece[] = [
   {
     id: "lavender-jar",
     title: "Lavender, Small Batch",
-    student: "Nia",
-    age: 9,
     category: "candle-making",
     medium: "Soy wax, lavender",
     ratio: "landscape",

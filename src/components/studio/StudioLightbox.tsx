@@ -167,12 +167,9 @@ export function StudioLightbox({
                 {piece.title}
               </h2>
 
-              <p className="mt-2 font-medium text-ink-soft">
-                {piece.student}, age {piece.age}
-                <span className="text-ink-muted"> · {piece.season}</span>
+              <p className="mt-2 text-sm text-ink-muted">
+                {piece.medium} · {piece.season}
               </p>
-
-              <p className="mt-1 text-sm text-ink-muted">{piece.medium}</p>
 
               {program ? (
                 <Link

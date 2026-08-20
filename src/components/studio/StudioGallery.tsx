@@ -156,7 +156,7 @@ export function StudioGallery() {
                         {piece.title}
                       </p>
                       <p className="mt-1 text-sm text-cream/80">
-                        {piece.student}, age {piece.age}
+                        {piece.medium}
                       </p>
 
                       <span className="mt-3 flex items-center gap-1.5 text-sm font-semibold text-white opacity-0 transition-all duration-500 ease-[var(--ease-out-expo)] group-hover:opacity-100 group-focus-visible:opacity-100">
@@ -181,8 +181,7 @@ export function StudioGallery() {
 
                   {/* The accessible name carries everything the visuals convey */}
                   <span className="sr-only">
-                    {piece.title} by {piece.student}, age {piece.age} —{" "}
-                    {category?.label}. Open a larger view.
+                    {piece.title} — {category?.label}. Open a larger view.
                   </span>
                 </button>
               </motion.div>

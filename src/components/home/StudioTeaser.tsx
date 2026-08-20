@@ -119,7 +119,7 @@ export function StudioTeaser() {
                         {piece.title}
                       </p>
                       <p className="text-xs text-cream/75">
-                        {piece.student}, {piece.age}
+                        {piece.medium}
                       </p>
                     </div>
                   </div>

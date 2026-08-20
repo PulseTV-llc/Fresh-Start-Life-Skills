@@ -147,9 +147,11 @@ export const studioPieces: StudioPiece[] = [
     medium: "Reclaimed denim, appliqué",
     story:
       "Every patch is from something somebody in my family wore out. My grandmother gave me the blue piece on the shoulder.",
-    ratio: "tall",
+    ratio: "landscape",
     season: "Fall session",
     variant: 1,
+    image: "/studio/studio-patchwork-jacket.jpg",
+    alt: "A denim jacket seen from the back, mended with patches in several shades of blue, laid flat on cream fabric.",
     placeholder: true,
   },
   {

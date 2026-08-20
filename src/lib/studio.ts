@@ -322,8 +322,10 @@ export const studioPieces: StudioPiece[] = [
     category: "candle-making",
     medium: "Soy wax, lavender",
     story: "My mom likes lavender so that is what I picked. It burns for a long time.",
-    ratio: "portrait",
+    ratio: "landscape",
     season: "Free class",
+    image: "/studio/studio-lavender-nia.jpg",
+    alt: "A student in an apron pouring lavender wax into a tray of small candle jars, a Candle Making sign on the wall behind her.",
     placeholder: true,
   },
 ];

@@ -152,7 +152,7 @@ export function StudioLightbox({
               )}
             </div>
 
-            {/* --- The story ------------------------------------------------ */}
+            {/* --- Caption panel --------------------------------------------- */}
             <div className="flex max-h-[70vh] flex-col overflow-y-auto p-7 sm:p-9">
               {category ? (
                 <span className="inline-flex w-fit items-center gap-2 rounded-full bg-teal-50 px-3 py-1.5 text-[0.7rem] font-bold uppercase tracking-[0.14em] text-teal-800">
@@ -173,12 +173,6 @@ export function StudioLightbox({
               </p>
 
               <p className="mt-1 text-sm text-ink-muted">{piece.medium}</p>
-
-              <blockquote className="mt-6 border-l-2 border-sun-400 pl-5">
-                <p className="font-display text-lg leading-relaxed text-ink sm:text-xl">
-                  &ldquo;{piece.story}&rdquo;
-                </p>
-              </blockquote>
 
               {program ? (
                 <Link

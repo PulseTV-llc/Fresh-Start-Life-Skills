@@ -48,10 +48,9 @@ export function StudioTeaser() {
               Come see what they made.
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-cream/80">
-              A jacket pieced from a grandmother&apos;s worn-out denim. A
-              four-minute film about what a street looks like after three
-              o&apos;clock. Every piece in the Studio comes with the story of the
-              young person who made it.
+              A jacket pieced from worn-out denim. A four-minute film about
+              what a street looks like after three o&apos;clock. Every piece in
+              the Studio was made by a young person in one of our programs.
             </p>
           </Reveal>
 
@@ -133,7 +132,7 @@ export function StudioTeaser() {
         <Reveal delay={0.1} className="mt-8">
           <p className="text-sm text-cream/70">
             {studioPieces.length} pieces across {studioCategories.length} programs
-            — filter by craft, open any piece for the full story.
+            — filter by craft, open any piece for a closer look.
           </p>
         </Reveal>
       </Container>

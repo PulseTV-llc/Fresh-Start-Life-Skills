@@ -160,7 +160,7 @@ export function StudioGallery() {
                       </p>
 
                       <span className="mt-3 flex items-center gap-1.5 text-sm font-semibold text-white opacity-0 transition-all duration-500 ease-[var(--ease-out-expo)] group-hover:opacity-100 group-focus-visible:opacity-100">
-                        Read the story
+                        View this piece
                         <svg
                           viewBox="0 0 20 20"
                           className="size-3.5"
@@ -182,7 +182,7 @@ export function StudioGallery() {
                   {/* The accessible name carries everything the visuals convey */}
                   <span className="sr-only">
                     {piece.title} by {piece.student}, age {piece.age} —{" "}
-                    {category?.label}. Open the full story.
+                    {category?.label}. Open a larger view.
                   </span>
                 </button>
               </motion.div>

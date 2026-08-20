@@ -36,8 +36,6 @@ export type StudioPiece = {
   student: string;
   age: number;
   category: StudioCategory;
-  /** What they made, in their own terms — one or two sentences. */
-  story: string;
   /** Short line shown on the card before the lightbox opens. */
   medium: string;
   /**
@@ -119,8 +117,6 @@ export const studioPieces: StudioPiece[] = [
     age: 11,
     category: "sewing",
     medium: "Cotton canvas, machine-pieced",
-    story:
-      "I wanted a bag big enough for my books and my sketchpad at the same time. The handles took me three tries because I kept sewing them on inside out.",
     ratio: "portrait",
     season: "Spring session",
     placeholder: true,
@@ -132,8 +128,6 @@ export const studioPieces: StudioPiece[] = [
     age: 9,
     category: "sewing",
     medium: "Hand-stitched cotton",
-    story:
-      "This is the first thing I ever made by myself. I picked the fabric because it looked like a basketball court.",
     ratio: "square",
     season: "Free class",
     placeholder: true,
@@ -145,8 +139,6 @@ export const studioPieces: StudioPiece[] = [
     age: 15,
     category: "sewing",
     medium: "Reclaimed denim, appliqué",
-    story:
-      "Every patch is from something somebody in my family wore out. My grandmother gave me the blue piece on the shoulder.",
     ratio: "landscape",
     season: "Fall session",
     variant: 1,
@@ -161,8 +153,6 @@ export const studioPieces: StudioPiece[] = [
     age: 13,
     category: "candle-making",
     medium: "Soy wax, cotton wick, orange & cedar",
-    story:
-      "We had to test three wick sizes before one burned all the way to the edge. I priced these at eight dollars and figured out I would make two-fifty on each one.",
     ratio: "landscape",
     season: "Spring session",
     image: "/studio/studio-sunrise-citrus.jpg",
@@ -176,8 +166,6 @@ export const studioPieces: StudioPiece[] = [
     age: 12,
     category: "candle-making",
     medium: "Soy wax, three-stage pour",
-    story:
-      "You have to wait for each layer to set or the colors run together. Waiting was the hardest part.",
     ratio: "portrait",
     season: "Summer session",
     image: "/studio/studio-layered-pour.jpg",
@@ -191,8 +179,6 @@ export const studioPieces: StudioPiece[] = [
     age: 14,
     category: "cake-decorating",
     medium: "Buttercream, hand-piped",
-    story:
-      "This was for my little sister. I did the crumb coat twice because the first one had crumbs in it, which is the whole thing you are trying to stop.",
     ratio: "portrait",
     season: "Fall session",
     variant: 0,
@@ -207,8 +193,6 @@ export const studioPieces: StudioPiece[] = [
     age: 10,
     category: "cake-decorating",
     medium: "Buttercream on board",
-    story:
-      "Miss Dorothy said do fifty before you do one on a cake. I did about seventy.",
     ratio: "portrait",
     season: "Spring session",
     variant: 1,
@@ -223,8 +207,6 @@ export const studioPieces: StudioPiece[] = [
     age: 12,
     category: "t-shirt-design",
     medium: "Heat transfer vinyl on cotton",
-    story:
-      "I drew it on paper first, then we cut it on the machine. I made four for my cousins and one for me.",
     ratio: "square",
     season: "Summer session",
     image: "/studio/studio-bloom.jpg",
@@ -238,8 +220,6 @@ export const studioPieces: StudioPiece[] = [
     age: 16,
     category: "t-shirt-design",
     medium: "Two-color press, small run",
-    story:
-      "I wanted something people from here would actually wear. We priced a run of twenty and worked out what we would have to charge.",
     ratio: "landscape",
     season: "Fall session",
     image: "/studio/studio-tshirt-isaiah.jpg",
@@ -253,8 +233,6 @@ export const studioPieces: StudioPiece[] = [
     age: 15,
     category: "film",
     medium: "Short film, 4 min — director & editor",
-    story:
-      "It is about what our street looks like between school and dinner. I directed it and cut it. Getting clean sound outside was harder than any of the camera stuff.",
     ratio: "landscape",
     season: "Fall session",
     image: "/studio/studio-after-three-oclock.jpg",
@@ -268,8 +246,6 @@ export const studioPieces: StudioPiece[] = [
     age: 17,
     category: "film",
     medium: "Documentary short — camera & lighting",
-    story:
-      "I interviewed my uncle in his barbershop. I lit it with two lamps and a bounce card we made out of poster board.",
     ratio: "portrait",
     season: "Summer session",
     placeholder: true,
@@ -281,8 +257,6 @@ export const studioPieces: StudioPiece[] = [
     age: 13,
     category: "music",
     medium: "Group performance — lead vocal",
-    story:
-      "Eight of us wrote it together over four weeks. I had never sung in front of anybody before this.",
     ratio: "square",
     season: "Spring session",
     placeholder: true,
@@ -294,8 +268,6 @@ export const studioPieces: StudioPiece[] = [
     age: 11,
     category: "music",
     medium: "Percussion, original arrangement",
-    story:
-      "We made the whole beat out of things that were already in the room. A bucket, a chair and two spoons.",
     ratio: "landscape",
     season: "Summer session",
     placeholder: true,
@@ -307,8 +279,6 @@ export const studioPieces: StudioPiece[] = [
     age: 10,
     category: "sewing",
     medium: "Cotton, machine-pieced",
-    story:
-      "Nine squares sounds easy until the corners do not line up. Mine line up now.",
     ratio: "square",
     season: "Free class",
     variant: 1,
@@ -321,7 +291,6 @@ export const studioPieces: StudioPiece[] = [
     age: 9,
     category: "candle-making",
     medium: "Soy wax, lavender",
-    story: "My mom likes lavender so that is what I picked. It burns for a long time.",
     ratio: "landscape",
     season: "Free class",
     image: "/studio/studio-lavender-nia.jpg",

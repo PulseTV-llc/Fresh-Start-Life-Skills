@@ -18,7 +18,7 @@ import { site } from "@/lib/site";
 export const metadata = buildMetadata({
   title: "Fresh Start Studio — Student Work Gallery",
   description:
-    "A gallery of what students make at Fresh Start Life Skills — kids, teens and adults alike: sewing, candles, cake decorating, t-shirt design, film and music, each piece with the student's own story.",
+    "A gallery of what students make at Fresh Start Life Skills — kids, teens and adults alike: sewing, candles, cake decorating, t-shirt design, film and music.",
   path: "/studio",
   keywords: [
     "student art gallery Alexandria Louisiana",

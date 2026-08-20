@@ -208,6 +208,11 @@ export const programs: Program[] = [
     skills: ["Rhythm & ear training", "Ensemble playing", "Vocal basics", "Performance"],
     cost: "Low or no cost",
     glyph: "music",
+    photo: "/events/music-workshop-production-lab.jpg",
+    photoAlt:
+      "Students in headphones producing music on MIDI keyboards and Macs at a Fresh Start musical workshop.",
+    photoCaption: "Building a track in the production lab.",
+    photoAspect: "1447 / 1087",
     accent: "green",
   },
   {

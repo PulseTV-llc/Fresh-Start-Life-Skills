@@ -253,7 +253,7 @@ export default function EventsPage() {
           intro="Real photographs from the workshop floor — our own students, our own instructors, our own rooms."
         />
         <RevealGroup
-          className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+          className="mt-12 grid grid-flow-row-dense gap-4 sm:grid-cols-2 lg:grid-cols-3"
           stagger={0.05}
         >
           {eventPhotos.map((photo) => (

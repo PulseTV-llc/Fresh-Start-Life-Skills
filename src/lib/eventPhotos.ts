@@ -60,12 +60,6 @@ export const eventPhotos: EventPhoto[] = [
     wide: true,
   },
   {
-    src: "/events/candle-making-pouring-wax.jpg",
-    alt: "A student pouring scented wax into a jar at a candle-making workshop, fragrance oils and finished candles on the table.",
-    category: "craft",
-    wide: true,
-  },
-  {
     src: "/events/sewing-cutting-floral-fabric.jpg",
     alt: "A student cutting a pink floral fabric panel with fabric shears.",
     category: "sewing",
@@ -74,6 +68,12 @@ export const eventPhotos: EventPhoto[] = [
     src: "/events/cake-club-proud-cupcake.jpg",
     alt: "A student grinning as he holds up the cupcake he decorated.",
     category: "baking",
+  },
+  {
+    src: "/events/candle-making-pouring-wax.jpg",
+    alt: "A student pouring scented wax into a jar at a candle-making workshop, fragrance oils and finished candles on the table.",
+    category: "craft",
+    wide: true,
   },
   {
     src: "/events/sewing-finished-yellow-skirt.jpg",
@@ -110,6 +110,12 @@ export const eventPhotos: EventPhoto[] = [
     src: "/events/cake-club-student-blue-cupcakes.jpg",
     alt: "A student in a chef hat smiling beside the tray of blue-iced cupcakes she finished.",
     category: "baking",
+  },
+  {
+    src: "/events/music-workshop-production-lab.jpg",
+    alt: "Students in headphones producing music on MIDI keyboards and Macs at the musical workshop.",
+    category: "craft",
+    wide: true,
   },
   {
     src: "/events/sewing-marking-pattern.jpg",

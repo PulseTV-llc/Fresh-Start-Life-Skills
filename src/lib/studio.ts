@@ -178,8 +178,10 @@ export const studioPieces: StudioPiece[] = [
     medium: "Soy wax, three-stage pour",
     story:
       "You have to wait for each layer to set or the colors run together. Waiting was the hardest part.",
-    ratio: "square",
+    ratio: "portrait",
     season: "Summer session",
+    image: "/studio/studio-layered-pour.jpg",
+    alt: "A student in an apron pouring wax into a glass jar that has set in cream, pink and peach layers, fragrance oils lined up in front.",
     placeholder: true,
   },
   {

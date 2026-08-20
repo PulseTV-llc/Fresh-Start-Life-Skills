@@ -127,6 +127,11 @@ export const programs: Program[] = [
     skills: ["Wax & wick science", "Fragrance blending", "Safe pouring", "Unit pricing"],
     cost: "Low or no cost",
     glyph: "candle",
+    photo: "/events/candle-making-pouring-wax.jpg",
+    photoAlt:
+      "A student pouring scented wax into a jar at a Fresh Start candle-making workshop.",
+    photoCaption: "Pouring a batch, fragrance oils to hand.",
+    photoAspect: "1448 / 1086",
     accent: "green",
   },
   {

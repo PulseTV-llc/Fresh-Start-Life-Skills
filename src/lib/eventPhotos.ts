@@ -60,6 +60,12 @@ export const eventPhotos: EventPhoto[] = [
     wide: true,
   },
   {
+    src: "/events/candle-making-pouring-wax.jpg",
+    alt: "A student pouring scented wax into a jar at a candle-making workshop, fragrance oils and finished candles on the table.",
+    category: "craft",
+    wide: true,
+  },
+  {
     src: "/events/sewing-cutting-floral-fabric.jpg",
     alt: "A student cutting a pink floral fabric panel with fabric shears.",
     category: "sewing",

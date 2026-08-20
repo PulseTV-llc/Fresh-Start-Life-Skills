@@ -207,9 +207,11 @@ export const studioPieces: StudioPiece[] = [
     medium: "Buttercream on board",
     story:
       "Miss Dorothy said do fifty before you do one on a cake. I did about seventy.",
-    ratio: "landscape",
+    ratio: "portrait",
     season: "Spring session",
     variant: 1,
+    image: "/studio/studio-rosette-practice-board.jpg",
+    alt: "A practice board of piped buttercream rosettes graduating from white through pink to peach, with a piping bag resting above it.",
     placeholder: true,
   },
   {

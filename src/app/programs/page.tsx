@@ -12,8 +12,9 @@ import { programs, tracks, capstoneProgram, programAges } from "@/lib/programs";
 import { ageRange } from "@/lib/ageBands";
 import { AgeGroupsSection } from "@/components/programs/AgeGroupsSection";
 import { capstone } from "@/lib/capstone";
+import { seminarSubjects, seminarInstructor } from "@/lib/businessSeminar";
 import { site, mailto } from "@/lib/site";
-import { cn } from "@/lib/utils";
+import { cn, initialsOf } from "@/lib/utils";
 
 export const metadata = buildMetadata({
   title: "Programs — Hands-On Workshops for Ages 8 & Up",
@@ -244,6 +245,113 @@ export default function ProgramsPage() {
             </Section>
           );
         })}
+
+      {/* --- Business Seminar -------------------------------------------
+          Sits after the workshop catalog and before the closing CTA: it is an
+          offering rather than one of the numbered workshops, and the tracks
+          above have to be read first for that distinction to land. The cream
+          background also restores the alternation, since the free-class track
+          and the CTA are both white. */}
+      <Section id="business-seminar" size="wide">
+        <SectionHeading
+          eyebrow="Business & finance"
+          tone="teal"
+          title="Business Seminar subjects."
+          intro="A seminar series on the money and business questions adults ask us most — run alongside the workshops, and pitched at people starting from zero."
+        />
+
+        <RevealGroup
+          className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+          stagger={0.07}
+        >
+          {seminarSubjects.map((subject, index) => (
+            <RevealChild key={subject.title}>
+              <article className="flex h-full flex-col rounded-[1.75rem] bg-white p-7 shadow-[var(--shadow-soft)] ring-1 ring-ink/[0.06]">
+                <span className="font-display text-sm font-bold text-teal-600">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h3 className="mt-3 text-xl leading-snug text-ink">
+                  {subject.title}
+                </h3>
+                <p className="mt-2.5 leading-relaxed text-ink-muted">
+                  {subject.description}
+                </p>
+              </article>
+            </RevealChild>
+          ))}
+        </RevealGroup>
+
+        {/* The instructor card renders only once `seminarInstructor` is filled
+            in (see src/lib/businessSeminar.ts). Until then this slot holds a
+            short note rather than a placeholder name — an invented instructor
+            on a public page is worse than an honest gap. */}
+        <Reveal delay={0.1} className="mt-10">
+          {seminarInstructor ? (
+            <article className="flex flex-col gap-5 rounded-[1.75rem] bg-white p-7 shadow-[var(--shadow-soft)] ring-1 ring-ink/[0.06] sm:flex-row sm:items-start sm:gap-6">
+              {seminarInstructor.photo ? (
+                <Image
+                  src={seminarInstructor.photo}
+                  alt={seminarInstructor.name}
+                  width={128}
+                  height={128}
+                  className="size-32 shrink-0 rounded-[1.25rem] object-cover object-top ring-1 ring-ink/[0.06]"
+                />
+              ) : (
+                <span
+                  aria-hidden="true"
+                  className="flex size-32 shrink-0 items-center justify-center rounded-[1.25rem] bg-sun-100 font-display text-4xl font-semibold text-sun-700"
+                >
+                  {initialsOf(seminarInstructor.name)}
+                </span>
+              )}
+              <div className="min-w-0">
+                <span className="font-display text-sm font-bold text-teal-600">
+                  Your instructor
+                </span>
+                <h3 className="mt-2 text-xl font-semibold leading-snug text-ink">
+                  {seminarInstructor.name}
+                </h3>
+                <p className="mt-1 text-sm font-medium text-teal-700">
+                  {seminarInstructor.role}
+                </p>
+                {seminarInstructor.bio ? (
+                  <p className="mt-3 text-sm leading-relaxed text-ink-muted">
+                    {seminarInstructor.bio}
+                  </p>
+                ) : null}
+              </div>
+            </article>
+          ) : (
+            <p className="rounded-[1.75rem] bg-white px-7 py-6 leading-relaxed text-ink-muted ring-1 ring-ink/[0.06]">
+              <span className="font-semibold text-ink">
+                Instructor to be announced.
+              </span>{" "}
+              We will publish the instructor&apos;s background here before the
+              next seminar begins.
+            </p>
+          )}
+        </Reveal>
+
+        <Reveal delay={0.15} className="mt-8">
+          <p className="text-ink-muted">
+            Younger groups cover the same ground at their own level in{" "}
+            <Link
+              href="/programs/financing-and-budgeting"
+              className="font-semibold text-ink underline decoration-teal-400 decoration-2 underline-offset-4"
+            >
+              Financing &amp; Budgeting
+            </Link>
+            . Call{" "}
+            <a
+              href={site.contact.phoneHref}
+              className="font-semibold text-ink underline-offset-4 hover:underline"
+            >
+              {site.contact.phone}
+            </a>{" "}
+            for the next seminar date.
+          </p>
+        </Reveal>
+      </Section>
 
       <Section className="bg-white">
         <Reveal className="rounded-[2rem] bg-[linear-gradient(150deg,#0a5054_0%,#012f38_100%)] p-9 text-cream sm:p-14">

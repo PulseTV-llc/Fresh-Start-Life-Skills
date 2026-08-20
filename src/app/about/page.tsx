@@ -7,6 +7,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/jsonld";
 import { buildMetadata } from "@/lib/seo";
 import { site, mailto } from "@/lib/site";
+import { initialsOf } from "@/lib/utils";
 
 export const metadata = buildMetadata({
   title: "About Fresh Start Life Skills",
@@ -19,19 +20,6 @@ export const metadata = buildMetadata({
     "adult education nonprofit Louisiana",
   ],
 });
-
-/**
- * "Jane Smith" -> "JS". Skips punctuation-only tokens so a placeholder like
- * "Board Member — Name TBD" still yields clean initials rather than an em dash.
- */
-function initialsOf(name: string) {
-  return name
-    .split(/\s+/)
-    .filter((word) => /^[A-Za-z]/.test(word))
-    .slice(0, 2)
-    .map((word) => word.charAt(0).toUpperCase())
-    .join("");
-}
 
 const values = [
   {

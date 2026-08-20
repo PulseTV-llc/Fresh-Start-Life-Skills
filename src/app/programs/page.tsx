@@ -8,21 +8,27 @@ import { ArrowIcon, ButtonLink } from "@/components/ui/Button";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, programListSchema } from "@/lib/jsonld";
 import { buildMetadata } from "@/lib/seo";
-import { programs, tracks, capstoneProgram } from "@/lib/programs";
+import { programs, tracks, capstoneProgram, programAges } from "@/lib/programs";
+import { ageRange } from "@/lib/ageBands";
+import { AgeGroupsSection } from "@/components/programs/AgeGroupsSection";
 import { capstone } from "@/lib/capstone";
 import { site, mailto } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 export const metadata = buildMetadata({
-  title: "Programs — After-School Workshops for Ages 8–17",
+  title: "Programs — Hands-On Workshops for Ages 8 & Up",
   description:
-    "Sewing, candle making, budgeting, cake decorating, t-shirt design, music and filmmaking — hands-on workshops for youth ages 8–17 in Alexandria, Louisiana, at low or no cost.",
+    "Sewing, candle making, budgeting, cake decorating, t-shirt design, music and filmmaking — hands-on workshops for kids, teens and adults in Alexandria, Louisiana, at low or no cost. Adult groups run advanced sessions on top.",
   path: "/programs",
   keywords: [
     "after school program Alexandria LA",
+    "adult education classes Alexandria LA",
     "free sewing classes for kids Louisiana",
+    "adult sewing classes Louisiana",
     "youth filmmaking class Louisiana",
     "kids financial literacy class",
+    "adult financial literacy class Louisiana",
+    "vocational training for adults central Louisiana",
   ],
 });
 
@@ -49,7 +55,7 @@ export default function ProgramsPage() {
       <PageHero
         eyebrow="Learn, Explore & Grow"
         title="Every workshop we run."
-        intro="Our after-school program gives young people ages 8–17 a rotating set of hands-on workshops, plus free open-enrollment classes. Materials are always provided."
+        intro="A rotating set of hands-on workshops for kids, teens and adults — each age group in its own session, with the 18+ groups carrying on into the advanced material. Materials are always provided."
         breadcrumbs={[
           { name: "Home", href: "/" },
           { name: "Programs", href: "/programs" },
@@ -114,7 +120,7 @@ export default function ProgramsPage() {
                   <div>
                     <dt className="text-xs text-cream/55">Ages</dt>
                     <dd className="mt-1 font-display text-lg font-semibold text-white">
-                      {capstone.ages.replace("Ages ", "")}
+                      {ageRange(capstone.bands)}
                     </dd>
                   </div>
                   <div>
@@ -129,6 +135,8 @@ export default function ProgramsPage() {
           </Link>
         </Reveal>
       </Section>
+
+      <AgeGroupsSection />
 
       {tracks
         .filter((track) => track.id !== "all")
@@ -190,7 +198,7 @@ export default function ProgramsPage() {
                           </span>
                         ) : null}
                         <span className="text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-ink-muted">
-                          {program.ages}
+                          {programAges(program)}
                         </span>
                       </div>
 
@@ -240,12 +248,12 @@ export default function ProgramsPage() {
       <Section className="bg-white">
         <Reveal className="rounded-[2rem] bg-[linear-gradient(150deg,#0a5054_0%,#012f38_100%)] p-9 text-cream sm:p-14">
           <h2 className="max-w-2xl text-3xl text-white sm:text-4xl">
-            Not sure which program fits your child?
+            Not sure which program fits?
           </h2>
           <p className="mt-4 max-w-xl leading-relaxed text-cream/75">
-            Call and tell us what they like. We have put enough kids through
-            enough workshops to have a good guess about where they will thrive.
-            You can also email{" "}
+            Call and tell us what you — or your child — are drawn to, and which
+            group you would be joining. We will point you at the workshop and the
+            session that fit. You can also email{" "}
             <a
               href={mailto(site.emails.support)}
               className="font-semibold text-sun-300 underline-offset-4 hover:underline"

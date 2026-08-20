@@ -3,7 +3,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Eyebrow } from "@/components/ui/Section";
 import { ButtonLink, ArrowIcon } from "@/components/ui/Button";
 import { ConvergenceDiagram } from "@/components/capstone/ConvergenceDiagram";
-import { capstone } from "@/lib/capstone";
+import { capstone, capstoneAges } from "@/lib/capstone";
 import { curricula } from "@/lib/curriculum";
 
 /**
@@ -97,7 +97,7 @@ export function CapstoneSection() {
             <ArrowIcon />
           </ButtonLink>
           <p className="text-sm text-cream/70">
-            {capstone.ages} · {capstone.cost} · {capstone.length}
+            {capstoneAges} · {capstone.cost} · {capstone.length}
           </p>
         </Reveal>
       </Container>

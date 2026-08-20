@@ -86,7 +86,7 @@ export async function POST(request: Request) {
       : `Donation to ${site.legalName}`;
 
   const description =
-    "Supports hands-on life and vocational skills programs for youth ages 8–17 in central Louisiana.";
+    "Supports hands-on life and vocational skills programs for kids, teens and adults in central Louisiana.";
 
   try {
     const stripe = getStripe();

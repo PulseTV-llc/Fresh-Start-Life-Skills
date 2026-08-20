@@ -105,7 +105,7 @@ export default async function OpengraphImage() {
             }}
           >
             Learn, Explore &amp; Grow — hands-on life and vocational skills for
-            youth ages 8–17 across central Louisiana.
+            students of every age across central Louisiana.
           </div>
 
           <div

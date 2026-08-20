@@ -60,12 +60,13 @@ export function DonateCTA({
               id="donate-heading"
               className="mt-5 text-4xl leading-[1.08] text-white sm:text-5xl lg:text-[3.4rem]"
             >
-              Fund a child&apos;s afternoon.
+              Fund somebody&apos;s next skill.
             </h2>
             <p className="mt-5 max-w-md text-lg leading-relaxed text-white">
               Fresh Start runs on donated materials, donated time and gifts from
-              people who believe these kids are worth the investment. Every dollar
-              goes into a young person&apos;s hands.
+              people who believe our students are worth the investment — the
+              ten-year-old at the sewing machine and the adult retraining beside
+              her. Every dollar goes into somebody&apos;s hands.
             </p>
 
             <ul className="mt-8 flex flex-col gap-3 text-white">

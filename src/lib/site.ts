@@ -27,6 +27,12 @@ export const site = {
   founder: {
     name: "Dorothy Jackson",
     role: "Founder & Executive Director",
+    /**
+     * Her headshot, in `public/team/`. Single source of truth so the about
+     * page portrait, the leadership card and the home-page pull-quote all
+     * move together if the photograph is ever re-shot.
+     */
+    photo: "/team/dorothy-jackson.jpg",
   },
 
   /**
@@ -112,7 +118,7 @@ export const primaryNav: NavItem[] = [
   {
     href: "/programs",
     label: "Programs",
-    description: "Hands-on workshops for ages 8–17",
+    description: "Hands-on workshops for ages 8 & up",
   },
   {
     href: "/programs/ai-builder-lab",

@@ -6,6 +6,8 @@
  * from this one array. Adding a program here publishes it everywhere.
  */
 
+import { ageLabel, type AgeBandId } from "./ageBands";
+
 export type ProgramTrack = "after-school" | "free-class" | "capstone";
 
 export type Program = {
@@ -17,7 +19,12 @@ export type Program = {
   /** Longer copy for the detail page. */
   body: string[];
   track: ProgramTrack;
-  ages: string;
+  /**
+   * Which age groups run this program. Each band meets separately, and the
+   * adult bands additionally run the advanced sessions in `curriculum.ts`.
+   * The displayed range is derived from this — never written out by hand.
+   */
+  bands: AgeBandId[];
   /** Skills a student walks away with — rendered as chips. */
   skills: string[];
   cost: string;
@@ -70,7 +77,7 @@ export const programs: Program[] = [
       "No experience is needed, and there is no cost to families. Space is limited to keep the group small enough for real one-on-one attention.",
     ],
     track: "free-class",
-    ages: "Ages 8–12",
+    bands: ["kids"],
     skills: ["Hand sewing", "Measuring", "Pattern basics", "Finishing a project"],
     cost: "Free",
     glyph: "creative-sewing",
@@ -82,13 +89,14 @@ export const programs: Program[] = [
     title: "Beginners Sewing Classes",
     tagline: "From first stitch to finished garment.",
     description:
-      "A structured sewing course covering machine safety, seams, hems and simple garment construction — a genuine vocational skill students can carry into adulthood.",
+      "A structured sewing course covering machine safety, seams, hems and simple garment construction — a genuine vocational skill, taught to kids, teens and adults alike.",
     body: [
       "Our beginners sewing course takes students beyond hand stitching and onto the machine. They learn threading, tension, seam allowances, hems and how to read a simple pattern.",
-      "Sewing is a life skill and a livelihood. Students who finish this course can repair their own clothes, alter a hem for a family member, and — for some — take the first step toward tailoring or textile work.",
+      "Sewing is a life skill and a livelihood. Students who finish this course can repair their own clothes, alter a hem for somebody in the house, and — for some — take the first step toward tailoring or textile work.",
+      "The adult groups keep going: fitting a real body, finishes that survive a wash cycle, and what it takes to charge for an alteration.",
     ],
     track: "after-school",
-    ages: "Ages 8–17",
+    bands: ["kids", "teens", "young-adults", "adults"],
     skills: ["Machine operation", "Seams & hems", "Pattern reading", "Garment repair"],
     cost: "Low or no cost",
     glyph: "sewing",
@@ -102,10 +110,10 @@ export const programs: Program[] = [
       "Students learn wax types, wick sizing, fragrance blending and safe pouring — and leave understanding how a handmade product becomes something you can sell.",
     body: [
       "Candle making is equal parts science and craft. Students learn how different waxes behave, how to size a wick to a vessel, how fragrance load affects burn, and how to pour safely and cleanly.",
-      "We finish by talking about cost per unit and pricing — the first business lesson many of our students ever get, taught with something they made themselves.",
+      "We finish by talking about cost per unit and pricing — the first business lesson many of our students ever get, taught with something they made themselves. The adult groups go on to burn testing, batch production and what it takes to sell wholesale.",
     ],
     track: "after-school",
-    ages: "Ages 8–17",
+    bands: ["kids", "teens", "young-adults", "adults"],
     skills: ["Wax & wick science", "Fragrance blending", "Safe pouring", "Unit pricing"],
     cost: "Low or no cost",
     glyph: "candle",
@@ -116,13 +124,13 @@ export const programs: Program[] = [
     title: "Financing & Budgeting",
     tagline: "Money skills school never got around to teaching.",
     description:
-      "Practical, age-appropriate financial literacy: needs versus wants, saving toward a goal, how a bank account works, and how to build a first budget that actually holds.",
+      "Financial literacy pitched to the group in the room: needs versus wants and a first savings goal for the younger students; pay stubs, credit and a household budget for the adults.",
     body: [
-      "Most young people leave school without ever having built a budget. This program fixes that with plain language and real scenarios: what things cost, how saving toward a goal works, what a bank account does, and how credit can help or hurt.",
-      "Older students work through a simulated month — income, fixed costs, an unexpected expense — and come out the other side with a budget they wrote themselves.",
+      "Most people leave school without ever having built a budget. This program fixes that with plain language and real scenarios: what things cost, how saving toward a goal works, what a bank account does, and how credit can help or hurt.",
+      "Everyone works through a simulated month — income, fixed costs, an unexpected expense — and comes out the other side with a budget they wrote themselves. The adult groups then take it further: a real pay stub, an amortization schedule, and a household that can absorb a bad month.",
     ],
     track: "after-school",
-    ages: "Ages 8–17",
+    bands: ["kids", "teens", "young-adults", "adults"],
     skills: ["Budgeting", "Saving goals", "Banking basics", "Needs vs. wants"],
     cost: "Low or no cost",
     glyph: "budget",
@@ -136,10 +144,11 @@ export const programs: Program[] = [
       "Kitchen fundamentals meet artistry: leveling and crumb coats, piping techniques, color theory in frosting, and the food-safety habits every kitchen requires.",
     body: [
       "Students learn to level a cake, apply a crumb coat, mix colors and control a piping bag — the fundamentals that separate a homemade cake from a professional one.",
-      "Alongside the artistry we teach kitchen discipline: clean stations, food safety, timing and working to someone else's spec. These are the habits that make a young person hireable.",
+      "Alongside the artistry we teach kitchen discipline: clean stations, food safety, timing and working to someone else's spec. These are the habits that make somebody hireable in a kitchen.",
+      "Adults carry on into tiered structure, allergen handling and what Louisiana's cottage food law does and does not let you sell from a home kitchen.",
     ],
     track: "after-school",
-    ages: "Ages 8–17",
+    bands: ["kids", "teens", "young-adults", "adults"],
     skills: ["Icing & crumb coats", "Piping techniques", "Color mixing", "Food safety"],
     cost: "Low or no cost",
     glyph: "cake",
@@ -154,9 +163,10 @@ export const programs: Program[] = [
     body: [
       "Students take an idea from sketch to a shirt they can wear the same afternoon. Along the way they learn layout, typography, color contrast and how a design behaves on fabric.",
       "The back half of the program is entrepreneurial: naming a line, pricing a shirt, and understanding what it takes to fill an order for someone else.",
+      "The adult sessions add print-ready artwork, garment and ink compatibility, and quoting a run of a hundred shirts without losing money on it.",
     ],
     track: "after-school",
-    ages: "Ages 8–17",
+    bands: ["kids", "teens", "young-adults", "adults"],
     skills: ["Graphic layout", "Typography", "Heat press", "Small-batch production"],
     cost: "Low or no cost",
     glyph: "tshirt",
@@ -170,10 +180,11 @@ export const programs: Program[] = [
       "Group music-making that builds ear, rhythm and stage presence — plus the teamwork that only comes from playing a part in something bigger than yourself.",
     body: [
       "Our musical workshop meets students wherever they are: rhythm and ear training, singing together, learning parts, and building toward a performance.",
-      "The real curriculum is confidence. Standing up in front of people and being heard changes how a young person carries themselves everywhere else.",
+      "The real curriculum is confidence. Standing up in front of people and being heard changes how somebody carries themselves everywhere else.",
+      "Adults go further into arranging for a small ensemble, tracking and mixing a recording, and the practical side of playing for pay.",
     ],
     track: "after-school",
-    ages: "Ages 8–17",
+    bands: ["kids", "teens", "young-adults", "adults"],
     skills: ["Rhythm & ear training", "Ensemble playing", "Vocal basics", "Performance"],
     cost: "Low or no cost",
     glyph: "music",
@@ -188,9 +199,10 @@ export const programs: Program[] = [
     body: [
       "Students learn how a story is built on screen: framing and shot sizes, capturing clean audio, lighting a scene, and directing people with clarity and kindness.",
       "Everyone rotates through the roles — camera, sound, director, editor — and the group finishes an actual short film together. Media production is a real career pathway, and this is where it starts.",
+      "The adult sessions cover the parts that make it a job: call sheets and releases, manual exposure and monitored audio, colour, and delivering paid work to a client's spec.",
     ],
     track: "after-school",
-    ages: "Ages 8–17",
+    bands: ["kids", "teens", "young-adults", "adults"],
     skills: ["Camera & framing", "Audio capture", "Lighting", "Directing & editing"],
     cost: "Low or no cost",
     glyph: "film",
@@ -220,7 +232,7 @@ export const capstoneProgram: Program = {
     "By the end they have shipped: a live website, an app running on both iPhone and Android, customer sign-in, a database and file storage, a working checkout, and a URL they can send to anybody.",
   ],
   track: "capstone",
-  ages: "Ages 12–17",
+  bands: ["teens", "young-adults", "adults"],
   skills: [
     "Building with AI",
     "HTML, CSS & JavaScript",
@@ -249,6 +261,14 @@ export const programBySlug = (slug: string) =>
 
 export const featuredPrograms = programs.filter((program) => program.featured);
 
+/**
+ * The displayed age line for a program — "Ages 8 & up", "Ages 8–12".
+ *
+ * Always derived from `bands`, so a program can never advertise a range it does
+ * not actually run a group for.
+ */
+export const programAges = (program: Program) => ageLabel(program.bands);
+
 export const tracks: { id: ProgramTrack | "all"; label: string; blurb: string }[] = [
   {
     id: "all",
@@ -257,8 +277,9 @@ export const tracks: { id: ProgramTrack | "all"; label: string; blurb: string }[
   },
   {
     id: "after-school",
-    label: "After-School Program",
-    blurb: "Learn, Explore & Grow — weekday sessions for ages 8–17.",
+    label: "After-School & Evening Workshops",
+    blurb:
+      "Learn, Explore & Grow — after school for kids and teens, evenings and weekends for adults, with the advanced sessions added for the 18+ groups.",
   },
   {
     id: "free-class",

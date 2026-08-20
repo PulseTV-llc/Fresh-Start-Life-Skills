@@ -14,7 +14,13 @@ import { Section, SectionHeading } from "@/components/ui/Section";
 import { ArrowIcon, ButtonLink } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { ProgramGlyph } from "@/components/brand/ProgramGlyph";
-import { programs, tracks, type Program, type ProgramTrack } from "@/lib/programs";
+import {
+  programs,
+  tracks,
+  programAges,
+  type Program,
+  type ProgramTrack,
+} from "@/lib/programs";
 import { capstone } from "@/lib/capstone";
 import { cn } from "@/lib/utils";
 
@@ -151,7 +157,7 @@ function ProgramCard({ program, featured }: { program: Program; featured?: boole
               </span>
             ) : null}
             <span className="text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-ink-muted">
-              {program.ages}
+              {programAges(program)}
             </span>
           </div>
 
@@ -218,7 +224,7 @@ export function ProgramsShowcase() {
             <br className="hidden sm:block" /> what you&apos;re good at.
           </>
         }
-        intro="Our after-school program runs hands-on workshops for ages 8–17, plus free open-enrollment classes. Every material is provided — students bring nothing but curiosity."
+        intro="Hands-on workshops for ages 8 and up, plus free open-enrollment classes. Kids and teens meet after school, adults evenings and weekends — and the 18+ groups carry on into the advanced sessions. Every material is provided."
       />
 
       {/* --- Track filter -------------------------------------------------- */}

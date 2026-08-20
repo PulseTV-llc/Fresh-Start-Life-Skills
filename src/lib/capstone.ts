@@ -11,6 +11,7 @@
  * has. Swap to past tense with real outcomes once the first group ships.
  */
 
+import { ageLabel, type AgeBandId } from "./ageBands";
 import { studioCategories, type StudioCategory } from "./studio";
 
 export const capstone = {
@@ -18,7 +19,8 @@ export const capstone = {
   name: "AI Builder Lab",
   /** The fourth verb, after Learn, Explore & Grow. */
   motto: "Build & Launch",
-  ages: "Ages 12–17",
+  /** Mirrors `capstoneProgram.bands`. Teens and both adult groups. */
+  bands: ["teens", "young-adults", "adults"] as AgeBandId[],
   cost: "Low or no cost",
   length: "8 weeks, after the craft programs",
   /** The line the whole program hangs on. */
@@ -26,7 +28,10 @@ export const capstone = {
     "AI is taking over. Every young person should know how to use it properly.",
   summary:
     "The capstone that ties every other program together. Students take something they already made by hand — a candle, a shirt, a cake, a film — and use AI to build and launch the real business around it: a website, an app for iPhone and Android, sign-in, a database, payments, and a live deployment anyone in the world can open.",
-} as const;
+};
+
+/** Derived, so the capstone can never advertise a group it does not run. */
+export const capstoneAges = ageLabel(capstone.bands);
 
 /**
  * The capstone's session list lives with every other program's in
@@ -144,46 +149,49 @@ export const principles = [
 
 export const capstoneFaqs = [
   {
-    question: "Does my child need to know how to code to take the AI class?",
+    question: "Do I need to know how to code to take the AI class?",
     answer:
-      "No. The AI Builder Lab starts from zero. Students learn the basics of HTML, CSS and JavaScript as they go, with AI acting as a tutor that never gets tired of the question. What they need is to have finished one of our craft programs, so they have something real to build around.",
+      "No. The AI Builder Lab starts from zero, for teenagers and adults alike. Students learn the basics of HTML, CSS and JavaScript as they go, with AI acting as a tutor that never gets tired of the question. What they need is to have finished one of our craft programs, so they have something real to build around.",
   },
   {
-    question: "What will my child actually have at the end?",
+    question: "What will I actually have at the end?",
     answer:
-      "A live website on the internet, an app that runs on iPhone and Android, customer sign-in, a database of their products and orders, working payments, and a link they can send to anybody. They will also be able to explain how every piece of it works.",
+      "A live website on the internet, an app that runs on iPhone and Android, customer sign-in, a database of your products and orders, working payments, and a link you can send to anybody. You will also be able to explain how every piece of it works. The adult groups add the sessions on registering the business, getting found, and running it after launch.",
   },
   {
-    question: "Is it safe for children to use AI this way?",
+    question: "Is it safe for teenagers to use AI this way?",
     answer:
-      "Sessions are supervised, accounts are managed by Fresh Start rather than by students, and the first lesson is about judgment: AI is a tool you direct and check, not an answer machine you trust. Students are taught to read the code they ship and to describe their products honestly.",
+      "The teen sessions are supervised, accounts are managed by Fresh Start rather than by students, and the first lesson is about judgment: AI is a tool you direct and check, not an answer machine you trust. Students are taught to read the code they ship and to describe their products honestly.",
   },
   {
-    question: "Why teach children to build with AI at all?",
+    question: "Why teach people to build with AI at all?",
     answer:
-      "Because the young people who can direct these tools well will have an enormous advantage over the ones who cannot, and that gap is opening now. Teaching a child to use AI properly — with judgment, and with enough underlying knowledge to check it — is one of the most practical things we can do for their future.",
+      "Because the people who can direct these tools well will have an enormous advantage over the ones who cannot, and that gap is opening now. That is as true for somebody starting a business at forty as it is for a fourteen-year-old. Learning to use AI properly — with judgment, and with enough underlying knowledge to check it — is one of the most practical things anyone can do right now.",
   },
   {
     question: "What ages is the AI Builder Lab for?",
     answer:
-      "Ages 12 to 17. The capstone asks for more reading and independence than our other workshops, so it sits at the end of the program rather than the beginning.",
+      "Ages 13 and up — teens, young adults and adults, each in their own group. The capstone asks for more reading and independence than our other workshops, so it sits at the end of the program rather than the beginning. The 18+ groups run three further sessions on registering the business, getting found and running it after launch.",
   },
   {
     question: "How much does it cost?",
     answer:
-      "Low or no cost, like every Fresh Start program, and all equipment is provided. No family is turned away because of cost — call (318) 704-2808.",
+      "Low or no cost, like every Fresh Start program, and all equipment is provided. Nobody is turned away because of cost — call (318) 704-2808.",
   },
 ];
 
 /** High-intent search terms this page is written to answer. */
 export const capstoneKeywords = [
   "AI class for kids",
+  "AI class for adults",
   "teaching kids AI",
   "AI education for youth",
   "learn to build apps with AI",
   "kids coding with AI",
   "build a website with AI for beginners",
   "no-code app building for teens",
+  "adult coding class Alexandria Louisiana",
+  "start an online business with AI",
   "teen entrepreneurship program",
   "youth coding class Alexandria Louisiana",
   "learn HTML CSS JavaScript with AI",

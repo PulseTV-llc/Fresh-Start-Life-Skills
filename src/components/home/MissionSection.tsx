@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Section, Eyebrow } from "@/components/ui/Section";
 import { Reveal, RevealGroup, RevealChild } from "@/components/ui/Reveal";
 import { founderQuote } from "@/lib/stories";
@@ -62,14 +63,16 @@ export function MissionSection() {
               <span className="text-gradient-sunrise">
                 empowering individuals of all ages
               </span>{" "}
-              — starting with the young people of central Louisiana.
+              — from eight years old to no upper limit, right here in central
+              Louisiana.
             </p>
             <p className="max-w-2xl text-lg leading-relaxed text-ink-muted">
               Founded by {site.founder.name}, Fresh Start began with a simple
-              observation: plenty of children have talent and almost none of them
-              have somewhere to put it after three o&apos;clock. So we built a
-              place. Sewing machines, cameras, mixing bowls, budget worksheets —
-              and adults who expect something good of every child who walks in.
+              observation: plenty of people have talent and almost none of them
+              have somewhere to put it — a child after three o&apos;clock, an
+              adult after a shift. So we built a place. Sewing machines, cameras,
+              mixing bowls, budget worksheets — and instructors who expect
+              something good of everyone who walks in.
             </p>
           </Reveal>
 
@@ -124,13 +127,13 @@ export function MissionSection() {
             </blockquote>
 
             <figcaption className="relative mt-8 flex items-center gap-4 border-t border-cream/20 pt-6">
-              {/* TODO(assets): replace with a real portrait of Dorothy Jackson (400×400). */}
-              <span
-                aria-hidden="true"
-                className="flex size-14 shrink-0 items-center justify-center rounded-full bg-sun-500/20 font-display text-xl font-semibold text-sun-200 ring-1 ring-sun-300/40"
-              >
-                DJ
-              </span>
+              <Image
+                src={site.founder.photo}
+                alt=""
+                width={56}
+                height={56}
+                className="size-14 shrink-0 rounded-full object-cover object-top ring-1 ring-sun-300/40"
+              />
               <span>
                 <span className="block font-semibold text-white">
                   {founderQuote.attribution}

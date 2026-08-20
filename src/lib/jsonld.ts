@@ -1,6 +1,7 @@
+import { typicalAgeRange } from "./ageBands";
 import { allPrograms, capstoneProgram, type Program } from "./programs";
 import { capstone } from "./capstone";
-import { curricula, curriculumFor } from "./curriculum";
+import { allSessions, curricula, curriculumFor } from "./curriculum";
 import { site } from "./site";
 
 /**
@@ -63,9 +64,11 @@ export function organizationSchema() {
       "life skills training",
       "vocational education",
       "youth after-school programs",
-      "financial literacy for kids",
+      "adult vocational and life skills classes",
+      "financial literacy for kids and adults",
       "sewing classes",
-      "film and media production for youth",
+      "film and media production",
+      "small business and product costing",
     ],
     sameAs: Object.values(site.socials).filter(Boolean),
     contactPoint: [
@@ -118,7 +121,9 @@ export function websiteSchema() {
 function syllabusParts(slug: string, url: string) {
   const curriculum = curriculumFor(slug);
   if (!curriculum) return undefined;
-  return curriculum.sessions.map((session, index) => ({
+  /* Core plus advanced: the syllabus a search result describes should be the
+     whole course as the adult groups run it, not the part a child sits. */
+  return allSessions(curriculum).map((session, index) => ({
     "@type": "Syllabus",
     "@id": `${url}#session-${index + 1}`,
     name: session.title,
@@ -143,11 +148,11 @@ export function programSchema(program: Program) {
     url,
     provider: { "@id": ORG_ID },
     isAccessibleForFree: program.cost.toLowerCase() === "free",
-    typicalAgeRange: program.ages.replace("Ages ", ""),
+    typicalAgeRange: typicalAgeRange(program.bands),
     teaches: curriculum
       ? [
           ...program.skills,
-          ...curriculum.sessions.flatMap((session) => session.objectives),
+          ...allSessions(curriculum).flatMap((session) => session.objectives),
         ]
       : program.skills,
     ...(parts
@@ -194,7 +199,7 @@ export function programSchema(program: Program) {
 export function capstoneSchema() {
   const url = `${site.url}/programs/${capstone.slug}`;
   const syllabus = curricula[capstone.slug];
-  const teaches = syllabus.sessions.flatMap((session) => [
+  const teaches = allSessions(syllabus).flatMap((session) => [
     session.title,
     ...session.objectives,
   ]);
@@ -215,13 +220,13 @@ export function capstoneSchema() {
         priceCurrency: "USD",
         availability: "https://schema.org/InStock",
       },
-      typicalAgeRange: capstone.ages.replace("Ages ", ""),
+      typicalAgeRange: typicalAgeRange(capstone.bands),
       educationalLevel: "Beginner",
       inLanguage: "en-US",
       teaches,
       syllabusSections: syllabusParts(capstone.slug, url),
       hasPart: syllabusParts(capstone.slug, url),
-      numberOfLessons: syllabus.sessions.length,
+      numberOfLessons: allSessions(syllabus).length,
       about: [
         "Artificial intelligence",
         "Web development",
@@ -259,7 +264,7 @@ export function capstoneSchema() {
       programType: "Capstone",
       educationalProgramMode: "full-time",
       timeToComplete: "P8W",
-      typicalAgeRange: capstone.ages.replace("Ages ", ""),
+      typicalAgeRange: typicalAgeRange(capstone.bands),
       occupationalCategory: [
         "Web Developer",
         "Mobile Application Developer",

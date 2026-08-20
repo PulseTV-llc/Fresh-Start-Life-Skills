@@ -6,8 +6,8 @@ import { cn } from "@/lib/utils";
 
 const pathways = [
   {
-    title: "Enroll a child",
-    body: "Rolling enrollment for ages 8–17. Call or send a message and we will walk you through the next open session.",
+    title: "Enroll",
+    body: "Rolling enrollment for ages 8 and up — yourself or your child. Call or send a message and we will walk you through the next open session for your group.",
     href: "/events",
     cta: "See sessions & register",
     tone: "sun" as const,

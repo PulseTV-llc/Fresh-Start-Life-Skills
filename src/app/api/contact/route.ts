@@ -32,7 +32,7 @@ const TO = process.env.CONTACT_TO_EMAIL ?? site.emails.general;
 const FIELD_ORDER = [
   "intent",
   "program",
-  "childAge",
+  "ageGroup",
   "helpWith",
   "support",
   "organization",
@@ -46,7 +46,7 @@ const FIELD_ORDER = [
 const CHOICE_FIELDS = new Set([
   "intent",
   "program",
-  "childAge",
+  "ageGroup",
   "helpWith",
   "support",
 ]);

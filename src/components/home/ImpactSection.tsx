@@ -30,28 +30,28 @@ const stats = [
     detail: "From Alexandria and Pineville up through Ruston and Monroe.",
   },
   {
-    value: 10,
+    value: 4,
     suffix: "",
-    label: "years of childhood reached",
-    detail: "Programs are built for ages 8 through 17, start to finish.",
+    label: "age groups, taught separately",
+    detail: "Kids, teens, young adults and adults — 8 through to no upper limit.",
   },
   {
     value: 0,
     prefix: "$",
     suffix: "",
     label: "cost for our free classes",
-    detail: "Kids Creative Sewing is free, and no family is turned away for cost.",
+    detail: "Kids Creative Sewing is free, and nobody is turned away for cost.",
   },
 ];
 
 const reasons = [
   {
-    title: "The hours after school are the ones that decide things",
-    body: "Between the last bell and dinner, a child is either building something or drifting. Fresh Start makes that window productive — with tools in their hands and an adult in the room.",
+    title: "The hours after everything else are the ones that decide things",
+    body: "Between the last bell and dinner, a child is either building something or drifting. After a shift, an adult is either learning something or not. Fresh Start makes that window productive — tools in your hands, and somebody in the room who knows the craft.",
   },
   {
     title: "These are skills, not crafts",
-    body: "A student who can operate a sewing machine, run a camera, price a product or hold a budget has something the labor market actually wants. We teach hobbies like they are trades, because for some of these kids they will be.",
+    body: "A student who can operate a sewing machine, run a camera, price a product or hold a budget has something the labor market actually wants. We teach hobbies like they are trades, because for some of our students they will be.",
   },
   {
     title: "Cost keeps too many children out",

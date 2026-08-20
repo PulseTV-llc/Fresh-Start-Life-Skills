@@ -50,9 +50,9 @@ export function SiteFooter() {
                 A fresh start begins with someone who shows up.
               </h2>
               <p className="mt-4 text-cream/70">
-                Give a gift, volunteer an afternoon, or enroll a child. Every one
-                of those is the same thing: a door opening for a young person in
-                central Louisiana.
+                Give a gift, volunteer an afternoon, or enroll — yourself or
+                your child. Every one of those is the same thing: a door opening
+                for somebody in central Louisiana.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">

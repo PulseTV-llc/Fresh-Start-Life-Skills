@@ -1,7 +1,7 @@
+import Image from "next/image";
 import { PageHero } from "@/components/layout/PageHero";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Reveal, RevealGroup, RevealChild } from "@/components/ui/Reveal";
-import { PhotoPlaceholder } from "@/components/ui/PhotoPlaceholder";
 import { ButtonLink, ArrowIcon } from "@/components/ui/Button";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/jsonld";
@@ -16,6 +16,7 @@ export const metadata = buildMetadata({
     "Dorothy Jackson Fresh Start Life Skills",
     "nonprofit Alexandria Louisiana",
     "youth nonprofit central Louisiana",
+    "adult education nonprofit Louisiana",
   ],
 });
 
@@ -68,23 +69,26 @@ export default function AboutPage() {
               <p>
                 Fresh Start Life Skills Inc. is a 501(c)(3) nonprofit based at{" "}
                 {site.address.street} in {site.address.city}, {site.address.region}.
-                We run an after-school program and a set of free open-enrollment
-                classes that teach young people ages 8 to 17 the practical,
-                creative and financial skills a school day rarely has room for.
+                We run workshops and a set of free open-enrollment classes that
+                teach the practical, creative and financial skills a school day
+                rarely has room for — to four separate groups: kids 8 to 12,
+                teens 13 to 17, young adults 18 to 24, and adults 25 and over.
               </p>
               <p>
                 The programs look different from one another — a sewing machine
                 here, a camera there, a piping bag, a budget worksheet — but they
-                are all the same idea. Put a real tool in a young person&apos;s
-                hands. Stay with them until they can use it. Let them walk out
-                with something they made.
+                are all the same idea. Put a real tool in somebody&apos;s hands.
+                Stay with them until they can use it. Let them walk out with
+                something they made. The adult groups then keep going, into the
+                fitting, costing and compliance that turn a craft into income.
               </p>
               <p>
                 Founder {site.founder.name} started this work because the
                 afternoon hours in our community were going to waste, and because
-                enrichment programs that do exist are usually priced out of reach.
+                the programs that do exist are usually priced out of reach — for
+                a child after school and for an adult trying to retrain alike.
                 Fresh Start is the answer to both problems: open doors, low or no
-                cost, and adults who take these kids seriously.
+                cost, and instructors who take every student seriously.
               </p>
             </div>
 
@@ -101,20 +105,26 @@ export default function AboutPage() {
 
           <Reveal delay={0.12} className="lg:col-span-5">
             <div className="flex flex-col gap-5">
-              {/* TODO(assets): portrait of Dorothy Jackson, and a room shot. */}
-              <PhotoPlaceholder
-                label="Portrait of founder Dorothy Jackson at the Fresh Start workshop space."
-                aspect="4/5"
-              />
+              {/* TODO(assets): a room shot of the workshop space. */}
+              <div className="relative aspect-4/5 w-full overflow-hidden rounded-[1.5rem] ring-1 ring-ink/[0.06]">
+                <Image
+                  src={site.founder.photo}
+                  alt={`${site.founder.name}, ${site.founder.role}`}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover object-top"
+                />
+              </div>
               <div className="rounded-[1.5rem] bg-white p-7 shadow-[var(--shadow-soft)] ring-1 ring-ink/[0.05]">
                 <h2 className="text-xl text-ink">Leadership</h2>
                 <div className="mt-4 flex items-center gap-4">
-                  <span
-                    aria-hidden="true"
-                    className="flex size-14 shrink-0 items-center justify-center rounded-full bg-sun-100 font-display text-xl font-semibold text-sun-700"
-                  >
-                    DJ
-                  </span>
+                  <Image
+                    src={site.founder.photo}
+                    alt=""
+                    width={56}
+                    height={56}
+                    className="size-14 shrink-0 rounded-full object-cover object-top ring-1 ring-ink/[0.06]"
+                  />
                   <span>
                     <span className="block font-semibold text-ink">
                       {site.founder.name}

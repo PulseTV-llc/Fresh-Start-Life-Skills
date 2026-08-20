@@ -10,7 +10,8 @@ import { ButtonLink, ArrowIcon } from "@/components/ui/Button";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, programSchema } from "@/lib/jsonld";
 import { buildMetadata } from "@/lib/seo";
-import { programs, programBySlug } from "@/lib/programs";
+import { programs, programBySlug, programAges } from "@/lib/programs";
+import { ageRange, bandsFor, servesAdults } from "@/lib/ageBands";
 import { capstone } from "@/lib/capstone";
 import { curriculumFor } from "@/lib/curriculum";
 import { CurriculumSection } from "@/components/programs/CurriculumSection";
@@ -33,7 +34,10 @@ export async function generateMetadata({ params }: PageProps<"/programs/[slug]">
     path: `/programs/${program.slug}`,
     keywords: [
       `${program.title} Alexandria LA`,
-      ...program.skills.map((skill) => `${skill} class for kids`),
+      ...program.skills.flatMap((skill) => [
+        `${skill} class for kids`,
+        `${skill} class for adults`,
+      ]),
     ],
   });
 }
@@ -68,7 +72,13 @@ export default async function ProgramPage({ params }: PageProps<"/programs/[slug
       />
 
       <PageHero
-        eyebrow={program.track === "free-class" ? "Free class" : "After-school program"}
+        eyebrow={
+          program.track === "free-class"
+            ? "Free class"
+            : servesAdults(program.bands)
+              ? "After school & evenings"
+              : "After-school program"
+        }
         title={program.title}
         intro={program.description}
         tone={accent.tone}
@@ -88,7 +98,7 @@ export default async function ProgramPage({ params }: PageProps<"/programs/[slug
             <ProgramGlyph glyph={program.glyph} className="size-8" />
           </span>
           <span className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-ink shadow-[var(--shadow-soft)]">
-            {program.ages}
+            {programAges(program)}
           </span>
           <span className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-ink shadow-[var(--shadow-soft)]">
             {program.cost}
@@ -96,6 +106,11 @@ export default async function ProgramPage({ params }: PageProps<"/programs/[slug
           <span className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-ink shadow-[var(--shadow-soft)]">
             Materials provided
           </span>
+          {curriculum?.advanced ? (
+            <span className="rounded-full bg-teal-700 px-4 py-2 text-sm font-semibold text-white shadow-[var(--shadow-soft)]">
+              + advanced sessions for 18+
+            </span>
+          ) : null}
         </div>
       </PageHero>
 
@@ -184,7 +199,7 @@ export default async function ProgramPage({ params }: PageProps<"/programs/[slug
                 </p>
                 <dl className="mt-6 flex flex-col gap-3 border-y border-cream/15 py-6 text-sm">
                   {[
-                    ["Ages", program.ages.replace("Ages ", "")],
+                    ["Ages", ageRange(program.bands)],
                     ["Cost", program.cost],
                     ["Location", site.address.full],
                   ].map(([label, value]) => (
@@ -194,6 +209,25 @@ export default async function ProgramPage({ params }: PageProps<"/programs/[slug
                     </div>
                   ))}
                 </dl>
+
+                {/* Every band that runs this program, and how its group meets.
+                    "Ages 8 & up" on its own reads like one enormous class. */}
+                <p className="mt-6 text-[0.66rem] font-bold uppercase tracking-[0.16em] text-sun-300">
+                  Groups that run it
+                </p>
+                <ul className="mt-3 flex flex-col gap-3">
+                  {bandsFor(program.bands).map((band) => (
+                    <li key={band.id} className="text-sm">
+                      <span className="font-semibold text-white">
+                        {band.label}
+                      </span>
+                      <span className="text-cream/50"> · {band.range}</span>
+                      <span className="mt-0.5 block leading-relaxed text-cream/70">
+                        {band.sessions}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
                 <div className="mt-6 flex flex-col gap-3">
                   <ButtonLink href={site.contact.phoneHref} size="lg">
                     {site.contact.phone}

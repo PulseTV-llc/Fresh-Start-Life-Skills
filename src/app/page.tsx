@@ -14,8 +14,8 @@ import { buildMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata = buildMetadata({
-  title: "Vocational & Life Skills Training for Youth in Alexandria, LA",
-  description: `${site.legalName} is a 501(c)(3) nonprofit teaching ages 8–17 practical life and vocational skills — sewing, budgeting, filmmaking, baking and more — at little or no cost. Serving Alexandria, Pineville and central Louisiana.`,
+  title: "Vocational & Life Skills Training for All Ages in Alexandria, LA",
+  description: `${site.legalName} is a 501(c)(3) nonprofit teaching practical life and vocational skills — sewing, budgeting, filmmaking, baking and more — to kids, teens and adults at little or no cost. Serving Alexandria, Pineville and central Louisiana.`,
   path: "/",
 });
 
@@ -29,17 +29,17 @@ const faqs = [
   {
     question: "What ages does Fresh Start Life Skills serve?",
     answer:
-      "Our after-school program serves youth ages 8 through 17. The free Kids Creative Sewing class is designed for children ages 8 to 12.",
+      "Ages 8 and up, in four groups that meet separately: Kids 8 to 12, Teens 13 to 17, Young Adults 18 to 24, and Adults 25 and over. Kids and teens meet after school; the adult groups meet evenings and weekends and run three further advanced sessions in every workshop. The free Kids Creative Sewing class is for children 8 to 12.",
   },
   {
     question: "How much do the programs cost?",
     answer:
-      "Programs are offered at low or no cost, and all materials are provided. Kids Creative Sewing is completely free. No family is turned away because of cost — call (318) 704-2808 to talk it through.",
+      "Programs are offered at low or no cost, and all materials are provided. Kids Creative Sewing is completely free. Nobody is turned away because of cost — call (318) 704-2808 to talk it through.",
   },
   {
     question: "Where is Fresh Start Life Skills located?",
     answer:
-      "We are located at 3210 N Bolton Ave, Alexandria, LA 71303, and serve families across Alexandria, Pineville, Shongaloo, Springhill, Ruston, Natchitoches, Jennings and Monroe.",
+      "We are located at 3210 N Bolton Ave, Alexandria, LA 71303, and serve Alexandria, Pineville, Shongaloo, Springhill, Ruston, Natchitoches, Jennings and Monroe.",
   },
   {
     question: "Is Fresh Start Life Skills a registered nonprofit?",

@@ -18,11 +18,12 @@ import { site } from "@/lib/site";
 export const metadata = buildMetadata({
   title: "Fresh Start Studio — Student Work Gallery",
   description:
-    "A gallery of what young people make at Fresh Start Life Skills: sewing, candles, cake decorating, t-shirt design, film and music — each piece with the student's own story.",
+    "A gallery of what students make at Fresh Start Life Skills — kids, teens and adults alike: sewing, candles, cake decorating, t-shirt design, film and music, each piece with the student's own story.",
   path: "/studio",
   keywords: [
     "student art gallery Alexandria Louisiana",
     "youth creative programs Louisiana",
+    "adult creative classes Louisiana",
     "student sewing projects",
     "youth film projects Louisiana",
   ],
@@ -84,7 +85,9 @@ export default function StudioPage() {
           </div>
           <div>
             <dt className="text-sm text-ink-muted">Ages</dt>
-            <dd className="font-display text-2xl font-semibold text-ink">8–17</dd>
+            <dd className="font-display text-2xl font-semibold text-ink">
+              8 &amp; up
+            </dd>
           </div>
         </dl>
       </PageHero>

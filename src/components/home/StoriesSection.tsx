@@ -56,7 +56,8 @@ export function StoriesSection() {
           </h2>
           <p className="mt-5 leading-relaxed text-cream/70">
             The clearest measure of this work is not a chart. It is a parent
-            noticing their child sitting differently at the dinner table.
+            noticing their child sitting differently at the dinner table — or an
+            adult finally charging what their work is worth.
           </p>
 
           <div className="mt-8 flex items-center gap-3">

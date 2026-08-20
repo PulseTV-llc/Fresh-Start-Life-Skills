@@ -11,9 +11,13 @@ import { site, mailto } from "@/lib/site";
 
 export const metadata = buildMetadata({
   title: "Donate",
-  description: `Support ${site.legalName}, a 501(c)(3) nonprofit in Alexandria, Louisiana. Your tax-deductible gift puts tools, materials and instruction into the hands of young people ages 8–17.`,
+  description: `Support ${site.legalName}, a 501(c)(3) nonprofit in Alexandria, Louisiana. Your tax-deductible gift puts tools, materials and instruction into the hands of students of every age — kids, teens and adults.`,
   path: "/donate",
-  keywords: ["donate nonprofit Alexandria Louisiana", "support youth programs Louisiana"],
+  keywords: [
+    "donate nonprofit Alexandria Louisiana",
+    "support youth programs Louisiana",
+    "support adult education Louisiana",
+  ],
 });
 
 const otherWays = [
@@ -75,8 +79,8 @@ export default async function DonatePage({ searchParams }: PageProps<"/donate">)
 
       <PageHero
         eyebrow="Give"
-        title="Put a tool in a child's hands."
-        intro="Fresh Start runs on gifts from people who believe these young people are worth the investment. Every dollar becomes materials, equipment and instruction."
+        title="Put a real tool in somebody's hands."
+        intro="Fresh Start runs on gifts from people who believe our students — kids, teens and adults alike — are worth the investment. Every dollar becomes materials, equipment and instruction."
         breadcrumbs={[
           { name: "Home", href: "/" },
           { name: "Donate", href: "/donate" },

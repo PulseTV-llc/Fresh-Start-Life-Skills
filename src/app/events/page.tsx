@@ -8,28 +8,33 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/jsonld";
 import { buildMetadata } from "@/lib/seo";
 import { upcomingSessions, scheduleShape } from "@/lib/events";
-import { programs, programBySlug } from "@/lib/programs";
+import { programs, programBySlug, programAges } from "@/lib/programs";
 import { site, mailto } from "@/lib/site";
 
 export const metadata = buildMetadata({
   title: "Sessions & Registration",
-  description: `Upcoming after-school sessions and free classes at ${site.legalName} in Alexandria, Louisiana. Rolling enrollment for ages 8–17 — call (318) 704-2808 to reserve a seat.`,
+  description: `Upcoming sessions and free classes at ${site.legalName} in Alexandria, Louisiana. Rolling enrollment for ages 8 and up, with separate groups for kids, teens, young adults and adults — call (318) 704-2808 to reserve a seat.`,
   path: "/events",
-  keywords: ["after school registration Alexandria LA", "kids classes Alexandria Louisiana"],
+  keywords: [
+    "after school registration Alexandria LA",
+    "kids classes Alexandria Louisiana",
+    "adult classes Alexandria Louisiana",
+    "evening classes central Louisiana",
+  ],
 });
 
 const steps = [
   {
     title: "Call or message us",
-    body: "Tell us your child's age and what they are curious about. We will point you at the right workshop.",
+    body: "Tell us which group you are asking about — yours or your child's — and what you are curious about. We will point you at the right workshop.",
   },
   {
     title: "Pick a session",
-    body: "We will tell you what is running, when it meets, and whether there is a seat open right now.",
+    body: "Kids and teens meet after school; young adults and adults meet evenings and weekends. We will tell you what is running for your group and whether there is a seat open right now.",
   },
   {
     title: "Show up",
-    body: "Bring your child and nothing else. Materials, tools and instruction are all provided.",
+    body: "Bring yourself, or your child, and nothing else. Materials, tools and instruction are all provided.",
   },
 ];
 
@@ -45,8 +50,8 @@ export default function EventsPage() {
 
       <PageHero
         eyebrow="Sessions & registration"
-        title="Find your child a seat."
-        intro="Enrollment is rolling and class sizes stay small. Here is how registration works, and how to find out what is running next."
+        title="Find a seat."
+        intro="Enrollment is rolling and class sizes stay small. Every age group meets separately, so the first thing to tell us is which one you are asking about. Here is how registration works, and how to find out what is running next."
         tone="teal"
         breadcrumbs={[
           { name: "Home", href: "/" },
@@ -221,7 +226,7 @@ export default function EventsPage() {
                         {program.title}
                       </span>
                       <span className="block text-sm text-ink-muted">
-                        {program.ages} · {program.cost}
+                        {programAges(program)} · {program.cost}
                       </span>
                     </span>
                     <ArrowIcon className="size-4 shrink-0 text-ink-muted" />

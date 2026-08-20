@@ -17,12 +17,13 @@ import {
 } from "@/lib/capstone";
 import { curricula } from "@/lib/curriculum";
 import { capstoneProgram, programs } from "@/lib/programs";
+import { ageRange } from "@/lib/ageBands";
 import { site, mailto } from "@/lib/site";
 
 export const metadata = buildMetadata({
   title: "AI Builder Lab — Kids Learn to Build & Launch Real Apps with AI",
   description:
-    "The capstone at Fresh Start Life Skills: students ages 12–17 use AI to build and launch a real website, iPhone and Android apps, sign-in, a database, payments and a live Vercel deployment — around something they made by hand. Alexandria, Louisiana.",
+    "The capstone at Fresh Start Life Skills: students aged 13 and up — teens, young adults and adults — use AI to build and launch a real website, iPhone and Android apps, sign-in, a database, payments and a live Vercel deployment, around something they made by hand. Alexandria, Louisiana.",
   path: `/programs/${capstone.slug}`,
   keywords: capstoneKeywords,
 });
@@ -125,7 +126,7 @@ export default function AiBuilderLabPage() {
 
               <dl className="mt-10 flex flex-wrap gap-x-10 gap-y-5 border-t border-cream/15 pt-7">
                 {[
-                  ["Ages", capstone.ages.replace("Ages ", "")],
+                  ["Ages", ageRange(capstone.bands)],
                   ["Cost", capstone.cost],
                   ["Length", capstone.length],
                 ].map(([label, value]) => (
@@ -153,9 +154,9 @@ export default function AiBuilderLabPage() {
                     &ldquo;{capstone.thesis}&rdquo;
                   </p>
                   <footer className="mt-5 border-t border-cream/15 pt-5 text-sm leading-relaxed text-cream/65">
-                    The young people who can direct these tools well will have an
-                    enormous advantage over the ones who cannot. That gap is
-                    opening now — so we teach it now.
+                    The people who can direct these tools well will have an
+                    enormous advantage over the ones who cannot — at fourteen and
+                    at forty alike. That gap is opening now, so we teach it now.
                   </footer>
                 </blockquote>
               </div>
@@ -341,9 +342,10 @@ export default function AiBuilderLabPage() {
                 The capstone runs after the craft programs.
               </h2>
               <p className="mt-4 max-w-2xl leading-relaxed text-cream/75">
-                Start your child in a workshop — sewing, candles, cakes, shirts,
-                film or music — and the {capstone.name} is where it leads. Call
-                and we will map out the path.
+                Start in a workshop — sewing, candles, cakes, shirts, film or
+                music — and the {capstone.name} is where it leads. The 18+ groups
+                run three further modules on registering the business, getting
+                found and keeping it running. Call and we will map out the path.
               </p>
               <ul className="mt-6 flex flex-wrap gap-2">
                 {capstoneProgram.skills.map((skill) => (

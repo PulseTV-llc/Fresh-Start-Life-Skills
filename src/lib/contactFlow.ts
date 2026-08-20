@@ -8,7 +8,8 @@
  * the path this person is actually on, not a fixed maximum).
  */
 
-import { programs, capstoneProgram } from "./programs";
+import { ageBands } from "./ageBands";
+import { programs, capstoneProgram, programAges } from "./programs";
 
 export type Answers = Record<string, string>;
 
@@ -86,24 +87,32 @@ const programOptions: Option[] = [
   ...programs.map((program) => ({
     value: program.slug,
     label: program.title,
-    description: `${program.ages} · ${program.cost}`,
+    description: `${programAges(program)} · ${program.cost}`,
   })),
   {
     value: capstoneProgram.slug,
     label: `${capstoneProgram.title} (the capstone)`,
-    description: `${capstoneProgram.ages} · build & launch with AI`,
+    description: `${programAges(capstoneProgram)} · build & launch with AI`,
   },
   {
     value: "unsure",
     label: "Not sure yet — help me choose",
-    description: "Tell us about your child and we will suggest one",
+    description: "Tell us a little about the student and we will suggest one",
   },
 ];
 
+/**
+ * The four groups, plus an escape hatch. Derived from `ageBands` so the
+ * questionnaire can never offer a group the programs do not actually run.
+ *
+ * Deliberately phrased for whoever is filling the form — an adult enrolling
+ * themselves and a parent enrolling a child both answer this one question.
+ */
 const ageOptions: Option[] = [
-  { value: "8-10", label: "8 – 10" },
-  { value: "11-13", label: "11 – 13" },
-  { value: "14-17", label: "14 – 17" },
+  ...ageBands.map((band) => ({
+    value: band.id,
+    label: `${band.label} · ${band.range}`,
+  })),
   { value: "other", label: "Another age" },
 ];
 
@@ -195,8 +204,9 @@ export function buildSteps(answers: Answers): Step[] {
         },
         {
           kind: "choice",
-          id: "childAge",
-          question: "How old is your child?",
+          id: "ageGroup",
+          question: "Which group would the student be in?",
+          help: "Yours or your child's — every group meets separately, and the 18+ groups run the advanced sessions.",
           options: ageOptions,
           compact: true,
         },
@@ -261,7 +271,7 @@ export function labelFor(value: string): string {
 export const FIELD_LABELS: Record<string, string> = {
   intent: "Reason for reaching out",
   program: "Program of interest",
-  childAge: "Child's age",
+  ageGroup: "Age group",
   helpWith: "Would like to help with",
   support: "Kind of support",
   organization: "Organization",

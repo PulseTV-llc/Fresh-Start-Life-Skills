@@ -2,7 +2,7 @@
 
 Marketing and program site for **Fresh Start Life Skills Inc.**, a 501(c)(3)
 nonprofit in Alexandria, Louisiana offering vocational and life-skills training
-to young people ages 8–17.
+to kids, teens and adults — ages 8 and up, in four groups that meet separately.
 
 > Mission: *"Fresh Start Life Skills Inc. is a non-profit organization dedicated
 > to empowering individuals of all ages."*
@@ -97,6 +97,7 @@ src/
     ├── stripe.ts               server-only Stripe client
     ├── useBrandMotion.ts       Hydration-safe reduced-motion hook
     ├── jsonld.ts               Schema.org graphs
+    ├── ageBands.ts             ⭐ The four age groups + derived range labels
     ├── seo.ts                  Per-page metadata builder
     └── utils.ts                cn()
 ```
@@ -105,7 +106,14 @@ The ⭐ files are where almost all real edits happen. `curriculum.ts` holds ever
 program's session breakdown; one shared `CurriculumSection` renders all of them,
 including the capstone, so every program page reads as the same document. Ages
 and cost are deliberately NOT repeated there — they live on the program in
-`programs.ts`, so changing an age band is one edit. Adding a program to
+`programs.ts`, so changing an age band is one edit.
+
+Age groups live in `lib/ageBands.ts`: Kids 8–12, Teens 13–17, Young Adults
+18–24, Adults 25+. A program declares which bands it serves via `bands`, and the
+displayed range ("Ages 8 & up") is always derived — never typed by hand. Each
+band meets as its own group; the two adult bands additionally run the `advanced`
+sessions in `curriculum.ts`, which is where fitting, costing, compliance and
+paperwork live. Adding a program to
 `lib/programs.ts` publishes a detail page, a homepage card, a footer link, a
 sitemap entry and `Course` structured data — no other file needs touching.
 

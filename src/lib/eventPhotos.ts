@@ -164,6 +164,12 @@ export const eventPhotos: EventPhoto[] = [
     category: "baking",
   },
   {
+    src: "/events/finance-budgeting-class.jpg",
+    alt: "Students working through monthly budgets with calculators and worksheets, a budget spreadsheet on the screen beside them.",
+    category: "craft",
+    wide: true,
+  },
+  {
     src: "/events/cake-club-icing-with-spatula.jpg",
     alt: "A student spreading icing across a sheet cake with an offset spatula.",
     category: "baking",

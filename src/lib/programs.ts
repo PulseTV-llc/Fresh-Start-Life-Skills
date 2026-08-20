@@ -149,6 +149,11 @@ export const programs: Program[] = [
     skills: ["Budgeting", "Saving goals", "Banking basics", "Needs vs. wants"],
     cost: "Low or no cost",
     glyph: "budget",
+    photo: "/events/finance-budgeting-class.jpg",
+    photoAlt:
+      "Students working through monthly budgets with calculators and worksheets at a Fresh Start financing and budgeting class.",
+    photoCaption: "Building a monthly budget from a set income.",
+    photoAspect: "1448 / 1086",
     accent: "teal",
   },
   {

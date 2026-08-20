@@ -175,40 +175,44 @@ export default function AboutPage() {
           title="Board of Directors."
           intro="The board sets strategy, holds the budget and keeps Fresh Start accountable to the families it serves."
         />
-        <RevealGroup
-          className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
-          stagger={0.09}
-        >
+        {/* Two wide cards per row rather than four narrow ones: the portrait
+            sits beside the text, so each card needs the width to keep the bio
+            at a readable measure. Below `lg` a single column gives the same
+            layout even more room; below `sm` the portrait moves on top. */}
+        <RevealGroup className="mt-12 grid gap-5 lg:grid-cols-2" stagger={0.09}>
           {site.board.map((member, index) => (
             <RevealChild key={`${member.role}-${index}`}>
-              <article className="h-full rounded-[1.5rem] bg-white p-7 shadow-[var(--shadow-soft)] ring-1 ring-ink/[0.05]">
+              <article className="flex h-full flex-col gap-5 rounded-[1.5rem] bg-white p-7 shadow-[var(--shadow-soft)] ring-1 ring-ink/[0.05] sm:flex-row sm:items-start sm:gap-6">
                 {member.photo ? (
                   <Image
                     src={member.photo}
                     alt={member.name}
-                    width={56}
-                    height={56}
-                    className="size-14 shrink-0 rounded-full object-cover object-top ring-1 ring-ink/[0.06]"
+                    width={128}
+                    height={128}
+                    className="size-32 shrink-0 rounded-[1.25rem] object-cover object-top ring-1 ring-ink/[0.06]"
                   />
                 ) : (
                   <span
                     aria-hidden="true"
-                    className="flex size-14 shrink-0 items-center justify-center rounded-full bg-sun-100 font-display text-xl font-semibold text-sun-700"
+                    className="flex size-32 shrink-0 items-center justify-center rounded-[1.25rem] bg-sun-100 font-display text-4xl font-semibold text-sun-700"
                   >
                     {initialsOf(member.name)}
                   </span>
                 )}
-                <h3 className="mt-5 text-lg font-semibold leading-snug text-ink">
-                  {member.name}
-                </h3>
-                <p className="mt-1 text-sm font-medium text-teal-700">
-                  {member.role}
-                </p>
-                {member.bio ? (
-                  <p className="mt-3 text-sm leading-relaxed text-ink-muted">
-                    {member.bio}
+                {/* min-w-0 so a long name wraps instead of stretching the card. */}
+                <div className="min-w-0">
+                  <h3 className="text-xl font-semibold leading-snug text-ink">
+                    {member.name}
+                  </h3>
+                  <p className="mt-1 text-sm font-medium text-teal-700">
+                    {member.role}
                   </p>
-                ) : null}
+                  {member.bio ? (
+                    <p className="mt-3 text-sm leading-relaxed text-ink-muted">
+                      {member.bio}
+                    </p>
+                  ) : null}
+                </div>
               </article>
             </RevealChild>
           ))}

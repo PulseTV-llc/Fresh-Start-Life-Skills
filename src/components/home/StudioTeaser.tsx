@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Reveal, RevealGroup, RevealChild } from "@/components/ui/Reveal";
 import { Eyebrow } from "@/components/ui/Section";
@@ -88,13 +89,29 @@ export function StudioTeaser() {
                         : "relative aspect-4/5 w-full"
                     }
                   >
-                    <div className="size-full transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-105">
-                      <StudioArtwork
+                    {/* Real photography where it exists; the generated artwork
+                        keeps the wall looking finished where it does not. */}
+                    {piece.image ? (
+                      <Image
+                        src={piece.image}
+                        alt={piece.alt ?? piece.title}
+                        fill
+                        sizes={
+                          index === 0
+                            ? "(max-width: 640px) 100vw, 50vw"
+                            : "(max-width: 640px) 50vw, 25vw"
+                        }
+                        className="object-cover transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-105"
+                      />
+                    ) : (
+                      <div className="size-full transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-105">
+                        <StudioArtwork
                           category={piece.category}
                           seed={piece.id}
                           variant={piece.variant}
                         />
-                    </div>
+                      </div>
+                    )}
                     <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy-900/90 to-transparent p-4 pt-12">
                       <p className="text-[0.62rem] font-bold uppercase tracking-[0.14em] text-sun-300">
                         {category?.label}

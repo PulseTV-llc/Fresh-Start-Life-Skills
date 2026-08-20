@@ -163,6 +163,8 @@ export const studioPieces: StudioPiece[] = [
       "We had to test three wick sizes before one burned all the way to the edge. I priced these at eight dollars and figured out I would make two-fifty on each one.",
     ratio: "landscape",
     season: "Spring session",
+    image: "/studio/studio-sunrise-citrus.jpg",
+    alt: "A hand-poured soy candle labelled Sunrise Citrus, beside a halved orange.",
     placeholder: true,
   },
   {
@@ -190,6 +192,8 @@ export const studioPieces: StudioPiece[] = [
     ratio: "portrait",
     season: "Fall session",
     variant: 0,
+    image: "/studio/studio-two-tier-birthday.jpg",
+    alt: "A two-tier celebration cake finished in buttercream with piped rosettes and sprinkles, on a cake stand.",
     placeholder: true,
   },
   {
@@ -217,6 +221,8 @@ export const studioPieces: StudioPiece[] = [
       "I drew it on paper first, then we cut it on the machine. I made four for my cousins and one for me.",
     ratio: "square",
     season: "Summer session",
+    image: "/studio/studio-bloom.jpg",
+    alt: "A white t-shirt printed with a green Bloom floral design, laid out on a cutting mat.",
     placeholder: true,
   },
   {
@@ -243,6 +249,8 @@ export const studioPieces: StudioPiece[] = [
       "It is about what our street looks like between school and dinner. I directed it and cut it. Getting clean sound outside was harder than any of the camera stuff.",
     ratio: "landscape",
     season: "Fall session",
+    image: "/studio/studio-after-three-oclock.jpg",
+    alt: "A film clapperboard marked with the production title After Three O'Clock, held up on a street at dusk.",
     placeholder: true,
   },
   {

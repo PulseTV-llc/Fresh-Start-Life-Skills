@@ -42,9 +42,10 @@ export type BoardMember = {
  */
 const board: BoardMember[] = [
   {
-    name: "Board Member — Name TBD",
+    name: "Daztia L. Henry",
     role: "Board Chair",
-    bio: "Placeholder entry. Replace with a short note on this member's background and what they bring to the board.",
+    photo: "/team/daztia-henry.jpg",
+    bio: "Daztia L. Henry is a gifted herbalist and wellness advocate who grows her own herbs and turns healthy, from-scratch cooking and baking into a way of caring for her community. A sharp, results-driven entrepreneur, she is also co-owner of Auddix Cleaning Solutions, where her business instincts and standard of excellence have fueled real growth. As Board Chair, Daztia pairs a nurturing heart with serious business savvy to help every child at Fresh Start Life Skills get the strong start they deserve.",
   },
   {
     name: "Board Member — Name TBD",

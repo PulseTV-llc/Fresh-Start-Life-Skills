@@ -185,7 +185,7 @@ export default function AboutPage() {
                 {member.photo ? (
                   <Image
                     src={member.photo}
-                    alt=""
+                    alt={member.name}
                     width={56}
                     height={56}
                     className="size-14 shrink-0 rounded-full object-cover object-top ring-1 ring-ink/[0.06]"

@@ -240,8 +240,10 @@ export const studioPieces: StudioPiece[] = [
     medium: "Two-color press, small run",
     story:
       "I wanted something people from here would actually wear. We priced a run of twenty and worked out what we would have to charge.",
-    ratio: "tall",
+    ratio: "landscape",
     season: "Fall session",
+    image: "/studio/studio-tshirt-isaiah.jpg",
+    alt: "A student holding up the white t-shirt he designed, a blue and purple splatter portrait of a crowned figure across the front, the workshop behind him.",
     placeholder: true,
   },
   {

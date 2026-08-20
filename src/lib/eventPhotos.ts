@@ -143,6 +143,12 @@ export const eventPhotos: EventPhoto[] = [
     category: "craft",
   },
   {
+    src: "/events/tshirt-design-studio.jpg",
+    alt: "A student sketching a shirt design on a tablet, the same design open on the screen beside her and a heat press behind.",
+    category: "craft",
+    wide: true,
+  },
+  {
     src: "/events/cake-club-teens-finished-cake.jpg",
     alt: "Two teenage students holding up the decorated cake they finished together.",
     category: "baking",

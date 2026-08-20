@@ -190,6 +190,11 @@ export const programs: Program[] = [
     skills: ["Graphic layout", "Typography", "Heat press", "Small-batch production"],
     cost: "Low or no cost",
     glyph: "tshirt",
+    photo: "/events/tshirt-design-studio.jpg",
+    photoAlt:
+      "Students designing custom shirts on tablets and Macs, with a heat press and printed shirts behind them.",
+    photoCaption: "From sketch to screen to press.",
+    photoAspect: "1448 / 1086",
     accent: "teal",
   },
   {
